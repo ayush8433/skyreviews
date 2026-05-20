@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Alumni {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  title       String
+  company     String?
+  location    String?
+  linkedinUrl String?
+  imageUrl    String?
+  bio         String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  stories     Story[]
+  
+  @@map("alumni")
+}
+
+model Story {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  videoUrl    String?
+  thumbnailUrl String?
+  isPublished Boolean  @default(false)
+  isFeatured  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  alumniId    String
+  alumni      Alumni   @relation(fields: [alumniId], references: [id], onDelete: Cascade)
+  
+  categories  StoryCategory[]
+  tags        StoryTag[]
+  
+  @@map("stories")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  
+  stories     StoryCategory[]
+  
+  @@map("categories")
+}
+
+model StoryCategory {
+  storyId     String
+  categoryId  String
+  
+  story       Story     @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  
+  @@id([storyId, categoryId])
+  @@map("story_categories")
+}
+
+model Tag {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  
+  stories   StoryTag[]
+  
+  @@map("tags")
+}
+
+model StoryTag {
+  storyId String
+  tagId   String
+  
+  story   Story @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  tag     Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  
+  @@id([storyId, tagId])
+  @@map("story_tags")
+}
