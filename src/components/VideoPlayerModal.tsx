@@ -61,11 +61,11 @@ export default function VideoPlayerModal({
           <div className="aspect-video bg-black">
             {videoUrl ? (
               <ReactPlayer
-                url={videoUrl}
+                src={videoUrl}
                 width="100%"
                 height="100%"
                 playing={isPlaying}
-                controls={true}
+                controls
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               />

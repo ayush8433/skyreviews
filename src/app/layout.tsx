@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SkyReviews - SkyStates Alumni Stories",
-  description: "Discover career journeys and success stories from SkyStates alumni. Watch video testimonials and learn about career opportunities in tech.",
+  title: "SkyReviews",
+  description: "SkyReviews showcases Sky States student testimonials, career journeys, and alumni success stories.",
 };
 
 export default function RootLayout({

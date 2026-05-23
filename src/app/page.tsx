@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import VerticalImageCarousel from "@/components/VerticalImageCarousel";
@@ -7,7 +8,17 @@ import VideoTestimonialsSection from "@/components/VideoTestimonialsSection";
 import { prisma } from "@/lib/prisma";
 import { videoTestimonials } from "@/data/videoTestimonials";
 
+<<<<<<< Updated upstream
 export default async function Home() {
+=======
+export const metadata: Metadata = {
+  title: "Sky States Students Testimonials | SkyReviews",
+  description:
+    "Read Sky States student testimonials about real career journeys, mentorship, and outcomes in tech.",
+};
+
+export default function Home() {
+>>>>>>> Stashed changes
   // Sample alumni images - replace with actual alumni photos
   const alumniImages = [
     "https://placehold.co/400x300/e2e8f0/1e293b?text=Placeholder+1",
@@ -40,7 +51,7 @@ export default async function Home() {
       slug: story.slug
     };
   });
-
+export default async function Home() {
   const headerVideos = videoTestimonials;
 
   return (
@@ -58,14 +69,14 @@ export default async function Home() {
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
                   <span className="block text-white">Meet Our</span>
                   <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
-                    Alumni.
+                    Student Testimonials.
                   </span>
                 </h1>
               </div>
               
               <p className="text-lg md:text-xl text-blue-100 max-w-lg leading-relaxed">
-                Our programs don't just equip talent to make an impact. 
-                They unlock purpose and life-changing opportunities.
+                Read real Sky States student testimonials and discover how our programs
+                unlock purpose, confidence, and life-changing opportunities.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
