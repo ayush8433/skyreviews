@@ -4,19 +4,13 @@ import { Button } from "@/components/ui/button";
 import VerticalImageCarousel from "@/components/VerticalImageCarousel";
 import HorizontalMarquee from "@/components/HorizontalMarquee";
 import AlumniCard from "@/components/AlumniCard";
-import VideoTestimonialsSection from "@/components/VideoTestimonialsSection";
-import { prisma } from "@/lib/prisma";
 import { videoTestimonials } from "@/data/videoTestimonials";
 
-<<<<<<< Updated upstream
-export default async function Home() {
-=======
 export const metadata: Metadata = {
   title: "Sky States Students Testimonials | SkyReviews",
-  description:
-    "Read Sky States student testimonials about real career journeys, mentorship, and outcomes in tech.",
+  description: "Read Sky States student testimonials about real career journeys, mentorship, and outcomes in tech.",
 };
-
+export default async function Home() {
 export default function Home() {
 >>>>>>> Stashed changes
   // Sample alumni images - replace with actual alumni photos
