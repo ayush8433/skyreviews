@@ -81,6 +81,11 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --video-surface: oklch(0.97 0.02 240);
+  --video-surface-strong: oklch(0.93 0.04 240);
+  --video-ink: oklch(0.18 0.02 250);
+  --video-accent: oklch(0.72 0.16 230);
+  --video-glow: oklch(0.82 0.12 230 / 0.35);
 }
 
 .dark {
@@ -115,6 +120,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --video-surface: oklch(0.2 0.03 250);
+  --video-surface-strong: oklch(0.26 0.03 250);
+  --video-ink: oklch(0.98 0 0);
+  --video-accent: oklch(0.72 0.16 230);
+  --video-glow: oklch(0.6 0.12 230 / 0.3);
 }
 
 @layer base {

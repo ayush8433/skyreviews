@@ -17,6 +17,12 @@ export default function Navigation() {
             >
               Alumni Stories
             </Link>
+            <Link
+              href="/#video-testimonials"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Video Testimonials
+            </Link>
             <Link 
               href="/about" 
               className="text-gray-700 hover:text-blue-600 transition-colors"

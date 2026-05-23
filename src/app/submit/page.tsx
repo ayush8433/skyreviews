@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { submitStory } from "@/app/actions/story";
 
 const prompts = [
   "Where were you before joining SkyStates?",
@@ -20,6 +24,26 @@ const tips = [
 ];
 
 export default function SubmitPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    const formData = new FormData(e.currentTarget);
+    const result = await submitStory(formData);
+
+    if (result.success) {
+      setStatus({ type: "success", message: "Story submitted successfully! It will be reviewed shortly." });
+      (e.target as HTMLFormElement).reset();
+    } else {
+      setStatus({ type: "error", message: result.error || "An error occurred." });
+    }
+    setIsSubmitting(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <section className="relative overflow-hidden bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 px-4 py-20 md:py-24">
@@ -74,22 +98,32 @@ export default function SubmitPage() {
               <CardTitle className="text-2xl text-gray-900">Submit Your Story</CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-5" noValidate>
+              {status.type === "success" && (
+                <div className="mb-4 rounded-md bg-green-50 p-4 text-green-800 border border-green-200">
+                  {status.message}
+                </div>
+              )}
+              {status.type === "error" && (
+                <div className="mb-4 rounded-md bg-red-50 p-4 text-red-800 border border-red-200">
+                  {status.message}
+                </div>
+              )}
+              <form className="space-y-5" noValidate onSubmit={handleSubmit}>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="fullName" className="text-sm font-medium text-gray-700">Full name</label>
-                    <Input id="fullName" name="fullName" placeholder="Your full name" />
+                    <Input id="fullName" name="fullName" placeholder="Your full name" required />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-                    <Input id="email" name="email" type="email" placeholder="you@example.com" />
+                    <Input id="email" name="email" type="email" placeholder="you@example.com" required />
                   </div>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="currentRole" className="text-sm font-medium text-gray-700">Current role</label>
-                    <Input id="currentRole" name="currentRole" placeholder="e.g. Frontend Developer" />
+                    <Input id="currentRole" name="currentRole" placeholder="e.g. Frontend Developer" required />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium text-gray-700">Company</label>
@@ -110,7 +144,7 @@ export default function SubmitPage() {
 
                 <div className="space-y-2">
                   <label htmlFor="headline" className="text-sm font-medium text-gray-700">Story headline</label>
-                  <Input id="headline" name="headline" placeholder="A title for your journey" />
+                  <Input id="headline" name="headline" placeholder="A title for your journey" required />
                 </div>
 
                 <div className="space-y-2">
@@ -120,12 +154,13 @@ export default function SubmitPage() {
                     name="story"
                     className="min-h-48"
                     placeholder="Tell us about your journey: where you started, what changed, and where you are now."
+                    required
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="consent" className="flex items-start gap-2 text-sm text-gray-700">
-                    <input id="consent" name="consent" type="checkbox" className="mt-0.5 h-4 w-4 rounded border-gray-300" />
+                    <input id="consent" name="consent" type="checkbox" className="mt-0.5 h-4 w-4 rounded border-gray-300" required />
                     I confirm this story is mine and I consent to SkyStates editing for clarity before publication.
                   </label>
                 </div>
@@ -134,8 +169,8 @@ export default function SubmitPage() {
                   <p className="text-xs text-gray-500">
                     Prefer a direct route? Send your draft to hello@skystates.com.
                   </p>
-                  <Button type="button" size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-                    Submit Story
+                  <Button type="submit" size="lg" className="bg-blue-600 text-white hover:bg-blue-700" disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Submit Story"}
                   </Button>
                 </div>
               </form>

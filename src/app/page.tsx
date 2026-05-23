@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import VerticalImageCarousel from "@/components/VerticalImageCarousel";
 import HorizontalMarquee from "@/components/HorizontalMarquee";
 import AlumniCard from "@/components/AlumniCard";
-import { alumniData } from "@/data/alumniData";
+import VideoTestimonialsSection from "@/components/VideoTestimonialsSection";
+import { prisma } from "@/lib/prisma";
+import { videoTestimonials } from "@/data/videoTestimonials";
 
-export default function Home() {
+export default async function Home() {
   // Sample alumni images - replace with actual alumni photos
   const alumniImages = [
     "https://placehold.co/400x300/e2e8f0/1e293b?text=Placeholder+1",
@@ -15,6 +17,31 @@ export default function Home() {
     "https://placehold.co/400x300/e2e8f0/1e293b?text=Placeholder+5",
     "https://placehold.co/400x300/e2e8f0/1e293b?text=Placeholder+6",
   ];
+
+  const latestStories = await prisma.story.findMany({
+    where: { isPublished: true },
+    include: { alumni: true },
+    take: 6,
+    orderBy: { createdAt: 'desc' }
+  });
+
+
+  const featuredAlumniData = latestStories.map(story => {
+    // Extract a short snippet for testimonial
+    const firstParagraph = story.content.split('\n\n')[0].replace(/^["“]|["”]$/g, '');
+    return {
+      id: story.id,
+      name: story.alumni.name,
+      title: story.alumni.title,
+      company: story.alumni.company || '',
+      companyLogo: '',
+      image: story.alumni.imageUrl || 'https://placehold.co/400x300/e2e8f0/1e293b?text=' + encodeURIComponent(story.alumni.name),
+      testimonial: firstParagraph.substring(0, 150) + (firstParagraph.length > 150 ? '...' : ''),
+      slug: story.slug
+    };
+  });
+
+  const headerVideos = videoTestimonials;
 
   return (
     <div className="min-h-screen">
@@ -78,6 +105,8 @@ export default function Home() {
         <div className="absolute bottom-20 left-10 w-48 h-48 bg-cyan-400/20 rounded-full blur-3xl" />
       </section>
 
+      <VideoTestimonialsSection items={headerVideos} />
+
       {/* Featured Stories Preview */}
       <section id="alumni-section" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto">
@@ -90,7 +119,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {alumniData.slice(0, 6).map((alumni) => (
+            {featuredAlumniData.map((alumni) => (
               <AlumniCard
                 key={alumni.id}
                 id={alumni.id}
