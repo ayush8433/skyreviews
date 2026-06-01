@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 
-const dbUrl = "file:" + process.cwd().replace(/\\/g, '/') + "/prisma/dev.db";
+const dbUrl =
+  process.env.DATABASE_URL ??
+  `file:${process.cwd().replace(/\\/g, '/')}/prisma/dev.db`;
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined

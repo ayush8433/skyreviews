@@ -16,13 +16,18 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Explore</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/stories" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/#featured-stories" className="text-gray-400 hover:text-white transition-colors">
                   Alumni Stories
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
                   About SkyStates
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-400 hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -45,10 +50,25 @@ export default function Footer() {
           </div>
           
           <div>
+            <h4 className="text-lg font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">
+                  Terms &amp; Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <p className="text-gray-400">
-              Learn more about SkyStates and our programs.
-            </p>
+            <p className="text-gray-400">Learn more about SkyStates and our programs.</p>
+            <p className="mt-3 text-gray-400">Email us: <a className="text-blue-400 underline" href="mailto:support@skyreviews.us">support@skyreviews.us</a></p>
             {/* LinkedIn button commented out */}
             {/* <a 
               href="https://www.linkedin.com/company/skystates" 

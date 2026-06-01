@@ -4,24 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const channels = [
-  {
-    title: "General Enquiries",
-    detail: "hello@skystates.com",
-    help: "Questions about programs, stories, and community initiatives.",
-  },
-  {
-    title: "Admissions & Guidance",
-    detail: "admissions@skystates.com",
-    help: "Need help choosing a path or understanding program fit?",
-  },
-  {
-    title: "Partnerships",
-    detail: "partners@skystates.com",
-    help: "Collaborations for hiring, events, and ecosystem partnerships.",
-  },
-];
-
 const faqs = [
   {
     question: "How quickly can I expect a response?",
@@ -55,20 +37,6 @@ export default function ContactPage() {
 
       <section className="bg-linear-to-b from-slate-50 to-white px-4 py-14 md:py-20">
         <div className="container mx-auto max-w-6xl">
-          <div className="mb-8 grid gap-4 md:grid-cols-3">
-            {channels.map((channel) => (
-              <Card key={channel.title} className="bg-white shadow-sm ring-gray-200">
-                <CardHeader>
-                  <CardTitle className="text-lg text-gray-900">{channel.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p className="font-semibold text-blue-700">{channel.detail}</p>
-                  <p className="text-sm text-gray-600">{channel.help}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
             <Card className="bg-white shadow-sm ring-gray-200">
               <CardHeader>

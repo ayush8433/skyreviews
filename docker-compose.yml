@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: skyreviews-web
+    restart: unless-stopped
+    ports:
+      - "3080:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: file:/app/data/dev.db
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@skystates.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin123!ChangeMe}
+    volumes:
+      - ./prisma/dev.db:/app/data/dev.db
+      - ./public/uploads:/app/public/uploads

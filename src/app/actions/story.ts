@@ -1,7 +1,11 @@
 "use server";
 
+import { StoryModerationStatus } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+
+const toSqliteDateTimeString = (date: Date) =>
+  date.toISOString().replace("T", " ").replace("Z", "");
 
 export async function submitStory(formData: FormData) {
   try {
@@ -42,12 +46,16 @@ export async function submitStory(formData: FormData) {
         title: headline,
         slug: slug + '-' + Date.now(),
         content: storyContent,
+        publishedAt: toSqliteDateTimeString(new Date()),
         isPublished: false,
+        moderationStatus: StoryModerationStatus.PENDING,
         alumniId: alumni.id,
       }
     });
 
-    revalidatePath("/stories");
+    revalidatePath("/");
+    revalidatePath("/admin/stories");
+    revalidatePath("/admin");
     return { success: true };
   } catch (error) {
     console.error("Error submitting story:", error);

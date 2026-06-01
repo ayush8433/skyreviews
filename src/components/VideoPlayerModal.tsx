@@ -1,12 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import dynamic from "next/dynamic";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, Share2, Download } from "lucide-react";
-
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+import { Share2, X } from "lucide-react";
 
 interface VideoPlayerModalProps {
   isOpen: boolean;
@@ -23,8 +19,6 @@ export default function VideoPlayerModal({
   title,
   alumniName,
 }: VideoPlayerModalProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
   const handleShare = async () => {
     if (navigator.share) {
       try {
@@ -45,29 +39,28 @@ export default function VideoPlayerModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden">
-        <div className="relative">
-          {/* Close button */}
+      <DialogContent className="h-[92vh] w-[96vw] max-w-7xl overflow-hidden p-0 bg-black border-0">
+        <div className="relative flex h-full flex-col bg-slate-950">
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white"
+            className="absolute right-4 top-4 z-20 bg-black/50 text-white hover:bg-black/70"
             onClick={onClose}
           >
             <X className="h-4 w-4" />
           </Button>
-          
-          {/* Video player */}
-          <div className="aspect-video bg-black">
+
+          <div className="flex min-h-0 flex-1 items-center justify-center bg-black">
             {videoUrl ? (
-              <ReactPlayer
-                src={videoUrl}
-                width="100%"
-                height="100%"
-                playing={isPlaying}
+              <video
+                className="h-full w-full object-contain"
                 controls
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+                autoPlay
+                playsInline
+                controlsList="nodownload noplaybackrate"
+                disablePictureInPicture
+                onContextMenu={(event) => event.preventDefault()}
+                src={videoUrl}
               />
             ) : (
               <div className="flex items-center justify-center h-full text-gray-400">
@@ -75,13 +68,12 @@ export default function VideoPlayerModal({
               </div>
             )}
           </div>
-          
-          {/* Video info and actions */}
-          <div className="p-6 bg-white">
+
+          <div className="border-t border-white/10 bg-slate-950 px-6 py-5 text-white">
             <div className="flex justify-between items-start">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">{title}</h2>
-                <p className="text-gray-600">by {alumniName}</p>
+                <h2 className="mb-2 text-2xl font-bold text-white">{title}</h2>
+                <p className="text-white/70">by {alumniName}</p>
               </div>
               
               <div className="flex gap-2">

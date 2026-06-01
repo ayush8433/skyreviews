@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 
 interface HorizontalMarqueeProps {
   images: string[]
@@ -8,7 +9,6 @@ interface HorizontalMarqueeProps {
 }
 
 export default function HorizontalMarquee({ images, className = "" }: HorizontalMarqueeProps) {
-  // Duplicate images for seamless scrolling
   const duplicatedImages = [...images, ...images]
 
   return (
@@ -17,13 +17,11 @@ export default function HorizontalMarquee({ images, className = "" }: Horizontal
         {duplicatedImages.map((src, index) => (
           <div 
             key={`marquee-${index}`}
-            className="flex-shrink-0 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="flex-shrink-0 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gray-100"
           >
-            <img
-              src={src}
-              alt={`Alumni ${index + 1}`}
-              className="w-32 h-24 object-cover"
-            />
+            <div className="relative w-32 h-24">
+              <Image src={src} alt={`Alumni ${index + 1}`} fill className="object-contain" />
+            </div>
           </div>
         ))}
       </div>

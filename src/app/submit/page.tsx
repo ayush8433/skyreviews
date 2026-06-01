@@ -167,7 +167,7 @@ export default function SubmitPage() {
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-xs text-gray-500">
-                    Prefer a direct route? Send your draft to hello@skystates.com.
+                    Prefer a direct route? Send your draft to support@skyreviews.us.
                   </p>
                   <Button type="submit" size="lg" className="bg-blue-600 text-white hover:bg-blue-700" disabled={isSubmitting}>
                     {isSubmitting ? "Submitting..." : "Submit Story"}
@@ -178,7 +178,7 @@ export default function SubmitPage() {
           </Card>
 
           <div className="mt-8 rounded-2xl border border-blue-100 bg-blue-50 p-6 text-sm text-blue-900">
-            Looking for inspiration first? Browse featured journeys on the <Link href="/stories" className="font-semibold underline underline-offset-4">stories page</Link>.
+            Looking for inspiration first? Browse featured journeys on the <Link href="/#featured-stories" className="font-semibold underline underline-offset-4">home page stories section</Link>.
           </div>
         </div>
       </section>

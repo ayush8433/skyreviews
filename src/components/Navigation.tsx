@@ -11,12 +11,6 @@ export default function Navigation() {
           </Link>
           
           <div className="hidden md:flex space-x-8">
-            <Link 
-              href="/stories" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Alumni Stories
-            </Link>
             <Link
               href="/#video-testimonials"
               className="text-gray-700 hover:text-blue-600 transition-colors"
@@ -28,6 +22,12 @@ export default function Navigation() {
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               About
+            </Link>
+            <Link 
+              href="/faq" 
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              FAQ
             </Link>
             <Link 
               href="/submit" 

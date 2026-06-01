@@ -1,6 +1,14 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, StoryModerationStatus } from '@prisma/client';
+import { hashPassword } from '../src/lib/password';
+import { videoTestimonials } from '../src/data/videoTestimonials';
+
+const toSqliteDateTimeString = (date: Date) => date.toISOString().replace('T', ' ').replace('Z', '');
 
 const prisma = new PrismaClient();
+
+const adminEmail = process.env.ADMIN_EMAIL ?? 'admin@skystates.com';
+const adminPassword = process.env.ADMIN_PASSWORD ?? 'Admin123!ChangeMe';
+const adminName = process.env.ADMIN_NAME ?? 'SkyReviews Admin';
 
 const stories = [
   {
@@ -61,7 +69,7 @@ Today, instead of managing store operations, she works with dashboards, reports,
       name: "Melissa Carter",
       title: "Junior Data Analyst",
       company: "Healthcare Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Melissa+Carter"
+      imageUrl: "/Melissa%20Carter.jpg"
     },
     categories: ["Career Change", "Data Science"]
   },
@@ -113,7 +121,7 @@ Daniel eventually accepted a cybersecurity analyst role with a managed security 
       name: "Daniel Brooks",
       title: "Cybersecurity Analyst",
       company: "Managed Security Services",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Daniel+Brooks"
+      imageUrl: "/Daniel%20Brooks.jpg"
     },
     categories: ["Career Change", "Cybersecurity", "Veterans"]
   },
@@ -167,7 +175,7 @@ After multiple interviews and technical rounds, Priya accepted a DevOps engineer
       name: "Priya Nair",
       title: "DevOps Engineer",
       company: "Consulting Firm",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Priya+Nair"
+      imageUrl: "/Priya%20Nair.jpg"
     },
     categories: ["Career Growth", "DevOps", "International"]
   },
@@ -217,7 +225,7 @@ Within four months of finishing the program, Jason secured a DevOps support role
       name: "Jason Miller",
       title: "DevOps Support",
       company: "Tech Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Jason+Miller"
+      imageUrl: "/Jason%20Miller.jpg"
     },
     categories: ["Career Change", "DevOps", "Overcoming Challenges"]
   },
@@ -259,7 +267,7 @@ Amanda eventually accepted a security operations center role with a financial se
       name: "Amanda Lewis",
       title: "Security Operations Center Analyst",
       company: "Financial Services Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Amanda+Lewis"
+      imageUrl: "/Amanda%20Lewis.jpg"
     },
     categories: ["Career Change", "Cybersecurity"]
   },
@@ -299,7 +307,7 @@ After months of preparation, portfolio work, and mock interviews, Rebecca accept
       name: "Rebecca Allen",
       title: "Business Intelligence Analyst",
       company: "Tech Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Rebecca+Allen"
+      imageUrl: "/Rebecca%20allen.jpg"
     },
     categories: ["Career Change", "Data Science", "Remote Work"]
   },
@@ -339,7 +347,7 @@ Today, Kevin works remotely as a cloud operations engineer.
       name: "Kevin Ramirez",
       title: "Cloud Operations Engineer",
       company: "Tech Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Kevin+Ramirez"
+      imageUrl: "/Kevin%20Ramirez.jpg"
     },
     categories: ["Career Change", "DevOps"]
   },
@@ -379,7 +387,7 @@ After months of preparation and interview coaching, Sophia secured an entry-leve
       name: "Sophia Turner",
       title: "Entry-level Cybersecurity Analyst",
       company: "Security Firm",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Sophia+Turner"
+      imageUrl: "/Sophia%20Turner.jpg"
     },
     categories: ["Career Change", "Cybersecurity"]
   },
@@ -415,7 +423,7 @@ Andrew eventually accepted a data analyst role with a logistics company.
       name: "Andrew Collins",
       title: "Data Analyst",
       company: "Logistics Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Andrew+Collins"
+      imageUrl: "/Andrew%20Collins.jpg"
     },
     categories: ["Career Change", "Data Science"]
   },
@@ -455,7 +463,7 @@ Today, Ahmed works as a junior DevOps engineer for a healthcare technology compa
       name: "Ahmed Hassan",
       title: "Junior DevOps Engineer",
       company: "Healthcare Technology Company",
-      imageUrl: "https://placehold.co/400x300/e2e8f0/1e293b?text=Ahmed+Hassan"
+      imageUrl: "/Ahmed%20hassan.jpg"
     },
     categories: ["Career Growth", "DevOps", "International"]
   }
@@ -463,48 +471,92 @@ Today, Ahmed works as a junior DevOps engineer for a healthcare technology compa
 
 async function main() {
   console.log('Start seeding...');
-  
-  // Clear existing
-  await prisma.story.deleteMany();
-  await prisma.alumni.deleteMany();
-  await prisma.category.deleteMany();
-  
-  // Create categories mapping
-  const categoryMap = new Map();
-  const allCategories = Array.from(new Set(stories.flatMap(s => s.categories)));
-  
-  for (const catName of allCategories) {
-    const cat = await prisma.category.create({
-      data: { name: catName }
+
+  const adminUser = await prisma.adminUser.upsert({
+    where: { email: adminEmail },
+    update: {
+      name: adminName,
+      passwordHash: await hashPassword(adminPassword),
+    },
+    create: {
+      email: adminEmail,
+      name: adminName,
+      passwordHash: await hashPassword(adminPassword),
+    },
+  });
+
+  await prisma.adminSession.deleteMany({ where: { adminUserId: adminUser.id } });
+
+  const allCategories = Array.from(new Set(stories.flatMap((story) => story.categories)));
+
+  const categoryMap = new Map<string, string>();
+
+  for (const categoryName of allCategories) {
+    const category = await prisma.category.upsert({
+      where: { name: categoryName },
+      update: {},
+      create: { name: categoryName },
     });
-    categoryMap.set(catName, cat.id);
+    categoryMap.set(categoryName, category.id);
   }
 
-  for (const s of stories) {
-    const alumni = await prisma.alumni.create({
-      data: {
-        name: s.alumni.name,
-        email: s.alumni.name.toLowerCase().replace(' ', '.') + '@example.com',
-        title: s.alumni.title,
-        company: s.alumni.company,
-        imageUrl: s.alumni.imageUrl,
-      }
+  for (const story of stories) {
+    const email = `${story.slug}@example.com`;
+
+    const alumni = await prisma.alumni.upsert({
+      where: { email },
+      update: {},
+      create: {
+        name: story.alumni.name,
+        email,
+        title: story.alumni.title,
+        company: story.alumni.company,
+        imageUrl: story.alumni.imageUrl,
+      },
     });
 
-    await prisma.story.create({
-      data: {
-        title: s.title,
-        slug: s.slug,
-        content: s.content,
-        isPublished: true,
-        alumniId: alumni.id,
-        categories: {
-          create: s.categories.map(cat => ({
-            category: {
-              connect: { id: categoryMap.get(cat) }
-            }
-          }))
+    const existingStory = await prisma.story.findUnique({
+      where: { slug: story.slug }
+    });
+
+    if (!existingStory) {
+      const savedStory = await prisma.story.create({
+        data: {
+          title: story.title,
+          slug: story.slug,
+          content: story.content,
+          isPublished: true,
+          moderationStatus: StoryModerationStatus.APPROVED,
+          publishedAt: toSqliteDateTimeString(new Date()),
+          alumniId: alumni.id,
         }
+      });
+
+      await prisma.storyCategory.createMany({
+        data: story.categories.map((categoryName) => ({
+          storyId: savedStory.id,
+          categoryId: categoryMap.get(categoryName) as string,
+        })),
+      });
+    }
+  }
+
+  for (const [index, video] of videoTestimonials.entries()) {
+    await prisma.videoTestimonial.upsert({
+      where: { id: video.id },
+      update: {},
+      create: {
+        id: video.id,
+        title: video.title,
+        summary: video.summary,
+        name: video.name,
+        role: video.role,
+        company: video.company,
+        duration: video.duration,
+        videoUrl: video.videoUrl,
+        thumbnailUrl: video.thumbnailUrl,
+        isActive: true,
+        sortOrder: video.id === "vt-4" ? 0 : index,
       }
     });
   }

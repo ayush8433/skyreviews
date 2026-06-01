@@ -37,14 +37,15 @@ export default function AlumniCard({
           <div className="relative z-10">
             {/* Alumni Image */}
             <div className="mb-6">
-              <div className="relative overflow-hidden rounded-lg">
-                <Image
-                  src={image}
-                  alt={name}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+              <div className="relative overflow-hidden rounded-lg bg-gray-100">
+                <div className="relative w-full h-48">
+                  <Image
+                    src={image}
+                    alt={name}
+                    fill
+                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 

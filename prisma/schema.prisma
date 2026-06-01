@@ -10,6 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum StoryModerationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model AdminUser {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  sessions     AdminSession[]
+
+  @@map("admin_users")
+}
+
+model AdminSession {
+  id          String     @id @default(cuid())
+  tokenHash   String     @unique
+  expiresAt   DateTime
+  createdAt   DateTime   @default(now())
+  adminUserId String
+
+  adminUser   AdminUser  @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+
+  @@map("admin_sessions")
+}
+
 model Alumni {
   id          String   @id @default(cuid())
   name        String
@@ -29,16 +60,18 @@ model Alumni {
 }
 
 model Story {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  content     String
-  videoUrl    String?
-  thumbnailUrl String?
-  isPublished Boolean  @default(false)
-  isFeatured  Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id               String               @id @default(cuid())
+  title            String
+  slug             String               @unique
+  content          String
+  videoUrl         String?
+  thumbnailUrl     String?
+  publishedAt      String               @default("")
+  isPublished      Boolean              @default(false)
+  isFeatured       Boolean              @default(false)
+  moderationStatus StoryModerationStatus @default(PENDING)
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
   
   alumniId    String
   alumni      Alumni   @relation(fields: [alumniId], references: [id], onDelete: Cascade)
@@ -47,6 +80,24 @@ model Story {
   tags        StoryTag[]
   
   @@map("stories")
+}
+
+model VideoTestimonial {
+  id           String   @id @default(cuid())
+  title        String
+  summary      String
+  name         String
+  role         String
+  company      String
+  duration     String
+  videoUrl     String
+  thumbnailUrl  String
+  isActive     Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("video_testimonials")
 }
 
 model Category {

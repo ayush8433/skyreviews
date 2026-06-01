@@ -121,7 +121,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg" className="bg-white text-blue-700 hover:bg-blue-50">
-              <Link href="/stories">Explore Alumni Stories</Link>
+              <Link href="/#featured-stories">Explore Alumni Stories</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-700">
               <Link href="/submit">Share Your Journey</Link>

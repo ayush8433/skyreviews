@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { getAlumniImageUrl } from "@/lib/alumni-images";
 import { Play, MapPin, Building } from "lucide-react";
 
 interface VideoTestimonialCardProps {
@@ -33,6 +34,7 @@ interface VideoTestimonialCardProps {
 
 export default function VideoTestimonialCard({ story }: VideoTestimonialCardProps) {
   const excerpt = story.content.substring(0, 150) + "...";
+  const alumniImageUrl = getAlumniImageUrl(story.alumni.name, story.alumni.imageUrl);
   
   return (
     <Card className="group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-lg">
@@ -41,12 +43,14 @@ export default function VideoTestimonialCard({ story }: VideoTestimonialCardProp
           {/* Thumbnail */}
           <div className="relative aspect-video overflow-hidden bg-gray-100">
             {story.thumbnailUrl ? (
-              <Image
-                src={story.thumbnailUrl}
-                alt={story.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+              <div className="relative w-full h-full bg-black">
+                <Image
+                  src={story.thumbnailUrl}
+                  alt={story.title}
+                  fill
+                  className="object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
             ) : (
               <div className="flex items-center justify-center h-full bg-gray-200">
                 <Play className="w-12 h-12 text-gray-400" />
@@ -72,14 +76,15 @@ export default function VideoTestimonialCard({ story }: VideoTestimonialCardProp
         <CardContent className="p-6">
           {/* Alumni info */}
           <div className="flex items-center gap-3 mb-4">
-            {story.alumni.imageUrl ? (
-              <Image
-                src={story.alumni.imageUrl}
-                alt={story.alumni.name}
-                width={48}
-                height={48}
-                className="rounded-full object-cover"
-              />
+            {alumniImageUrl ? (
+              <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
+                <Image
+                  src={alumniImageUrl}
+                  alt={story.alumni.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
             ) : (
               <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
                 <span className="text-gray-500 font-semibold">

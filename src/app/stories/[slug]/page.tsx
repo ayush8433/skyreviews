@@ -6,6 +6,7 @@ import ShareButton from "@/components/ShareButton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getAlumniImageUrl } from "@/lib/alumni-images";
 import {
   MapPin,
   Building,
@@ -37,8 +38,8 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const formatDate = (date: Date) =>
-  date.toLocaleDateString("en-US", {
+const formatDate = (date: string) =>
+  new Date(date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -115,7 +116,7 @@ export default async function StoryPage({
   const relatedStories = await prisma.story.findMany({
     where: relatedWhere,
     include: { alumni: true },
-    orderBy: { createdAt: "desc" },
+    orderBy: { publishedAt: "desc" },
     take: 2,
   });
 
@@ -127,10 +128,11 @@ export default async function StoryPage({
     story.isFeatured ||
     story.categories.some((cat) => cat.category.name === "Featured");
   const readTime = estimateReadTime(story.content);
-  const dateLabel = formatDate(story.createdAt);
+  const dateLabel = formatDate(story.publishedAt || story.createdAt.toISOString());
   const alumniInitials = getInitials(story.alumni.name);
   const alumniBio = story.alumni.bio ?? "SkyStates alum sharing their journey.";
   const alumniLinkedIn = story.alumni.linkedinUrl;
+  const alumniImageUrl = getAlumniImageUrl(story.alumni.name, story.alumni.imageUrl);
   const relatedItems = relatedStories.map((item) => ({
     id: item.id,
     title: item.title,
@@ -157,7 +159,7 @@ export default async function StoryPage({
         <div className="container relative mx-auto px-6">
           <div className="max-w-4xl">
             <Link 
-              href="/stories" 
+              href="/#featured-stories" 
               className="group inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
             >
               <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-800/50 group-hover:border-slate-500 transition-all">
@@ -268,7 +270,7 @@ export default async function StoryPage({
                     <BookOpen className="h-6 w-6 text-blue-500" />
                     Continue Reading
                   </h3>
-                  <Link href="/stories" className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group">
+                  <Link href="/#featured-stories" className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 group">
                     View all stories
                     <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -308,8 +310,10 @@ export default async function StoryPage({
               <CardContent className="p-8 -mt-12">
                 <div className="relative mb-6">
                   <div className="h-24 w-24 rounded-2xl border-4 border-white dark:border-slate-900 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center text-3xl font-bold text-slate-400 shadow-xl overflow-hidden">
-                    {story.alumni.imageUrl ? (
-                      <Image src={story.alumni.imageUrl} alt={story.alumni.name} fill className="object-cover" />
+                    {alumniImageUrl ? (
+                      <div className="relative w-full h-full bg-gray-100">
+                        <Image src={alumniImageUrl} alt={story.alumni.name} fill className="object-contain" />
+                      </div>
                     ) : (
                       <span>{alumniInitials}</span>
                     )}
