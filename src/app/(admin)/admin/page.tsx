@@ -11,7 +11,7 @@ export default async function AdminDashboardPage({
 }) {
   const params = await searchParams;
 
-  const [pendingStories, approvedStories, rejectedStories, videoCount, categoryCount, tagCount, recentStories] =
+  const [pendingStories, approvedStories, rejectedStories, videoCount, categoryCount, tagCount, certCount, adminCount, recentStories] =
     await Promise.all([
       prisma.story.count({ where: { moderationStatus: "PENDING" } }),
       prisma.story.count({ where: { moderationStatus: "APPROVED" } }),
@@ -19,6 +19,8 @@ export default async function AdminDashboardPage({
       prisma.videoTestimonial.count(),
       prisma.category.count(),
       prisma.tag.count(),
+      prisma.studentCertification.count({ where: { isPublished: true } }),
+      prisma.adminUser.count(),
       prisma.story.findMany({
         include: { alumni: true },
         orderBy: { publishedAt: "desc" },
@@ -31,8 +33,10 @@ export default async function AdminDashboardPage({
     { label: "Approved stories", value: approvedStories, href: "/admin/stories" },
     { label: "Rejected stories", value: rejectedStories, href: "/admin/stories" },
     { label: "Video testimonials", value: videoCount, href: "/admin/videos" },
+    { label: "Published certificates", value: certCount, href: "/admin/certifications" },
     { label: "Categories", value: categoryCount, href: "/admin/taxonomy" },
     { label: "Tags", value: tagCount, href: "/admin/taxonomy" },
+    { label: "Admin users", value: adminCount, href: "/admin/admins" },
   ];
 
   return (

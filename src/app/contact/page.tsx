@@ -21,68 +21,78 @@ const faqs = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 px-4 py-20 md:py-24">
-        <div className="absolute left-10 top-10 h-32 w-32 rounded-full bg-blue-300/20 blur-3xl" />
-        <div className="absolute bottom-6 right-10 h-44 w-44 rounded-full bg-cyan-300/20 blur-3xl" />
+    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 font-sans antialiased text-slate-800 dark:text-slate-200">
+      <section className="relative overflow-hidden bg-slate-900 pt-24 pb-20 lg:pt-32 lg:pb-28">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -left-1/4 w-1/2 h-full bg-blue-600/20 blur-[120px] rounded-full rotate-12" />
+          <div className="absolute -bottom-1/2 -right-1/4 w-1/2 h-full bg-indigo-600/20 blur-[120px] rounded-full -rotate-12" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-1/3 h-1/3 bg-cyan-500/10 blur-[100px] rounded-full" />
+        </div>
 
-        <div className="container relative z-10 mx-auto max-w-4xl text-center text-white">
-          <Badge className="mb-4 bg-white/20 text-white hover:bg-white/20">Contact SkyStates</Badge>
-          <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">Let&apos;s Start a Conversation</h1>
-          <p className="mx-auto max-w-2xl text-lg text-blue-100">
+        <div className="container relative z-10 mx-auto px-4 text-center max-w-3xl space-y-6">
+          <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider">
+            Contact SkyStates
+          </Badge>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+            Let&apos;s Start a{" "}
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+              Conversation
+            </span>
+          </h1>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Have questions about SkyStates, alumni stories, or partnership opportunities? We&apos;re here to help.
           </p>
         </div>
       </section>
 
-      <section className="bg-linear-to-b from-slate-50 to-white px-4 py-14 md:py-20">
+      <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-            <Card className="bg-white shadow-sm ring-gray-200">
+            <Card className="border-none shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-900 rounded-3xl overflow-hidden">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Send Us a Message</CardTitle>
+                <CardTitle className="text-2xl font-bold text-slate-900 dark:text-white">Send Us a Message</CardTitle>
               </CardHeader>
               <CardContent>
                 <form className="space-y-5" noValidate>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-gray-700">Full name</label>
-                      <Input id="name" name="name" placeholder="Your full name" />
+                      <label htmlFor="name" className="text-sm font-medium text-slate-700 dark:text-slate-300">Full name</label>
+                      <Input id="name" name="name" placeholder="Your full name" className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white" />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-                      <Input id="email" name="email" type="email" placeholder="you@example.com" />
+                      <label htmlFor="email" className="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
+                      <Input id="email" name="email" type="email" placeholder="you@example.com" className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="topic" className="text-sm font-medium text-gray-700">Topic</label>
+                    <label htmlFor="topic" className="text-sm font-medium text-slate-700 dark:text-slate-300">Topic</label>
                     <select
                       id="topic"
                       name="topic"
                       defaultValue=""
-                      className="h-10 w-full rounded-lg border border-input bg-transparent px-3 text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                      className="h-10 w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 text-sm outline-none text-slate-900 dark:text-slate-100 transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
                     >
-                      <option value="" disabled>
+                      <option value="" disabled className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
                         Select a topic
                       </option>
-                      <option value="general">General enquiry</option>
-                      <option value="admissions">Admissions support</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="feedback">Feedback</option>
+                      <option value="general" className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">General enquiry</option>
+                      <option value="admissions" className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">Admissions support</option>
+                      <option value="partnership" className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">Partnership</option>
+                      <option value="feedback" className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">Feedback</option>
                     </select>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-700">Message</label>
-                    <Textarea id="message" name="message" placeholder="Tell us how we can help..." className="min-h-36" />
+                    <label htmlFor="message" className="text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
+                    <Textarea id="message" name="message" placeholder="Tell us how we can help..." className="min-h-36 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white" />
                   </div>
 
                   <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
                       By submitting, you agree to be contacted regarding your request.
                     </p>
-                    <Button type="button" size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
+                    <Button type="button" size="lg" className="bg-blue-600 text-white hover:bg-blue-700 rounded-xl">
                       Send Message
                     </Button>
                   </div>
@@ -90,15 +100,15 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="h-full bg-white shadow-sm ring-gray-200">
+            <Card className="h-full border-none shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-900 rounded-3xl overflow-hidden">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Frequently Asked</CardTitle>
+                <CardTitle className="text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {faqs.map((item) => (
-                  <div key={item.question} className="rounded-xl border border-gray-200 bg-white p-4">
-                    <h3 className="mb-1 font-semibold text-gray-900">{item.question}</h3>
-                    <p className="text-sm text-gray-600">{item.answer}</p>
+                  <div key={item.question} className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-4">
+                    <h3 className="mb-1 font-semibold text-slate-900 dark:text-white">{item.question}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{item.answer}</p>
                   </div>
                 ))}
               </CardContent>

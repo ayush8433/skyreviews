@@ -127,6 +127,8 @@ export async function saveStory(formData: FormData) {
   const alumniLinkedin = readString(formData, "alumniLinkedin");
   const alumniImageUrl = readString(formData, "alumniImageUrl");
   const alumniBio = readString(formData, "alumniBio");
+  const alumniProjectTitle = readString(formData, "alumniProjectTitle");
+  const alumniProjectUrl = readString(formData, "alumniProjectUrl");
 
   const categoryNames = splitList(readString(formData, "categories"));
   const tagNames = splitList(readString(formData, "tags"));
@@ -139,7 +141,18 @@ export async function saveStory(formData: FormData) {
     ? await prisma.story.findUnique({ where: { id: storyId } })
     : null;
 
-  const slug = existingStory?.slug ?? `${slugify(title)}-${Date.now()}`;
+  let slug = existingStory?.slug;
+  if (!slug) {
+    const baseSlug = slugify(title);
+    slug = baseSlug;
+    let count = 1;
+    while (true) {
+      const existing = await prisma.story.findUnique({ where: { slug } });
+      if (!existing) break;
+      count++;
+      slug = `${baseSlug}-${count}`;
+    }
+  }
   const publishedAt = publishedAtInput
     ? toSqliteDateTimeString(new Date(`${publishedAtInput}T00:00:00.000Z`))
     : existingStory?.publishedAt || toSqliteDateTimeString(new Date());
@@ -154,6 +167,8 @@ export async function saveStory(formData: FormData) {
       linkedinUrl: alumniLinkedin || null,
       imageUrl: alumniImageUrl || null,
       bio: alumniBio || null,
+      projectTitle: alumniProjectTitle || null,
+      projectUrl: alumniProjectUrl || null,
     },
     create: {
       name: alumniName,
@@ -164,6 +179,8 @@ export async function saveStory(formData: FormData) {
       linkedinUrl: alumniLinkedin || null,
       imageUrl: alumniImageUrl || null,
       bio: alumniBio || null,
+      projectTitle: alumniProjectTitle || null,
+      projectUrl: alumniProjectUrl || null,
     },
   });
 
@@ -401,4 +418,132 @@ export async function deleteTaxonomyEntry(formData: FormData) {
   revalidatePath("/");
 
   redirect("/admin/taxonomy?message=Deleted");
+}
+
+export async function savePlacementManager(formData: FormData) {
+  const managerId = readString(formData, "managerId");
+  const name = readString(formData, "name");
+  const role = readString(formData, "role");
+  const linkedinUrl = readString(formData, "linkedinUrl");
+  const imageUrl = readString(formData, "imageUrl");
+  const bio = readString(formData, "bio");
+  const reviewsJson = readString(formData, "reviewsJson");
+  const videosJson = readString(formData, "videosJson");
+
+  if (!name || !role) {
+    redirect(`/admin/placement-managers${managerId ? `/${managerId}` : "/new"}?error=Name%20and%20Role%20are%20required`);
+  }
+
+  let manager;
+  if (managerId) {
+    manager = await prisma.placementManager.update({
+      where: { id: managerId },
+      data: { name, role, linkedinUrl: linkedinUrl || null, imageUrl: imageUrl || null, bio: bio || null }
+    });
+  } else {
+    manager = await prisma.placementManager.create({
+      data: { name, role, linkedinUrl: linkedinUrl || null, imageUrl: imageUrl || null, bio: bio || null }
+    });
+  }
+
+  // Sync reviews
+  await prisma.placementManagerReview.deleteMany({ where: { placementManagerId: manager.id } });
+  if (reviewsJson) {
+    try {
+      const reviews = JSON.parse(reviewsJson);
+      if (Array.isArray(reviews)) {
+        await prisma.placementManagerReview.createMany({
+          data: reviews.map((r: any) => ({
+            reviewerName: r.reviewerName || "Anonymous Alum",
+            reviewerRole: r.reviewerRole || "Alumni",
+            content: r.content || "",
+            rating: Number(r.rating) || 5,
+            placementManagerId: manager.id
+          }))
+        });
+      }
+    } catch (e) {
+      console.error("Failed to parse reviewsJson", e);
+    }
+  }
+
+  // Sync videos
+  await prisma.placementManagerVideo.deleteMany({ where: { placementManagerId: manager.id } });
+  if (videosJson) {
+    try {
+      const videos = JSON.parse(videosJson);
+      if (Array.isArray(videos)) {
+        await prisma.placementManagerVideo.createMany({
+          data: videos.map((v: any) => ({
+            title: v.title || "Review Video",
+            videoUrl: v.videoUrl || "",
+            thumbnailUrl: v.thumbnailUrl || null,
+            placementManagerId: manager.id
+          }))
+        });
+      }
+    } catch (e) {
+      console.error("Failed to parse videosJson", e);
+    }
+  }
+
+  revalidatePath("/admin");
+  revalidatePath("/admin/placement-managers");
+  revalidatePath("/placement-managers");
+  revalidatePath(`/placement-managers/${manager.id}`);
+
+  redirect("/admin/placement-managers?message=Placement%20Manager%20saved");
+}
+
+export async function deletePlacementManager(formData: FormData) {
+  const managerId = readString(formData, "managerId");
+  if (managerId) {
+    await prisma.placementManager.delete({ where: { id: managerId } });
+  }
+  revalidatePath("/admin");
+  revalidatePath("/admin/placement-managers");
+  revalidatePath("/placement-managers");
+  redirect("/admin/placement-managers?message=Placement%20Manager%20deleted");
+}
+
+export async function savePodcast(formData: FormData) {
+  const podcastId = readString(formData, "podcastId");
+  const title = readString(formData, "title");
+  const description = readString(formData, "description");
+  const youtubeUrl = readString(formData, "youtubeUrl");
+  const videoUrl = readString(formData, "videoUrl");
+  const thumbnailUrl = readString(formData, "thumbnailUrl");
+  const isActive = readBoolean(formData, "isActive");
+
+  if (!title || !description || !youtubeUrl) {
+    redirect(`/admin/podcasts${podcastId ? `/${podcastId}` : "/new"}?error=Title,%20Description,%20and%20YouTube%20URL%20are%20required`);
+  }
+
+  if (podcastId) {
+    await prisma.podcast.update({
+      where: { id: podcastId },
+      data: { title, description, youtubeUrl, videoUrl: videoUrl || null, thumbnailUrl: thumbnailUrl || null, isActive }
+    });
+  } else {
+    await prisma.podcast.create({
+      data: { title, description, youtubeUrl, videoUrl: videoUrl || null, thumbnailUrl: thumbnailUrl || null, isActive }
+    });
+  }
+
+  revalidatePath("/admin");
+  revalidatePath("/admin/podcasts");
+  revalidatePath("/podcasts");
+
+  redirect("/admin/podcasts?message=Podcast%20saved");
+}
+
+export async function deletePodcast(formData: FormData) {
+  const podcastId = readString(formData, "podcastId");
+  if (podcastId) {
+    await prisma.podcast.delete({ where: { id: podcastId } });
+  }
+  revalidatePath("/admin");
+  revalidatePath("/admin/podcasts");
+  revalidatePath("/podcasts");
+  redirect("/admin/podcasts?message=Podcast%20deleted");
 }

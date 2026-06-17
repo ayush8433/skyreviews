@@ -6,8 +6,8 @@ const toSqliteDateTimeString = (date: Date) => date.toISOString().replace('T', '
 
 const prisma = new PrismaClient();
 
-const adminEmail = process.env.ADMIN_EMAIL ?? 'admin@skystates.com';
-const adminPassword = process.env.ADMIN_PASSWORD ?? 'Admin123!ChangeMe';
+const adminEmail = process.env.ADMIN_EMAIL ?? 'skyreviews@.us';
+const adminPassword = process.env.ADMIN_PASSWORD ?? 'Admin@123';
 const adminName = process.env.ADMIN_NAME ?? 'SkyReviews Admin';
 
 const stories = [
@@ -558,6 +558,174 @@ async function main() {
         isActive: true,
         sortOrder: video.id === "vt-4" ? 0 : index,
       }
+    });
+  }
+
+  // Seed Placement Managers
+  const managersData = [
+    {
+      id: "pm-1",
+      name: "Sarah Jenkins",
+      role: "Lead Placement Director",
+      linkedinUrl: "https://linkedin.com/in/sarah-jenkins-skyreviews",
+      imageUrl: "https://placehold.co/400x400/3b82f6/ffffff?text=SJ",
+      bio: "With over 8 years of experience in tech recruitment and career coaching, Sarah specializes in connecting graduates with Fortune 500 companies. She has successfully placed over 200 students in roles ranging from software engineering to data science, and is known for her hands-on approach to resume optimization and interview preparation.",
+      reviews: [
+        { id: "pmr-1", reviewerName: "Amit Patel", reviewerRole: "Software Engineer Alum", content: "Sarah was extremely helpful in setting up my mock interviews and guiding me through salary negotiations. Her connections are top-notch!", rating: 5 },
+        { id: "pmr-2", reviewerName: "Jessica Wu", reviewerRole: "Data Analyst Alum", content: "Sarah completely transformed my resume. Within two weeks of working with her, I started getting callbacks from companies I never thought would notice me.", rating: 5 },
+        { id: "pmr-3", reviewerName: "Carlos Rivera", reviewerRole: "DevOps Engineer Alum", content: "The mock interviews Sarah organized were incredibly realistic. I felt completely prepared when my actual interviews came around.", rating: 4 },
+      ],
+      videos: [
+        { id: "pmv-1", title: "Sarah's Placement Strategy Presentation", videoUrl: "/video 1.mp4", thumbnailUrl: null },
+        { id: "pmv-2", title: "Resume Workshop Highlights", videoUrl: "/video 2.mp4", thumbnailUrl: null },
+      ],
+    },
+    {
+      id: "pm-2",
+      name: "Marcus Thompson",
+      role: "Senior Career Coach",
+      linkedinUrl: "https://linkedin.com/in/marcus-thompson-sky",
+      imageUrl: "https://placehold.co/400x400/6366f1/ffffff?text=MT",
+      bio: "Marcus brings a unique perspective from his background as both a software engineer and HR consultant. He focuses on helping career changers articulate their transferable skills and build compelling portfolios that stand out in competitive job markets. His specialty is behavioral interview coaching and LinkedIn profile optimization.",
+      reviews: [
+        { id: "pmr-4", reviewerName: "Daniel Brooks", reviewerRole: "Cybersecurity Analyst Alum", content: "Marcus helped me translate my military experience into tech language. His coaching was the reason I landed my first cybersecurity role.", rating: 5 },
+        { id: "pmr-5", reviewerName: "Priya Nair", reviewerRole: "DevOps Engineer Alum", content: "As an international student, I was nervous about the American interview process. Marcus walked me through everything from cultural expectations to technical whiteboarding.", rating: 5 },
+      ],
+      videos: [
+        { id: "pmv-3", title: "Behavioral Interview Masterclass", videoUrl: "/video 3.mp4", thumbnailUrl: null },
+      ],
+    },
+    {
+      id: "pm-3",
+      name: "Emily Rodriguez",
+      role: "Placement Coordinator",
+      linkedinUrl: "https://linkedin.com/in/emily-rodriguez-skyreviews",
+      imageUrl: "https://placehold.co/400x400/8b5cf6/ffffff?text=ER",
+      bio: "Emily is passionate about bridging the gap between education and employment. She manages employer partnerships with over 50 hiring companies and coordinates interview schedules, job fairs, and networking events. Her attention to detail and genuine care for students have earned her consistently high satisfaction ratings.",
+      reviews: [
+        { id: "pmr-6", reviewerName: "Rebecca Allen", reviewerRole: "BI Analyst Alum", content: "Emily personally followed up with me every week during my job search. She connected me with three different companies and helped me choose the best offer.", rating: 5 },
+        { id: "pmr-7", reviewerName: "Jason Miller", reviewerRole: "DevOps Support Alum", content: "Emily's networking events were a game-changer. I met my future employer at one of the sessions she organized. Can't thank her enough!", rating: 5 },
+        { id: "pmr-8", reviewerName: "Amanda Lewis", reviewerRole: "SOC Analyst Alum", content: "Even after I got placed, Emily checked in to see how I was doing. That level of care is rare and really appreciated.", rating: 4 },
+      ],
+      videos: [
+        { id: "pmv-4", title: "Employer Partnership Q&A", videoUrl: "/video 1.mp4", thumbnailUrl: null },
+        { id: "pmv-5", title: "Job Fair Preparation Tips", videoUrl: "/video 2.mp4", thumbnailUrl: null },
+      ],
+    },
+    {
+      id: "pm-4",
+      name: "David Kim",
+      role: "Technical Interview Specialist",
+      linkedinUrl: "https://linkedin.com/in/david-kim-skyreviews",
+      imageUrl: "https://placehold.co/400x400/ec4899/ffffff?text=DK",
+      bio: "David is a former senior engineer at Google who now dedicates his time to preparing students for the rigors of technical interviews at top tech companies. He runs intensive coding challenge workshops, system design sessions, and one-on-one whiteboarding practice. His students have landed roles at FAANG companies and high-growth startups alike.",
+      reviews: [
+        { id: "pmr-9", reviewerName: "Andrew Collins", reviewerRole: "Data Analyst Alum", content: "David's system design sessions were incredible. He explained complex distributed systems concepts in a way that was easy to understand and apply in interviews.", rating: 5 },
+        { id: "pmr-10", reviewerName: "Kevin Ramirez", reviewerRole: "Cloud Ops Engineer Alum", content: "I went through 5 mock technical interviews with David. Each one got harder and more realistic. By the time I had my real interview, it felt easy.", rating: 5 },
+      ],
+      videos: [
+        { id: "pmv-6", title: "System Design Interview Walkthrough", videoUrl: "/video 3.mp4", thumbnailUrl: null },
+      ],
+    },
+  ];
+
+  for (const mgr of managersData) {
+    const manager = await prisma.placementManager.upsert({
+      where: { id: mgr.id },
+      update: {},
+      create: {
+        id: mgr.id,
+        name: mgr.name,
+        role: mgr.role,
+        linkedinUrl: mgr.linkedinUrl,
+        imageUrl: mgr.imageUrl,
+        bio: mgr.bio,
+      },
+    });
+
+    for (const rev of mgr.reviews) {
+      await prisma.placementManagerReview.upsert({
+        where: { id: rev.id },
+        update: {},
+        create: {
+          id: rev.id,
+          reviewerName: rev.reviewerName,
+          reviewerRole: rev.reviewerRole,
+          content: rev.content,
+          rating: rev.rating,
+          placementManagerId: manager.id,
+        },
+      });
+    }
+
+    for (const vid of mgr.videos) {
+      await prisma.placementManagerVideo.upsert({
+        where: { id: vid.id },
+        update: {},
+        create: {
+          id: vid.id,
+          title: vid.title,
+          videoUrl: vid.videoUrl,
+          thumbnailUrl: vid.thumbnailUrl,
+          placementManagerId: manager.id,
+        },
+      });
+    }
+  }
+
+  // Seed Podcasts
+  const podcastsData = [
+    {
+      id: "pod-1",
+      title: "Navigating Tech Layoffs & Career Pivots",
+      description: "In this episode, we explore the rapidly shifting tech landscape of 2026. We discuss strategies for candidates affected by layoffs, how to position yourself for new roles, and the emerging sectors that are actively hiring. Featuring insights from industry recruiters and successful career changers.",
+      youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoUrl: "/video 2.mp4",
+      thumbnailUrl: "https://placehold.co/960x540/1e293b/60a5fa?text=Tech+Layoffs+%26+Pivots",
+      isActive: true,
+    },
+    {
+      id: "pod-2",
+      title: "From Zero to DevOps: A Complete Roadmap",
+      description: "A comprehensive breakdown of the DevOps learning path for absolute beginners. We cover essential tools like Docker, Kubernetes, CI/CD pipelines, and cloud platforms. Our panel of DevOps engineers share their personal journeys and the mistakes they wish they had avoided.",
+      youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoUrl: "/video 1.mp4",
+      thumbnailUrl: "https://placehold.co/960x540/0f172a/93c5fd?text=Zero+to+DevOps",
+      isActive: true,
+    },
+    {
+      id: "pod-3",
+      title: "Cybersecurity Careers: What Employers Really Want",
+      description: "We sit down with hiring managers from leading cybersecurity firms to uncover what they actually look for in candidates. Beyond certifications, we discuss practical skills, soft skills, and portfolio projects that make applicants stand out. Essential listening for anyone considering a career in security.",
+      youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoUrl: "/video 3.mp4",
+      thumbnailUrl: "https://placehold.co/960x540/111827/7dd3fc?text=Cybersecurity+Careers",
+      isActive: true,
+    },
+    {
+      id: "pod-4",
+      title: "The Art of the Technical Interview",
+      description: "Our most popular episode! David Kim, former Google engineer and Sky States Technical Interview Specialist, breaks down the anatomy of a perfect technical interview. From data structures to system design, behavioral questions to salary negotiation — this episode covers it all with real examples and actionable tips.",
+      youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoUrl: "/video 2.mp4",
+      thumbnailUrl: "https://placehold.co/960x540/0b1120/bae6fd?text=Technical+Interviews",
+      isActive: true,
+    },
+  ];
+
+  for (const pod of podcastsData) {
+    await prisma.podcast.upsert({
+      where: { id: pod.id },
+      update: {},
+      create: {
+        id: pod.id,
+        title: pod.title,
+        description: pod.description,
+        youtubeUrl: pod.youtubeUrl,
+        videoUrl: pod.videoUrl,
+        thumbnailUrl: pod.thumbnailUrl,
+        isActive: pod.isActive,
+      },
     });
   }
 

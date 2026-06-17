@@ -42,17 +42,19 @@ model AdminSession {
 }
 
 model Alumni {
-  id          String   @id @default(cuid())
-  name        String
-  email       String   @unique
-  title       String
-  company     String?
-  location    String?
-  linkedinUrl String?
-  imageUrl    String?
-  bio         String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  title        String
+  company      String?
+  location     String?
+  linkedinUrl  String?
+  imageUrl     String?
+  bio          String?
+  projectTitle String?
+  projectUrl   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
   
   stories     Story[]
   
@@ -141,4 +143,85 @@ model StoryTag {
   
   @@id([storyId, tagId])
   @@map("story_tags")
+}
+
+model PlacementManager {
+  id          String                   @id @default(cuid())
+  name        String
+  role        String
+  linkedinUrl String?
+  imageUrl    String?
+  bio         String?
+  createdAt   DateTime                 @default(now())
+  updatedAt   DateTime                 @updatedAt
+  reviews     PlacementManagerReview[]
+  videos      PlacementManagerVideo[]
+
+  @@map("placement_managers")
+}
+
+model PlacementManagerReview {
+  id                 String           @id @default(cuid())
+  reviewerName       String
+  reviewerRole       String?
+  content            String
+  rating             Int              @default(5)
+  placementManagerId String
+  placementManager   PlacementManager @relation(fields: [placementManagerId], references: [id], onDelete: Cascade)
+  createdAt          DateTime         @default(now())
+
+  @@map("placement_manager_reviews")
+}
+
+model PlacementManagerVideo {
+  id                 String           @id @default(cuid())
+  title              String
+  videoUrl           String
+  thumbnailUrl       String?
+  placementManagerId String
+  placementManager   PlacementManager @relation(fields: [placementManagerId], references: [id], onDelete: Cascade)
+  createdAt          DateTime         @default(now())
+
+  @@map("placement_manager_videos")
+}
+
+model Podcast {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  youtubeUrl   String
+  videoUrl     String?
+  thumbnailUrl String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("podcasts")
+}
+
+model OptOutRequest {
+  id        String   @id @default(cuid())
+  email     String?
+  phone     String?
+  reason    String?
+  createdAt DateTime @default(now())
+
+  @@map("opt_out_requests")
+}
+
+model StudentCertification {
+  id                 String   @id @default(cuid())
+  studentName        String
+  program            String
+  certCode           String   // e.g. "DP-900", "AZ-900"
+  certName           String   // e.g. "Microsoft Azure Data Fundamentals"
+  issueDate          String   // e.g. "2025-03-15" stored as string for SQLite
+  certificateImageUrl String?
+  linkedinUrl        String?
+  testimonial        String?  // short quote about the certification experience
+  isPublished        Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@map("student_certifications")
 }

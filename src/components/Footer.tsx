@@ -2,31 +2,59 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">SkyReviews</h3>
-            <p className="text-gray-400">
+    <footer className="bg-slate-900 border-t border-white/10 text-white">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="col-span-2 md:col-span-1 space-y-3">
+            <h3 className="text-sm font-bold text-white tracking-wide">SkyReviews</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
               Sharing success stories from SkyStates alumni around the world.
+            </p>
+            <p className="text-[10px] text-slate-500">
+              Part of the SkyStates family.
             </p>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Explore</h4>
-            <ul className="space-y-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Explore</h4>
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/#featured-stories" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/#featured-stories" className="text-slate-400 hover:text-white transition-colors">
                   Alumni Stories
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/placement-managers" className="text-slate-400 hover:text-white transition-colors">
+                  Placement Managers
+                </Link>
+              </li>
+              <li>
+                <Link href="/outcomes" className="text-slate-400 hover:text-white transition-colors font-semibold">
+                  Outcomes &amp; Placements
+                </Link>
+              </li>
+              <li>
+                <Link href="/roadmaps" className="text-slate-400 hover:text-white transition-colors">
+                  Learning Roadmaps
+                </Link>
+              </li>
+              <li>
+                <Link href="/certifications" className="text-slate-400 hover:text-white transition-colors">
+                  Certification Guides
+                </Link>
+              </li>
+              <li>
+                <Link href="/podcasts" className="text-slate-400 hover:text-white transition-colors">
+                  Podcasts
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-slate-400 hover:text-white transition-colors">
                   About SkyStates
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/faq" className="text-slate-400 hover:text-white transition-colors">
                   FAQ
                 </Link>
               </li>
@@ -34,15 +62,25 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Participate</h4>
-            <ul className="space-y-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Participate</h4>
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/submit" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/submit" className="text-slate-400 hover:text-white transition-colors">
                   Share Your Story
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/interview-prep" className="text-slate-400 hover:text-white transition-colors">
+                  Interview Prep Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/glossary" className="text-slate-400 hover:text-white transition-colors">
+                  Technical Glossary
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-slate-400 hover:text-white transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -50,42 +88,61 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Legal &amp; Trust</h4>
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/terms-and-conditions" className="text-slate-400 hover:text-white transition-colors">
                   Terms &amp; Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/affiliation-disclosure" className="text-slate-400 hover:text-white transition-colors">
+                  Affiliation Disclosure
+                </Link>
+              </li>
+              <li>
+                <Link href="/editorial-policy" className="text-slate-400 hover:text-white transition-colors">
+                  Editorial Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/transparency" className="text-slate-400 hover:text-white transition-colors">
+                  Transparency Hub
+                </Link>
+              </li>
+              <li>
+                <Link href="/transparency/updates" className="text-slate-400 hover:text-white transition-colors font-medium">
+                  Transparency Updates Log
+                </Link>
+              </li>
+              <li>
+                <Link href="/opt-out" className="text-slate-400 hover:text-white transition-colors text-amber-300 hover:text-amber-200 font-semibold">
+                  Communications Opt-Out
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <p className="text-gray-400">Learn more about SkyStates and our programs.</p>
-            <p className="mt-3 text-gray-400">Email us: <a className="text-blue-400 underline" href="mailto:support@skyreviews.us">support@skyreviews.us</a></p>
-            {/* LinkedIn button commented out */}
-            {/* <a 
-              href="https://www.linkedin.com/company/skystates" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors mt-4"
-            >
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a> */}
+          <div className="col-span-2 md:col-span-1 space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Connect</h4>
+            <p className="text-xs text-slate-400 leading-relaxed">Learn more about SkyStates and our programs.</p>
+            <p className="text-xs text-slate-400">
+              Email:{" "}
+              <a className="text-blue-400 hover:underline" href="mailto:support@skyreviews.us">
+                support@skyreviews.us
+              </a>
+            </p>
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 SkyReviews. Part of the SkyStates family.
+        <div className="border-t border-slate-800 mt-6 pt-6 text-center">
+          <p className="text-[11px] text-slate-500">
+            © {new Date().getFullYear()} SkyReviews. All rights reserved.
           </p>
         </div>
       </div>

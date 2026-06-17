@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, PlayCircle } from "lucide-react";
-import VideoPlayerModal from "@/components/VideoPlayerModal";
 import { Button } from "@/components/ui/button";
 import type { VideoTestimonial } from "@/data/videoTestimonials";
+import { slugify } from "@/lib/utils";
 
 type VideoTestimonialsSectionProps = {
   items: VideoTestimonial[];
@@ -13,7 +13,6 @@ type VideoTestimonialsSectionProps = {
 
 export default function VideoTestimonialsSection({ items }: VideoTestimonialsSectionProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState<VideoTestimonial | null>(null);
 
   const scrollByAmount = (direction: "left" | "right") => {
     if (!scrollerRef.current) return;
@@ -94,10 +93,9 @@ export default function VideoTestimonialsSection({ items }: VideoTestimonialsSec
                 key={story.id}
                 className="group relative w-[min(88vw,420px)] shrink-0 snap-start"
               >
-                <button
-                  type="button"
+                <Link
+                  href={`/${slugify(story.name)}-sky-states-video-testimonials-review`}
                   className="block w-full text-left"
-                  onClick={() => setActive(story)}
                   aria-label={`Open ${story.title} in full view`}
                 >
                   <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 shadow-[0_28px_70px_-42px_rgba(15,23,42,0.55)] backdrop-blur-xl transition-transform duration-300 group-hover:-translate-y-1">
@@ -152,20 +150,12 @@ export default function VideoTestimonialsSection({ items }: VideoTestimonialsSec
                       <p className="mt-4 text-sm font-semibold text-blue-700">Click to open full view</p>
                     </div>
                   </div>
-                </button>
+                </Link>
               </div>
             ))}
           </div>
         )}
       </div>
-
-      <VideoPlayerModal
-        isOpen={Boolean(active)}
-        onClose={() => setActive(null)}
-        videoUrl={active?.videoUrl ?? ""}
-        title={active?.title ?? ""}
-        alumniName={active?.name ?? ""}
-      />
     </section>
   );
 }

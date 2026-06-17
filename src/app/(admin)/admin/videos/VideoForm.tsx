@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,7 +22,7 @@ type VideoRecord = {
 
 export default function VideoForm({ video }: { video?: VideoRecord | null }) {
   return (
-    <form action={saveVideoTestimonial} className="space-y-6">
+    <form action={saveVideoTestimonial} encType="multipart/form-data" className="space-y-6">
       <input type="hidden" name="videoId" value={video?.id ?? ""} />
 
       <Card className="border-white/10 bg-white/5 text-white shadow-2xl shadow-black/20 backdrop-blur-xl">

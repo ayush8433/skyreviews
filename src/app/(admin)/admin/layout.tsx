@@ -9,7 +9,11 @@ const navItems = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/stories", label: "Stories" },
   { href: "/admin/videos", label: "Videos" },
+  { href: "/admin/certifications", label: "Certifications" },
+  { href: "/admin/placement-managers", label: "Placement Managers" },
+  { href: "/admin/podcasts", label: "Podcasts" },
   { href: "/admin/taxonomy", label: "Categories & Tags" },
+  { href: "/admin/admins", label: "Admin Users" },
 ];
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
@@ -23,7 +27,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             <Link href="/admin" className="text-lg font-semibold text-white">
               SkyReviews Admin
             </Link>
-            <p className="text-sm text-slate-400">Moderate stories and manage video testimonials.</p>
+            <p className="text-sm text-slate-400">Manage content, certifications, and admin accounts.</p>
           </div>
           <div className="flex items-center gap-3">
             <Badge className="bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/15">

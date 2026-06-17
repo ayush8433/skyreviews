@@ -39,12 +39,22 @@ export async function submitStory(formData: FormData) {
       });
     }
 
-    const slug = headline.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    const baseSlug = headline.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    let slug = baseSlug || "story";
+    let count = 1;
+    while (true) {
+      const existing = await prisma.story.findUnique({
+        where: { slug }
+      });
+      if (!existing) break;
+      count++;
+      slug = `${baseSlug}-${count}`;
+    }
 
     await prisma.story.create({
       data: {
         title: headline,
-        slug: slug + '-' + Date.now(),
+        slug: slug,
         content: storyContent,
         publishedAt: toSqliteDateTimeString(new Date()),
         isPublished: false,

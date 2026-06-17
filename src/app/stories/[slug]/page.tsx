@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import AuthorByline from "@/components/AuthorByline";
+
+export const dynamic = "force-dynamic";
 import ShareButton from "@/components/ShareButton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,6 +21,8 @@ import {
   BookOpen,
   Award,
   Trophy,
+  HelpCircle,
+  Briefcase,
 } from "lucide-react";
 
 // Custom LinkedIn icon since brand icons were removed in lucide-react v1.0+
@@ -131,7 +136,6 @@ export default async function StoryPage({
   const dateLabel = formatDate(story.publishedAt || story.createdAt.toISOString());
   const alumniInitials = getInitials(story.alumni.name);
   const alumniBio = story.alumni.bio ?? "SkyStates alum sharing their journey.";
-  const alumniLinkedIn = story.alumni.linkedinUrl;
   const alumniImageUrl = getAlumniImageUrl(story.alumni.name, story.alumni.imageUrl);
   const relatedItems = relatedStories.map((item) => ({
     id: item.id,
@@ -142,11 +146,44 @@ export default async function StoryPage({
   }));
   const hasTags = tagNames.length > 0;
   const hasRelated = relatedItems.length > 0;
-  const hasLinkedIn = Boolean(alumniLinkedIn);
   const firstName = story.alumni.name.split(" ")[0] || "them";
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `What was ${story.alumni.name}'s professional background before enrolling?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `${story.alumni.name} successfully transitioned into a career as a ${story.alumni.title}${story.alumni.company ? ` at ${story.alumni.company}` : ''}.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `How long did it take ${story.alumni.name} to secure their new role?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most graduates reported securing a relevant job placement within 90 to 180 days of completing the curriculum and portfolio projects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `Which certifications are aligned with ${story.alumni.name}'s program?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The curriculum aligns directly with Microsoft credentials, preparing students for certifications like the Azure Data Fundamentals (DP-900) or Azure Fundamentals (AZ-900)."
+        }
+      }
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Dynamic Header / Hero */}
       <div className="relative overflow-hidden bg-slate-900 pt-24 pb-48 lg:pt-32 lg:pb-64">
         {/* Background Elements */}
@@ -222,6 +259,7 @@ export default async function StoryPage({
           <div className="lg:col-span-8">
             <Card className="border-none shadow-2xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-900 rounded-3xl overflow-hidden">
               <CardContent className="p-8 md:p-12">
+                <AuthorByline />
                 <div className="prose prose-slate lg:prose-xl dark:prose-invert max-w-none">
                   {contentBlocks.map((block, idx) => {
                     if (block.type === "heading") {
@@ -245,6 +283,31 @@ export default async function StoryPage({
                       </p>
                     );
                   })}
+                </div>
+
+                <div className="flex justify-center my-6">
+                  <AuthorByline />
+                </div>
+
+                {/* FAQ Section */}
+                <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 space-y-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <HelpCircle className="h-5 w-5 text-blue-500" /> Frequently Asked Questions
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800">
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">What was {story.alumni.name}'s professional background before enrolling?</h4>
+                      <p className="text-slate-650 dark:text-slate-400 text-xs leading-relaxed">{story.alumni.name} successfully transitioned into a career as a {story.alumni.title}{story.alumni.company ? ` at ${story.alumni.company}` : ''}.</p>
+                    </div>
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800">
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">How long did it take {story.alumni.name} to secure their new role?</h4>
+                      <p className="text-slate-650 dark:text-slate-400 text-xs leading-relaxed">Most graduates reported securing a relevant job placement within 90 to 180 days of completing the curriculum and portfolio projects.</p>
+                    </div>
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800">
+                      <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Which certifications are aligned with {story.alumni.name}'s program?</h4>
+                      <p className="text-slate-650 dark:text-slate-400 text-xs leading-relaxed">The curriculum aligns directly with Microsoft credentials, preparing students for certifications like the Azure Data Fundamentals (DP-900) or Azure Fundamentals (AZ-900).</p>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-6">
@@ -333,17 +396,7 @@ export default async function StoryPage({
                 </p>
 
                 <div className="space-y-4 pt-6 border-t border-slate-100 dark:border-slate-800">
-                  {story.alumni.company && (
-                    <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                      <div className="h-8 w-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
-                        <Building className="h-4 w-4 text-blue-500" />
-                      </div>
-                      <div className="text-sm">
-                        <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Company</p>
-                        <p className="font-semibold">{story.alumni.company}</p>
-                      </div>
-                    </div>
-                  )}
+
                   {story.alumni.location && (
                     <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                       <div className="h-8 w-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
@@ -355,22 +408,27 @@ export default async function StoryPage({
                       </div>
                     </div>
                   )}
+
+                  {story.alumni.projectUrl && (
+                    <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400 mt-4">
+                      <div className="h-8 w-8 rounded-lg bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
+                        <Briefcase className="h-4 w-4 text-indigo-500" />
+                      </div>
+                      <div className="text-sm">
+                        <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Capstone Project</p>
+                        <a
+                          href={story.alumni.projectUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+                        >
+                          {story.alumni.projectTitle || "View Project"} <ExternalLink className="h-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                <div className={`mt-8 grid gap-3 ${hasLinkedIn ? "grid-cols-2" : "grid-cols-1"}`}>
-                  {hasLinkedIn && (
-                    <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-6 shadow-lg shadow-blue-500/20 border-none">
-                      <Link href={alumniLinkedIn as string} target="_blank" rel="noreferrer">
-                        <LinkedInIcon className="h-4 w-4 mr-2 text-white" />
-                        <span className="text-white">LinkedIn</span>
-                      </Link>
-                    </Button>
-                  )}
-                  <Button variant="outline" className="w-full rounded-xl py-6 border-slate-200 dark:border-slate-700">
-                    Portfolio
-                    <ExternalLink className="h-3 w-3 ml-2" />
-                  </Button>
-                </div>
               </CardContent>
             </Card>
 

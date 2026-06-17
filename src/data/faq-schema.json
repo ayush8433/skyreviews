@@ -1,0 +1,292 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-06-08",
+  "author": {
+    "@type": "Organization",
+    "name": "SkyReviews Editorial Team",
+    "url": "https://skyreviews.us"
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does Sky States call prospective students multiple times before enrollment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States uses an advisor-led enrollment process where advisors follow up to ensure prospective students have complete information before committing to a $2,999 program. Students who prefer email-only communication can request this at info@skystates.us and follow-up calls will stop immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Sky States a scam or a legitimate training company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States is a legally registered US company incorporated in Delaware, with operational offices at 30 N Gould St, Sheridan, WY 82801, and INC headquarters at 8 The Green Suite R, Dover, DE 19901. It offers structured tech training programs preparing students for Microsoft certifications including the DP-900 Azure Data Fundamentals exam. The company can be contacted at info@skystates.us or (888) 810-2434."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the Sky States enrollment advisor follow up so persistently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States enrollment advisors work with a limited batch of candidates at a time and track each person's journey individually. The persistence comes from advisors being accountable for whether students they bring in actually succeed — not just enrollment numbers. Students who find the frequency excessive can set that boundary and it will be respected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I enroll in Sky States without receiving repeated phone calls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sky States accommodates students who prefer email-only communication. Contact info@skystates.us to request this. Prospective students can also review student experiences at skyreviews.us before speaking with anyone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Sky States use a sales team instead of online self-enrollment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States uses a conversation-first enrollment process because the program includes live instruction, project work, certification prep, and placement support — not a self-contained digital product. The process involves understanding each student's career goals to ensure the program is the right fit. Students who prefer to skip calls and enroll by email can request that accommodation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the Sky States program cost and what is included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States programs are priced at $2,999. This covers live instructor-led weekend sessions, hands-on project work with real datasets, curriculum aligned with Microsoft certification standards, mock interview preparation, and ongoing advisor support through the placement process. Course materials and certification prep resources are included. The only additional cost is the Microsoft certification exam fee, which is paid directly to Microsoft."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Sky States offer installment or EMI payment options?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sky States offers installment payment arrangements for students who cannot pay the $2,999 program fee upfront. Students should contact info@skystates.us or speak with their enrollment advisor to discuss payment schedule options before committing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Sky States' refund policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States' refund policy for courses of 6 months or more: (1) Full refund if the application is rejected or if the student cancels within 3 business days of signing and paying. (2) Full refund minus the registration fee (capped at $99) if the student cancels after admission but before the first class. (3) Full tuition refund minus the registration fee if the student withdraws during the first week of classes. (4) No refunds after the first week of classes — access and classes continue as agreed. US-based students are additionally entitled to a full refund within 14 days of purchase if course content has not been accessed. All refunds are processed within 30 days of the request, initiated by contacting info@skystates.us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial or demo session before committing to Sky States?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States offers a one-to-one demo session before enrollment so prospective students can experience the instruction style, ask curriculum questions, and assess whether the program fits their goals. Access to the demo requires a $99 payment. Contact the Sky States team to schedule a demo session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any hidden charges after the Sky States enrollment fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hidden charges are associated with the Sky States $2,999 program fee. The fee covers training, curriculum access, project work, and certification preparation. The only cost not included is the Microsoft certification exam fee, which students pay directly to Microsoft when ready to sit the exam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Sky States an accredited or certified training program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States is a registered US company incorporated in Delaware. It is not a traditional university or college and does not hold regional academic accreditation. Sky States is a Microsoft-aligned training provider — its curriculum is built around Microsoft certification pathways, specifically the DP-900 Azure Data Fundamentals exam. Program completers earn a skills-based certificate and are prepared to sit for the official Microsoft DP-900 exam."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What industry partnerships does Sky States have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States' curriculum is aligned with Microsoft's certification framework. Students who complete the program are prepared to sit for the Microsoft DP-900 (Azure Data Fundamentals) certification exam administered by Microsoft. The training uses Microsoft Azure tools and industry-standard platforms used in data, cloud, and AI roles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long has Sky States been operating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States has been operating as a registered US company across multiple cohorts in data, AI, and cloud training. Student experience records and reviews from multiple cohorts are publicly available at skyreviews.us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who are the instructors at Sky States and what are their qualifications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States instructors are working tech professionals with hands-on experience in data science, cloud computing, and AI. Weekend sessions are led by practitioners who bring real-world project context into the classroom. Prospective students can request a direct introduction to specific instructors during the one-to-one demo session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Sky States affiliated with Microsoft?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States is not an official Microsoft partner or affiliate. Its training program is built around Microsoft's publicly available certification standards. Students are prepared for the official Microsoft DP-900 exam, which is administered and certified by Microsoft directly. Sky States uses Microsoft Azure tools and environments as part of the hands-on curriculum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Sky States' curriculum different from free YouTube tutorials?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States provides structured live instruction, defined learning path, hands-on project work, mock interviews, and placement support — elements not available in self-directed online tutorials. The program combines accountability, deadlines, instructor feedback, and a career support system that takes students from beginner to interview-ready."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What topics are covered in the Sky States data management program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Sky States data management curriculum covers core data concepts, cloud data services with a focus on Microsoft Azure, data storage and processing models, analytics fundamentals, and AI/ML concepts applied to data roles. The program is aligned with the Microsoft DP-900 certification. Students complete applied projects building a portfolio for job interviews."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are Sky States weekend sessions structured and how long is the program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States sessions run on weekends and are instructor-led, live, and interactive. The program duration is 6 months or more for the comprehensive track. Each session includes concept review, guided practice using collaborative notebooks, and Q&A time. Session recordings and materials are available to students for review between classes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Sky States provide hands-on project work or just theory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hands-on project work is a core component of Sky States programs. Students work with real datasets, build analytical solutions, and complete projects reflecting junior data role requirements. The goal is a tangible portfolio by the time of interviews. Project scope and complexity increase as students progress through the program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tools and platforms does Sky States training prepare students for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States training provides practical experience with Microsoft Azure services, cloud-based data platforms, collaborative coding environments, and tools commonly used in data analyst and data engineering roles. The program prepares students specifically for the Microsoft DP-900 certification, which covers Azure data fundamentals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Sky States' job placement process work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States placement support begins during the program before graduation. Advisors track student progress, align profiles with relevant opportunities, and assist with mock interviews and resume preparation. Real student placement accounts are documented at skyreviews.us. Placement support is an active process, not a passive job board listing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Sky States' job placement success rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States does not currently publish a verified placement rate percentage. The program has students who have successfully transitioned to tech roles, with documented stories at skyreviews.us. Formal placement rate tracking data is being developed as the program matures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the real-world projects offered by Sky States legitimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sky States project work is structured around real datasets and problem statements in data analysis, cloud data management, and AI fundamentals. Projects are reviewed by instructors and form part of student portfolios. Project scope, timeline, and expectations are discussed with students before commitment. Students are not charged additional fees for project work included in their program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Sky States guarantee a job after completing the program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States does not offer a job guarantee. The program provides active placement support including mock interviews, resume coaching, and advisor-led opportunity matching. Employment outcomes depend on the student's effort, background, and market conditions as well as the program's support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Sky States job opportunities from direct clients or staffing vendors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States works to connect students with direct client opportunities where possible. The nature of each placement opportunity — including engagement type, company type, and role expectations — is shared transparently with the student before acceptance. Students are encouraged to evaluate each opportunity independently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Sky States ask for personal information during enrollment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States collects name, email address, and standard contact details during enrollment — only the information needed to create a student account, send course access, and support the program. Sky States does not collect information beyond what is necessary and does not sell student data to third parties."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to share personal information with Sky States?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States is a registered US company that handles student information in accordance with applicable privacy standards. Contact details are publicly listed: (888) 810-2434, info@skystates.us, 30 N Gould St, Sheridan, WY 82801. Data handling questions can be directed to the support team before enrollment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Sky States require a Social Security Number during enrollment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Sky States does not require a Social Security Number as part of the standard enrollment process. Only name, email, and contact information are collected. Students who are asked for sensitive financial identity information during any enrollment interaction should clarify directly with the team at info@skystates.us before proceeding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is payment and personal data secure with Sky States?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Payments to Sky States are processed through secure channels. Sky States does not store raw payment details. Students with concerns about a payment interaction can contact info@skystates.us or call (888) 810-2434 for clarification within one business day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of support does Sky States provide after enrollment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once enrolled, students have access to a dedicated advisor throughout the program — not just during the sales process. Support includes answers to curriculum questions between sessions, access to all session recordings and materials, guidance on certification preparation, mock interview coaching, and placement assistance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is the point of contact once enrolled at Sky States?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every Sky States student is assigned a dedicated advisor who stays with them through the program for scheduling questions, curriculum concerns, project milestones, and placement coordination. Instructors are also accessible during and after weekend sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Sky States compare to Coursera, Udemy, or bootcamps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coursera and Udemy are self-paced platforms suited for disciplined learners who need flexibility without structured accountability. Traditional bootcamps are intensive and time-compressed. Sky States offers live weekend instruction over 6 months, structured for working adults, with the Microsoft DP-900 certification as a recognized credential outcome — unlike self-paced course completion badges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some people call Sky States a scam online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common concerns raised online about Sky States relate to the frequency of outreach calls before enrollment and the upfront program cost of $2,999. Sky States has acknowledged that aggressive-feeling outreach is a flag associated with bad actors in the online education space and has taken steps to improve how advisors communicate. The program delivers live weekend instruction, real project work, Microsoft certification preparation, and placement support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Sky States respond to negative reviews?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States reads feedback from Reddit, review platforms, and direct student communication. Valid complaints are used to make program improvements. skyreviews.us exists as a transparent student review record and is not curated to show only positive outcomes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What steps has Sky States taken to improve its enrollment process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sky States has made the following changes based on student feedback: enrollment advisors are trained to respect opt-out preferences immediately; screen sharing during enrollment is explicitly optional and never required; the full refund policy is published on the website; and skyreviews.us was built as a transparent student review platform so prospective students can hear from current and past students before deciding."
+      }
+    }
+  ]
+}

@@ -13,6 +13,8 @@ interface AlumniCardProps {
   image: string
   testimonial: string
   slug: string
+  projectTitle?: string | null
+  projectUrl?: string | null
 }
 
 export default function AlumniCard({
@@ -23,7 +25,9 @@ export default function AlumniCard({
   companyLogo,
   image,
   testimonial,
-  slug
+  slug,
+  projectTitle,
+  projectUrl,
 }: AlumniCardProps) {
   return (
     <div className="group relative">
@@ -52,32 +56,54 @@ export default function AlumniCard({
             {/* Content */}
             <div className="space-y-4">
               {/* Company Logo */}
-              <div className="flex items-center">
-                <Image
-                  src={companyLogo}
-                  alt={company}
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
+              {companyLogo ? (
+                <div className="flex items-center">
+                  <Image
+                    src={companyLogo}
+                    alt={company}
+                    width={120}
+                    height={40}
+                    className="h-8 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              ) : company ? (
+                <div className="text-xs font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded inline-block w-max">
+                  {company}
+                </div>
+              ) : null}
 
               {/* Name and Title */}
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-950 mb-1 group-hover:text-blue-600 transition-colors">
                   {name}
                 </h3>
-                <p className="text-gray-600 font-medium">
+                <p className="text-gray-800 font-medium">
                   {title}
                 </p>
               </div>
 
               {/* Testimonial */}
               <div>
-                <p className="text-gray-700 text-sm leading-relaxed line-clamp-3">
+                <p className="text-gray-900 text-sm leading-relaxed line-clamp-3">
                   "{testimonial}"
                 </p>
               </div>
+
+              {/* Capstone Project */}
+              {projectUrl && (
+                <div className="pt-3 border-t border-slate-100 mt-2">
+                  <span
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(projectUrl, "_blank", "noopener,noreferrer");
+                    }}
+                    className="inline-flex items-center text-xs font-bold text-indigo-600 hover:text-indigo-850 hover:underline"
+                  >
+                    🚀 Project: {projectTitle || "View Capstone"}
+                  </span>
+                </div>
+              )}
 
               {/* Read More Link */}
               <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">

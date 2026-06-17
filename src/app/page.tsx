@@ -9,6 +9,8 @@ import { getAlumniImageUrl, heroAlumniImages } from "@/lib/alumni-images";
 import { prisma } from "@/lib/prisma";
 import { videoTestimonials } from "@/data/videoTestimonials";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Sky States Students Testimonials | SkyReviews",
   description: "Read Sky States student testimonials about real career journeys, mentorship, and outcomes in tech.",
@@ -18,7 +20,6 @@ export default async function Home() {
   const latestStories = await prisma.story.findMany({
     where: { isPublished: true },
     include: { alumni: true },
-    take: 6,
     orderBy: { publishedAt: "desc" },
   });
 
@@ -40,13 +41,56 @@ export default async function Home() {
         "https://placehold.co/400x300/e2e8f0/1e293b?text=" + encodeURIComponent(story.alumni.name),
       testimonial: firstParagraph.substring(0, 150) + (firstParagraph.length > 150 ? "..." : ""),
       slug: story.slug,
+      projectTitle: story.alumni.projectTitle,
+      projectUrl: story.alumni.projectUrl,
     };
   });
 
   const headerVideos = testimonialVideos.length > 0 ? testimonialVideos : videoTestimonials;
 
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Sky States",
+    "url": "https://skystates.us",
+    "logo": "https://skyreviews.us/logo.png",
+    "sameAs": [
+      "https://skyreviews.us"
+    ],
+    "location": [
+      {
+        "@type": "Place",
+        "name": "Wyoming Operations",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "30 N Gould St",
+          "addressLocality": "Sheridan",
+          "addressRegion": "WY",
+          "postalCode": "82801",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Delaware Headquarters",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8 The Green Suite R",
+          "addressLocality": "Dover",
+          "addressRegion": "DE",
+          "postalCode": "19901",
+          "addressCountry": "US"
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <VideoTestimonialsSection items={headerVideos} />
 
       {/* Hero Section */}
