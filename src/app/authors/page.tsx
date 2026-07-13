@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -7,9 +8,33 @@ export const metadata: Metadata = {
   description: "Browse profile articles, credentials, and review histories of our editorial staff.",
 };
 
+const authorsSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Preeti S.",
+  "url": "https://skyreviews.us/authors",
+  "jobTitle": "Senior Technical Education Reviewer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "SkyReviews",
+    "url": "https://skyreviews.us"
+  },
+  "knowsAbout": [
+    "Data Analytics",
+    "Data Science",
+    "Tech Bootcamps",
+    "Career Transitions"
+  ]
+};
+
 export default function AuthorsPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4">
+      <Script
+        id="authors-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(authorsSchema) }}
+      />
       <div className="container mx-auto max-w-3xl bg-white rounded-2xl border border-slate-200 p-8 shadow-xs space-y-6">
         <h1 className="text-3xl font-extrabold text-slate-900 border-b border-slate-100 pb-4 flex items-center gap-2">
           <BookOpen className="w-8 h-8 text-blue-600" /> Author Index

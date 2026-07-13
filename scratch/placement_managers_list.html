@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AESTHETE | The Architects of Career Transformation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Geist:wght@300;400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Shared Component Styling & Hierarchy -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d5e3fd",
+                        "on-surface-variant": "#45464d",
+                        "inverse-surface": "#31302d",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "background": "#fcf9f4",
+                        "navy-light": "#1E293B",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2dd",
+                        "ochre": "#B38B4D",
+                        "tertiary-container": "#271901",
+                        "inverse-primary": "#bec6e0",
+                        "ivory-dark": "#F5F1E9",
+                        "on-primary-container": "#7c839b",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface": "#fcf9f4",
+                        "surface-variant": "#e5e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "primary": "#000000",
+                        "surface-dim": "#dcdad5",
+                        "outline-variant": "#c6c6cd",
+                        "primary-container": "#131b2e",
+                        "on-tertiary-fixed": "#271901",
+                        "sage": "#708271",
+                        "surface-container-low": "#f6f3ee",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#57657b",
+                        "surface-container": "#f0ede9",
+                        "inverse-on-surface": "#f3f0eb",
+                        "outline": "#76777d",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "tertiary-fixed": "#fcdeb5",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "primary-fixed": "#dae2fd",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-container": "#98805d",
+                        "surface-container-high": "#ebe8e3",
+                        "secondary-container": "#d5e3fd",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf9f4",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "surface-tint": "#565e74",
+                        "secondary": "#515f74",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "gutter": "32px",
+                        "section-gap": "160px",
+                        "unit": "8px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Geist"],
+                        "serif-italic": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "30px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "serif-italic": ["20px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .architectural-grid {
+            background-image: 
+                linear-gradient(to right, rgba(179, 139, 77, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(179, 139, 77, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-nav {
+            background: rgba(252, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .concierge-cta {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .concierge-cta::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: #B38B4D;
+            z-index: -1;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .concierge-cta:hover::after {
+            height: 100%;
+        }
+        .concierge-cta:hover {
+            color: white;
+            border-color: #B38B4D;
+        }
+        .dossier-card:hover .dossier-image {
+            transform: scale(1.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-ochre selection:text-white">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-ivory-dark">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase tracking-tighter text-primary">AESTHETE</span>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-ochre transition-colors" href="#">Insights</a>
+<a class="font-label-caps text-label-caps tracking-widest text-primary border-b border-ochre pb-1" href="#">Placements</a>
+<a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-ochre transition-colors" href="#">Strategy</a>
+<a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-ochre transition-colors" href="#">Archive</a>
+</div>
+<button class="bg-primary text-white font-label-caps text-label-caps tracking-widest px-6 py-3 hover:bg-ochre transition-all duration-300">
+                Consultation
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative pt-40 pb-section-gap px-margin-mobile md:px-margin-desktop min-h-[819px] flex flex-col justify-center overflow-hidden">
+<div class="absolute inset-0 architectural-grid pointer-events-none opacity-40"></div>
+<div class="relative z-10 max-w-7xl mx-auto w-full">
+<div class="flex flex-col md:flex-row items-start gap-12">
+<div class="w-full md:w-3/4">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 leading-[1.1]">
+                        THE ARCHITECTS OF <br/>
+<span class="italic font-normal">CAREER TRANSFORMATION</span>
+</h1>
+<div class="w-32 h-px bg-ochre mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Meet the elite collective of placement managers engineering professional trajectories at the intersection of ambition and opportunity.
+                    </p>
+</div>
+<div class="hidden md:block w-1/4 pt-12">
+<div class="border-l border-ivory-dark pl-8 space-y-6">
+<div>
+<p class="font-label-caps text-label-caps text-ochre mb-1">ESTABLISHED</p>
+<p class="font-body-md text-body-md font-semibold uppercase">MCMXCVIII</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-ochre mb-1">NETWORK VALUE</p>
+<p class="font-body-md text-body-md font-semibold uppercase">$4.2B ARR</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Manager Gallery - Asymmetrical Editorial Grid -->
+<main class="px-margin-mobile md:px-margin-desktop pb-section-gap">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-x-gutter gap-y-32">
+<!-- Ujjwal Jaiswal -->
+<article class="col-span-1 md:col-span-7 dossier-card">
+<div class="relative aspect-[16/10] overflow-hidden mb-8 border border-ivory-dark">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="A sophisticated editorial portrait of Ujjwal Jaiswal, a South Asian executive placement manager. He is sitting in a minimalist, light-filled architectural office with concrete walls and floor-to-ceiling windows. The lighting is soft and cinematic, utilizing a quiet luxury aesthetic with muted tones of ivory and charcoal. He wears a tailored navy blazer, looking thoughtfully away from the camera." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5UfFio6V_QqVzCPM2uYQ76uj1kutlN0zy5n1XsyWcjJbKRfIX5Jp2QFTQMl4Qss08OHX0aq6Msxmb1YXx_Qv6q_mBm_novZVYsJkmK1xH64s-z5PhR1Qdae8uJGjdK1FWGVjhEjfAKPfndHq8FrID8TP5OX5APMnsidcq-sSJ12rwTq91iEEecHpbcp5f2mK81dJk8VPPeTmLb-wUgKKvJumVqdxpZ2-EteScp5uLcd_lHC_vLkVrUGsfwDtwaICWD0UhWh0YOwY"/>
+<div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 flex items-center gap-2 border border-ivory-dark">
+<span class="material-symbols-outlined text-ochre" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-widest uppercase">Verified Team</span>
+</div>
+</div>
+<div class="md:pl-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Ujjwal Jaiswal</h2>
+<p class="font-label-caps text-label-caps text-ochre mb-6 uppercase">Hiring Mentor & Senior Partner</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-8">
+                            Architect of executive transitions for Fortune 500 tech leaders, specializing in bridging the gap between legacy infrastructure and generative future-states.
+                        </p>
+<button class="concierge-cta border border-outline px-8 py-4 font-label-caps text-label-caps tracking-widest uppercase inline-flex items-center gap-3">
+                            View Portfolio & Reviews
+                            <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</article>
+<!-- Kajal Pippal (Kelly) -->
+<article class="col-span-1 md:col-span-5 md:mt-40 dossier-card">
+<div class="relative aspect-[4/5] overflow-hidden mb-8 border border-ivory-dark">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="A professional environmental portrait of Kajal Pippal (Kelly), an Asian woman in a high-end corporate setting. She is standing against a textured plaster wall with a single piece of abstract minimalist art. The lighting is directional and dramatic, casting soft shadows. She wears a high-neck silk blouse in champagne ivory, exuding quiet authority and professional elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5mNxFL4NJd9qMl9fNrranysBvwk6l5BykkA5CG6e-1zmqHCOCxlO965ot46-9kkbQqeaTa9vwjGNTVq8I3A0vqc38vG0vlWpEF9vffat_A50Dr84RrtepajrRHMNNU-EQQ3yP5eYT0hmm9cHlh4v8pUaLdO6PhDggLb45P6Ai_I_n79YMUAmQu3VMprQr0UebdChWHbWRz918VncUcqJMV81C_dOpWgWR-1YgK9x63GEhUpH1fOaiY7BwBbZOK1SUcqbKXizSN4Y"/>
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 flex items-center gap-2 border border-ivory-dark">
+<span class="material-symbols-outlined text-ochre" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] tracking-widest uppercase">Verified Team</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Kajal Pippal (Kelly)</h2>
+<p class="font-label-caps text-label-caps text-ochre mb-4 uppercase">Lead Placement Director</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            Curating specialized talent pipelines for the world's most secretive private equity firms and family offices.
+                        </p>
+<button class="concierge-cta border border-outline px-6 py-3 font-label-caps text-label-caps tracking-widest uppercase inline-flex items-center gap-3">
+                            Dossier
+                            <span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+</article>
+<!-- Jasdev Singh -->
+<article class="col-span-1 md:col-span-4 dossier-card">
+<div class="relative aspect-[4/5] overflow-hidden mb-8 border border-ivory-dark">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="Close-up editorial portrait of Jasdev Singh, a man of Indian descent with a sharp, groomed beard and glasses. He is in a modern library with dark wood paneling and soft warm lighting. The atmosphere is intellectual and refined. He wears a tailored grey sweater and is captured in a candid, intelligent expression. High-end lifestyle photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrTVFN6OSFmR31gPS9IZSCRZT3MbzGLldtJAZshHDWJ7XrXDa5XKFRjnKWUjYMkXX-wFALUlhH9RI7wPKbiBS8jEowlS-0YNwBMnjQ8CJOFHUVdrnkzKE2wXIDwtSJUZNKvkmEaAzyBNLYEpoorBfVYcQo7AscLekorQYlpflC8BSdEtqiBlJiG5a0kbTX2CYAft6BKEUDW6gs15PcpUjWZ8ff97EgtqsKxx9ztPsluyWKGVIetZR0xqCRtetnXhQmnzGQBBnqM4g"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Jasdev Singh</h2>
+<p class="font-label-caps text-label-caps text-ochre mb-4 uppercase">Strategy Consultant</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        An expert in narrative repositioning, helping mid-career professionals break through the glass ceiling into C-suite roles.
+                    </p>
+<button class="concierge-cta border border-outline px-6 py-3 font-label-caps text-label-caps tracking-widest uppercase">Portfolio</button>
+</article>
+<!-- Sarah Jenkins -->
+<article class="col-span-1 md:col-span-8 dossier-card md:flex gap-12 items-center">
+<div class="md:w-1/2 relative aspect-square overflow-hidden border border-ivory-dark mb-8 md:mb-0">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="A portrait of Sarah Jenkins, a professional woman with blonde hair in a sleek bun. She is in a minimalist loft space with large windows overlooking a city skyline at dusk. The lighting is cool-toned and sophisticated. She wears a structured black dress and minimalist gold jewelry. The image feels like a high-fashion editorial magazine feature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVEWkeUrlHaLqIJ2gZvJKM1EL_m_XFhxIwIzN72-w_nwGt1QAVGnd9SCZUFg-OAvbWhoD6ntLW0aI4Mh1R5DgcRkO8kx29dPQcbdEM-5dSeTWOzoCPMhQ6YlCs1OFzBhAPkVOMDXnt_SFoEwtqqCGj6bSdR1V20UWazyTdq676W0-wABzHlO4Qq8QuFJxkJcAl9yvYbO5EdaEYn2JPpKOTfsvwqQwGYww9Atf1UM89VLukR_zYqIimsM_Yh9D93d_6U_T1hg-ILFQ"/>
+</div>
+<div class="md:w-1/2">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-ochre" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Certified Senior Partner</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 leading-tight">Sarah Jenkins</h2>
+<p class="font-serif-italic text-serif-italic text-on-surface-variant mb-6 italic">"Career progression is not a ladder, but a series of curated high-stakes moves."</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            Sarah leads our European division, facilitating global mobility for elite candidates across London, Zurich, and Milan.
+                        </p>
+<button class="concierge-cta border border-outline px-8 py-4 font-label-caps text-label-caps tracking-widest uppercase inline-flex items-center gap-3">
+                            View Portfolio & Reviews
+                            <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</article>
+<!-- Marcus Thompson & Emily Rodriguez Row -->
+<article class="col-span-1 md:col-span-6 dossier-card">
+<div class="relative aspect-[16/9] overflow-hidden mb-8 border border-ivory-dark">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="A cinematic portrait of Marcus Thompson, a Black man in a dark charcoal suit. He is standing in a grand, modern lobby with marble floors and warm accent lighting. The mood is powerful yet understated. He is looking directly at the camera with a confident, welcoming smile. Quiet luxury aesthetic with deep contrast and rich textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2onXkpPxyNc8LFLcW5BsE_ZlmIFvEpJuMyPXG9SoZrVamM84AAPhJKhK1ow-TJv0Fa2J1Fv7rLKfQRiYm4lcPkXkMZNRF12hYNcrOtYv5G1nShTdJXsRYADaZK4FBh3panNBxEeTBVhXrq4DHBOZaRrFIVfG58td9roXjWtVUj34oCI46cKHAiAFNBRWsyUMrKhs1hqGXmE3u76XuLB0ECdnUrWB29VnQS8MPqlTgEOHz9_xcyRcUtqb829B0SO2wYLHvOIkURvk"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Marcus Thompson</h2>
+<p class="font-label-caps text-label-caps text-ochre mb-4 uppercase">Lead Talent Scout</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-md">
+                        Master of identifying 'dark-horse' candidates and preparing them for unprecedented pivots into emerging sectors.
+                    </p>
+<button class="concierge-cta border border-outline px-6 py-3 font-label-caps text-label-caps tracking-widest uppercase">Dossier</button>
+</article>
+<article class="col-span-1 md:col-span-6 dossier-card md:mt-24">
+<div class="relative aspect-[16/9] overflow-hidden mb-8 border border-ivory-dark">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="Environmental portrait of Emily Rodriguez, a Hispanic woman with long dark hair. She is in a botanical-themed office with large green plants and natural wood furniture. Soft, natural sunlight filters through sheer curtains. She wears a sage green silk top and neutral trousers. The vibe is calm, professional, and organic. High-end lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQn3E-oydA3rFmmp5xJ_bqvj5GJ0138VQUfP4yQzxbAALl25OgzXucZNCMDvRg-F1JbDrvzK8HUVsbbiH4rXJzuD-YeNJKB2iDjwYdXCowqU--KDmq1HapwZjV56_rCoH6dYhfeTn2AX7XmIhmmGHWUQUN42103YDzWzrId6DxMZAdeQyh5JBqMyFiKWq6ucMzcK1eLPth2ndaEOl4IkgSiu2Px5aK6Dh94m-DqVR1d-x6xYbre9iNr4dZOemZaHkU5AfRLqHG4Q4"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Emily Rodriguez</h2>
+<p class="font-label-caps text-label-caps text-ochre mb-4 uppercase">Career Strategist</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-md">
+                        Specializing in 'The Return'—re-entering the workforce at peak performance after intentional career hiatuses or entrepreneurial ventures.
+                    </p>
+<button class="concierge-cta border border-outline px-6 py-3 font-label-caps text-label-caps tracking-widest uppercase">Dossier</button>
+</article>
+<!-- David Kim -->
+<article class="col-span-1 md:col-span-10 md:col-start-2 dossier-card">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-ivory-dark/50 p-8 md:p-16 border border-ivory-dark">
+<div class="relative aspect-[4/3] overflow-hidden border border-white">
+<img class="w-full h-full object-cover transition-transform duration-700 dossier-image" data-alt="A powerful portrait of David Kim, an East Asian man in a bespoke black tuxedo jacket. He is standing in a dimly lit, high-end private club with leather chairs and amber lighting. He has an air of wisdom and immense experience. The portrait is high-contrast black and white, exuding timelessness and elite status. Quiet luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYosJQnPyOI_-MjUS2GzrhMhAXV8cjhb25-7yTUIOMY3ODi6mp8EWugffnio5beMcwCP1q5IVpNHzv92yEoKKzBdAlP943JTVn-JHYB4CNeaO4EKlgvzelz51819pH9GFewY1yVmR-LJiHoWBtXU7dtLGb4nSRErib6ay9K7LqAy8_KnUIeYSmqh5Qp6CEF__jMc9UItrjzSFzdKPt0Q__s8TiUlDYiS2JfaY-VHQWdbbLtVd4DSN-s1MZ23fRAMFwDgJtMgavVrQ"/>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-ochre uppercase mb-4 block">Managing Principal</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">David Kim</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                                The architect behind the firm's placement philosophy. David has personaly engineered over 400 executive transitions for some of the world's most influential boardrooms.
+                            </p>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">Tenure</p>
+<p class="font-body-md font-bold">22 YEARS</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase">Specialty</p>
+<p class="font-body-md font-bold">C-SUITE / BOARD</p>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-5 font-label-caps text-label-caps tracking-[0.2em] uppercase hover:bg-ochre transition-all duration-500">
+                                Request Private Consultation
+                            </button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- Final Section / Stats -->
+<section class="bg-primary text-white py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden relative">
+<div class="absolute inset-0 architectural-grid opacity-10 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-end">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-12">
+                        READY TO <br/>
+<span class="italic font-normal">RE-ENGINEER?</span>
+</h2>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-md mb-16">
+                        Step into a partnership where your professional trajectory is treated as an architectural masterpiece.
+                    </p>
+<button class="group relative px-12 py-6 border border-white font-label-caps text-label-caps tracking-widest uppercase hover:bg-ochre hover:border-ochre transition-all duration-500 overflow-hidden">
+<span class="relative z-10">Schedule a Career Talk</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-y-16 gap-x-12 border-l border-white/20 pl-12">
+<div>
+<p class="font-label-caps text-[10px] text-ochre mb-2 uppercase tracking-widest">Efficiency Metric</p>
+<p class="font-mono text-4xl font-light">94.8%</p>
+<p class="font-body-md text-surface-variant/60 mt-1">Placement Retention</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-ochre mb-2 uppercase tracking-widest">Time-to-Offer</p>
+<p class="font-mono text-4xl font-light">42<span class="text-xl">D</span></p>
+<p class="font-body-md text-surface-variant/60 mt-1">Median Duration</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-ochre mb-2 uppercase tracking-widest">Portfolio ROI</p>
+<p class="font-mono text-4xl font-light">127%</p>
+<p class="font-body-md text-surface-variant/60 mt-1">Salary Delta Avg.</p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-ochre mb-2 uppercase tracking-widest">Trust Index</p>
+<p class="font-mono text-4xl font-light">4.9/5</p>
+<p class="font-body-md text-surface-variant/60 mt-1">Client Satisfaction</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background border-t border-ivory-dark py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div>
+<span class="font-display-lg text-display-lg-mobile text-primary mb-8 block uppercase tracking-tighter">AESTHETE</span>
+<p class="font-body-md text-on-surface-variant max-w-sm">
+                    Refining the elite career path through strategic intuition and unparalleled industry access.
+                </p>
+</div>
+<div class="flex flex-col md:items-end justify-between">
+<div class="flex gap-8 mb-12">
+<a class="font-body-md text-on-surface-variant hover:text-primary underline transition-all" href="#">System Status</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary underline transition-all" href="#">Legal Heritage</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary underline transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact Concierge</a>
+</div>
+<p class="font-body-md text-on-surface-variant opacity-60">
+                    © 2024 Elite Career Transformation. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll parallax effect for manager cards
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.dossier-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const visible = rect.top < window.innerHeight && rect.bottom > 0;
+                if (visible) {
+                    const speed = 0.05;
+                    const yPos = (window.innerHeight - rect.top) * speed;
+                    const img = card.querySelector('.dossier-image');
+                    if (img) {
+                        img.style.transform = `translateY(${yPos - 20}px) scale(1.1)`;
+                    }
+                }
+            });
+        });
+
+        // Initialize micro-interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.98)';
+                btn.style.opacity = '0.8';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+                btn.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

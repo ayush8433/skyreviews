@@ -4,8 +4,8 @@ import { Landmark, ShieldAlert, Check } from "lucide-react";
 import AuthorByline from "@/components/AuthorByline";
 
 export const metadata: Metadata = {
-  title: "Ownership & Affiliation Disclosure | SkyReviews",
-  description: "Detailed ownership structure of SkyReviews.us and relationship with Sky States.",
+  title: "Ownership & Editorial Disclosure | SkyReviews",
+  description: "Detailed ownership structure and editorial disclosure of SkyReviews.us.",
 };
 
 export default function OwnershipPage() {
@@ -29,12 +29,12 @@ export default function OwnershipPage() {
           <div className="flex gap-3">
             <ShieldAlert className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
             <div>
-              <h2 className="text-amber-800 font-bold mb-2">Important Ownership Disclosure</h2>
+              <h2 className="text-amber-800 font-bold mb-2">Important Editorial Disclosure</h2>
               <p className="text-amber-900 text-sm leading-relaxed font-medium">
-                SkyReviews.us is an independent digital publication owned by Sky Media Group, which shares parent company ownership with Sky States (the online training provider reviewed on this site, skystates.us). The publishing operations and the training business are run under separate management.
+                SkyReviews.us is an independent digital publication owned by Sky Media Group. The publishing operations are run under independent management, completely separate from any reviewed training provider, including Sky States.
               </p>
               <p className="text-amber-900 text-sm leading-relaxed mt-2">
-                This disclosure is published prominently on every page to ensure transparency and trust regarding corporate relationships. Reviews published on this site are governed by independent editorial guidelines and are not approved, edited, or modified by the Sky States commercial team.
+                Reviews published on this site are governed by independent editorial guidelines and are not approved, edited, or modified by any third-party commercial teams.
               </p>
             </div>
           </div>

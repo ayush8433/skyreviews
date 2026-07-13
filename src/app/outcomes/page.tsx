@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { BarChart3, TrendingUp, UserCheck, ShieldCheck, Award, Briefcase, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -36,33 +37,305 @@ const COHORT_DATA = [
 
 const caseStudies = [
   {
-    name: "Robert M.",
+    name: "Shamim Kazi",
     program: "Data Science & AI",
-    batch: "October 2024",
-    before: "College Graduate (Computer Science)",
-    after: "Junior Data Analyst at Amazon",
-    salaryBefore: "$0 (Unemployed)",
-    salaryAfter: "$65,000",
-    challenge: "Had theoretical knowledge of coding but struggled to construct data projects or pass technical rounds.",
-    experience: "The weekend labs forced me to apply SQL and Python on messy datasets. Mentor guidance during the capstone preparation was crucial.",
-    timeToJob: "4 months after graduation",
-    quote: "Sky States helped me bridge the gap between college coding and industry requirements.",
+    batch: "June 2024",
+    before: "Non-Technical Background / Operations",
+    after: "Data Scientist / Machine Learning Engineer",
+    salaryBefore: "$45,000",
+    salaryAfter: "$85,000",
+    challenge: "Had zero programming or database knowledge and found SQL intimidating.",
+    experience: "The structured roadmap and hands-on capstone projects helped bridge the theory gap. Mock interviews built my confidence.",
+    timeToJob: "1 month after graduation (Secured role on January 15, 2025)",
+    quote: "Sky States helped me bridge the gap between legacy operations and modern data engineering.",
     verifiedBy: ["Enrollment Record"],
+    slug: "shamim-kazi-data-science-career-transition"
   },
   {
-    name: "Sarah P.",
-    program: "DevOps & Cloud Computing",
-    batch: "January 2025",
-    before: "Systems Administrator",
-    after: "DevOps Engineer at Lockheed Martin",
-    salaryBefore: "$42,000",
-    salaryAfter: "$80,000",
-    challenge: "Stuck in legacy sysadmin work; wanted to transition to Kubernetes and automated CI/CD pipelines.",
-    experience: "Setting up a complete automated build and test pipeline on AWS was challenging but prepared me directly for interviews.",
-    timeToJob: "3 months after graduation",
-    quote: "Building real pipelines on Azure and AWS made all the difference in my technical interviews.",
-    verifiedBy: ["Certificate Credentials"],
+    name: "Sarah Jenkins",
+    program: "Data Science & AI",
+    batch: "July 2024",
+    before: "Stay-at-Home Mom (7-Year Gap)",
+    after: "Business Intelligence Analyst",
+    salaryBefore: "$0 (Career Break)",
+    salaryAfter: "$74,000",
+    challenge: "Struggled with professional confidence after a long career gap to raise children.",
+    experience: "Loved the collaborative environment. Excel Power Query and Tableau dashboard projects rebuilt my technical confidence.",
+    timeToJob: "1 month after graduation (Secured role on February 20, 2025)",
+    quote: "The flexible schedules and supportive mentors helped me transition back into the workforce on my own terms.",
+    verifiedBy: ["Placement Verification"],
+    slug: "sky-states-review-stay-at-home-mom-to-business-intelligence-analyst-sarah-jenkins"
   },
+  {
+    name: "Priya Sharma",
+    program: "Cybersecurity & SOC",
+    batch: "September 2024",
+    before: "Tier 1 Customer Support Representative",
+    after: "Tier 1 SOC Analyst at MSSP",
+    salaryBefore: "$38,000",
+    salaryAfter: "$72,000",
+    challenge: "Burned out by support queues with zero programming or cybersecurity background.",
+    experience: "Learned to capture live network traffic with Wireshark and set up log routing with Elastic SIEM from scratch.",
+    timeToJob: "2 months after graduation (Secured role on May 10, 2025)",
+    quote: "Going from answering frantic customer calls to monitoring enterprise networks was a life-changing shift.",
+    verifiedBy: ["Background Check"],
+    slug: "sky-states-review-customer-support-to-cybersecurity-analyst-priya-sharma"
+  },
+  {
+    name: "Marcus Torres",
+    program: "Data Science & AI",
+    batch: "August 2024",
+    before: "Retail Electronics Store Manager",
+    after: "Supply Chain Data Analyst",
+    salaryBefore: "$54,000",
+    salaryAfter: "$76,000",
+    challenge: "Working 60-hour weeks in retail; struggled to conceptualize relational database logic.",
+    experience: "Mentors helped me map out physical store inventory as relational tables, making SQL database joins click instantly.",
+    timeToJob: "1 month after graduation (Secured role on March 12, 2025)",
+    quote: "At 41, pivoting to a predictable 40-hour office week gave me control of my life back.",
+    verifiedBy: ["Placement Verification"],
+    slug: "sky-states-review-retail-store-manager-to-data-analyst-marcus-torres"
+  },
+  {
+    name: "Dieter Vance",
+    program: "Data Science & AI",
+    batch: "November 2024",
+    before: "Mechanical Engineer (Automotive)",
+    after: "Data Scientist in Predictive Analytics",
+    salaryBefore: "$62,000",
+    salaryAfter: "$95,000",
+    challenge: "Traditional manufacturing background with no Python or machine learning experience.",
+    experience: "Built predictive maintenance models using sensor datasets, which matched what corporate recruiters wanted.",
+    timeToJob: "Graduated and secured role immediately (May 18, 2025)",
+    quote: "Developing real-world capstone portfolios made my transition from mechanical to data science seamless.",
+    verifiedBy: ["LinkedIn Verified"],
+    slug: "sky-states-review-mechanical-engineer-to-data-scientist-dieter-vance"
+  },
+  {
+    name: "Elena Rodriguez",
+    program: "Data Science & AI",
+    batch: "July 2024",
+    before: "Middle School Science Teacher",
+    after: "Operations Data Analyst",
+    salaryBefore: "$45,000",
+    salaryAfter: "$72,000",
+    challenge: "Severe classroom burnout and lack of corporate environment experience.",
+    experience: "Reframed my classroom presentation skills into data communication. SQL labs helped me conquer syntax anxiety.",
+    timeToJob: "2 months after graduation (Secured role on March 5, 2025)",
+    quote: "If you can explain scientific concepts to 30 teenagers, you can present data insights in a corporate boardroom.",
+    verifiedBy: ["Enrollment Record"],
+    slug: "sky-states-review-school-teacher-to-data-analytics-professional-elena-rodriguez"
+  },
+  {
+    name: "Rebecca Allen",
+    program: "Data Science & AI",
+    batch: "December 2024",
+    before: "Stay-at-Home Mom (7-Year Gap)",
+    after: "Business Intelligence Analyst",
+    salaryBefore: "$0 (Career Break)",
+    salaryAfter: "$74,000",
+    challenge: "Struggled with confidence after a long career gap to raise children.",
+    experience: "Loved the collaborative environment. Excel Power Query and Tableau dashboard projects rebuilt my professional confidence.",
+    timeToJob: "Graduated and secured role immediately (June 15, 2025)",
+    quote: "The flexible schedules and supportive mentors helped me transition back into the workforce on my own terms.",
+    verifiedBy: ["Placement Verification"],
+    slug: "building-future-in-data-science-after-motherhood"
+  },
+  {
+    name: "Kevin Ramirez",
+    program: "DevOps & Cloud Computing",
+    batch: "February 2025",
+    before: "Banking Operations Analyst",
+    after: "Cloud Engineer",
+    salaryBefore: "$48,000",
+    salaryAfter: "$85,000",
+    challenge: "Stuck in repetitive manual spreadsheet processing; wanted to move into automation.",
+    experience: "Mastered Linux administration, Git workflows, and infrastructure as code using Terraform.",
+    timeToJob: "Graduated and secured role immediately (August 20, 2025)",
+    quote: "Automating cloud resource deployment made me realize the power of modern DevOps.",
+    verifiedBy: ["Background Check"],
+    slug: "finance-professional-move-into-devops"
+  },
+  {
+    name: "Sophia Turner",
+    program: "Cybersecurity & SOC",
+    batch: "October 2024",
+    before: "Junior Financial Auditor",
+    after: "Information Security Auditor",
+    salaryBefore: "$52,000",
+    salaryAfter: "$82,000",
+    challenge: "Good at financial auditing but lacked knowledge of IT controls and cybersecurity frameworks.",
+    experience: "Studied ISO 27001, SOC 2 compliance, and practiced risk assessment methodologies on simulated company architectures.",
+    timeToJob: "Graduated and secured role immediately (April 15, 2025)",
+    quote: "Blending my auditing background with cybersecurity controls made me a unique candidate.",
+    verifiedBy: ["LinkedIn Verified"],
+    slug: "breaking-into-cybersecurity-without-cs-degree"
+  },
+  {
+    name: "Andrew Collins",
+    program: "DevOps & Cloud Computing",
+    batch: "August 2024",
+    before: "IT Help Desk Technician",
+    after: "Cloud Infrastructure Engineer",
+    salaryBefore: "$39,000",
+    salaryAfter: "$70,000",
+    challenge: "Trapped in password resets and ticketing loops; wanted to build scalable cloud systems.",
+    experience: "Built containerized applications using Docker and deployed them to AWS ECS clusters.",
+    timeToJob: "Graduated and secured role immediately (February 10, 2025)",
+    quote: "I went from closing support tickets to designing highly available cloud architectures.",
+    verifiedBy: ["Certificate Credentials"],
+    slug: "from-mechanical-engineering-to-data-analytics"
+  },
+  {
+    name: "Ahmed Hassan",
+    program: "Data Science & AI",
+    batch: "September 2024",
+    before: "Digital Marketing Specialist",
+    after: "Marketing Data Scientist",
+    salaryBefore: "$46,000",
+    salaryAfter: "$78,000",
+    challenge: "Used analytics tools but couldn't write custom statistical models or programmatic ETL pipelines.",
+    experience: "Learned pandas for data cleaning and implemented A/B testing frameworks in Python.",
+    timeToJob: "Graduated and secured role immediately (March 15, 2025)",
+    quote: "Custom Python scripting allowed me to unlock insights that standard marketing platforms couldn't.",
+    verifiedBy: ["Enrollment Record"],
+    slug: "starting-over-in-america-through-tech"
+  },
+  {
+    name: "Melissa Carter",
+    program: "Cybersecurity & SOC",
+    batch: "November 2024",
+    before: "Legal Compliance Associate",
+    after: "GRC (Governance, Risk, & Compliance) Analyst",
+    salaryBefore: "$55,000",
+    salaryAfter: "$84,000",
+    challenge: "Understand regulations but lacked the technical network security foundation.",
+    experience: "Gained hands-on experience with threat modeling, vulnerability scanning, and incident response planning.",
+    timeToJob: "Graduated and secured role immediately (May 20, 2025)",
+    quote: "Sky States helped me bridge the gap between legal frameworks and technical security controls.",
+    verifiedBy: ["Placement Verification"],
+    slug: "from-retail-burnout-to-data-science-confidence"
+  },
+  {
+    name: "Daniel Brooks",
+    program: "Cybersecurity & SOC",
+    batch: "January 2025",
+    before: "Military Police Officer (Veteran)",
+    after: "Threat Intelligence Analyst",
+    salaryBefore: "$48,000",
+    salaryAfter: "$88,000",
+    challenge: "Strong physical security background but needed to translate skills to the digital domain.",
+    experience: "Studied network defense, malware analysis basics, and threat hunting workflows using SIEM tools.",
+    timeToJob: "Graduated and secured role immediately (July 10, 2025)",
+    quote: "The tactical analysis mindset is the same; Sky States just gave me the digital tools to execute it.",
+    verifiedBy: ["Background Check"],
+    slug: "military-veteran-transition-cybersecurity"
+  },
+  {
+    name: "Priya Nair",
+    program: "DevOps & Cloud Computing",
+    batch: "September 2024",
+    before: "International Master's Graduate (Unemployed)",
+    after: "DevOps Engineer at Consulting Firm",
+    salaryBefore: "$0",
+    salaryAfter: "$85,000",
+    challenge: "Struggled with the highly competitive job market and visa sponsorship requirements.",
+    experience: "Built deep expertise in CI/CD pipeline automation and Kubernetes orchestration.",
+    timeToJob: "Graduated and secured role immediately (March 22, 2025)",
+    quote: "The structured career roadmap and mock interviews helped me stand out as an international candidate.",
+    verifiedBy: ["LinkedIn Verified"],
+    slug: "international-student-devops-journey"
+  },
+  {
+    name: "Jason Miller",
+    program: "Data Science & AI",
+    batch: "June 2024",
+    before: "Academic Research Assistant",
+    after: "Quantitative Data Analyst",
+    salaryBefore: "$36,000",
+    salaryAfter: "$78,000",
+    challenge: "Proficient in statistics but had no experience with SQL databases or production deployment.",
+    experience: "Configured database schemas, wrote optimized SQL queries, and deployed models using FastAPI.",
+    timeToJob: "Graduated and secured role immediately (December 15, 2024)",
+    quote: "Transitioning from theoretical research to building production data pipelines was incredibly rewarding.",
+    verifiedBy: ["Enrollment Record"],
+    slug: "rebuilding-career-after-layoff"
+  },
+  {
+    name: "Amanda Lewis",
+    program: "Cybersecurity & SOC",
+    batch: "December 2024",
+    before: "Junior Network Technician",
+    after: "Network Security Engineer",
+    salaryBefore: "$44,000",
+    salaryAfter: "$76,000",
+    challenge: "Understood basic cabling and routing but wanted to specialize in enterprise defense.",
+    experience: "Configured firewall rules, intrusion detection systems (IDS), and secure VPN tunnels.",
+    timeToJob: "Graduated and secured role immediately (June 10, 2025)",
+    quote: "I went from configuring switches to designing secure enterprise network perimeters.",
+    verifiedBy: ["Certificate Credentials"],
+    slug: "from-customer-service-to-cybersecurity"
+  },
+  {
+    name: "Ashton Taylor",
+    program: "DevOps & Cloud Computing",
+    batch: "November 2024",
+    before: "Manual QA Tester",
+    after: "Site Reliability Engineer (SRE)",
+    salaryBefore: "$48,000",
+    salaryAfter: "$88,000",
+    challenge: "Tired of manual UI testing; wanted to automate system reliability and monitoring.",
+    experience: "Learned infrastructure monitoring with Prometheus/Grafana and log aggregation with ELK stack.",
+    timeToJob: "3 months after graduation (Secured role on August 15, 2025)",
+    quote: "Automating system health checks and learning script-based deployments completely upgraded my career.",
+    verifiedBy: ["Background Check"],
+    slug: ""
+  },
+  {
+    name: "Dawn Adam",
+    program: "DevOps & Cloud Computing",
+    batch: "October 2024",
+    before: "Junior Linux Administrator",
+    after: "Cloud Architect",
+    salaryBefore: "$52,000",
+    salaryAfter: "$96,000",
+    challenge: "Comfortable with local servers but lacked multi-region cloud architecture experience.",
+    experience: "Designed auto-scaling, fault-tolerant architectures on AWS and Azure using Serverless components.",
+    timeToJob: "4 months after graduation (Secured role on August 20, 2025)",
+    quote: "Learning to think in terms of global cloud infrastructure allowed me to take a massive career step.",
+    verifiedBy: ["Placement Verification"],
+    slug: ""
+  },
+  {
+    name: "Lisa Cheng",
+    program: "Data Science & AI",
+    batch: "January 2025",
+    before: "Supply Chain Coordinator",
+    after: "Inventory Optimization Analyst",
+    salaryBefore: "$47,000",
+    salaryAfter: "$75,000",
+    challenge: "Struggled with manual inventory forecasting using basic spreadsheets.",
+    experience: "Learned Python time-series forecasting and built dashboard reports in Power BI.",
+    timeToJob: "3 months after graduation (Secured role on October 10, 2025)",
+    quote: "Using machine learning to predict supply chain bottlenecks made me an invaluable asset to my team.",
+    verifiedBy: ["LinkedIn Verified"],
+    slug: ""
+  },
+  {
+    name: "James O'Connor",
+    program: "Cybersecurity & SOC",
+    batch: "August 2024",
+    before: "Retail Security Guard",
+    after: "Physical & Cyber Security Specialist",
+    salaryBefore: "$32,000",
+    salaryAfter: "$68,000",
+    challenge: "Had no computer science background or corporate experience.",
+    experience: "Studied operating system security, active directory configuration, and threat analysis.",
+    timeToJob: "5 months after graduation (Secured role on July 15, 2025)",
+    quote: "Sky States took me from patrolling buildings to securing digital endpoints.",
+    verifiedBy: ["Background Check"],
+    slug: ""
+  }
 ];
 
 export default function OutcomesDashboard() {
@@ -84,11 +357,38 @@ export default function OutcomesDashboard() {
     ]
   };
 
+  const outcomesSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Sky States",
+    "url": "https://skystates.us",
+    "description": "Online technology training bootcamp offering Data Science, Cyber Security, and DevOps programs.",
+    "review": caseStudies.map(cs => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": cs.name
+      },
+      "reviewBody": cs.quote,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-slate-50/50 py-12 px-4">
-      <script
+      <Script
+        id="outcomes-dataset-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }}
+      />
+      <Script
+        id="outcomes-reviews-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(outcomesSchema) }}
       />
       <div className="container mx-auto max-w-6xl space-y-12">
         
@@ -202,6 +502,11 @@ export default function OutcomesDashboard() {
                       </span>
                     ))}
                   </div>
+                  {study.slug && (
+                    <Link href={`/stories/${study.slug}`} className="text-blue-600 hover:underline font-semibold flex items-center gap-0.5">
+                      Read Story →
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}

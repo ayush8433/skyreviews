@@ -178,11 +178,49 @@ export default async function StoryPage({
     ]
   };
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://skyreviews.us/stories/${story.slug}`,
+    "headline": story.title,
+    "description": contentBlocks.find((b) => b.type === "paragraph")?.text || story.title,
+    "image": alumniImageUrl,
+    "datePublished": story.publishedAt || story.createdAt.toISOString(),
+    "dateModified": story.updatedAt?.toISOString() || story.publishedAt || story.createdAt.toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": story.alumni.name,
+      "jobTitle": story.alumni.title,
+      "worksFor": {
+        "@type": "Organization",
+        "name": story.alumni.company || "Sky States Alumni"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SkyReviews",
+      "url": "https://skyreviews.us",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://skyreviews.us/logo.png"
+      }
+    },
+    "about": {
+      "@type": "EducationalOrganization",
+      "name": "Sky States",
+      "url": "https://skystates.us"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       {/* Dynamic Header / Hero */}
       <div className="relative overflow-hidden bg-slate-900 pt-24 pb-48 lg:pt-32 lg:pb-64">
@@ -321,6 +359,15 @@ export default async function StoryPage({
                     </div>
                   )}
                   <ShareButton />
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between gap-4 text-xs font-semibold">
+                  <Link href="/outcomes" className="text-blue-600 hover:underline">
+                    See {story.alumni.name}&apos;s entry in our Verified Outcomes Database →
+                  </Link>
+                  <Link href="/reviews/sky-states" className="text-indigo-600 hover:underline">
+                    Read our full Sky States program analysis →
+                  </Link>
                 </div>
               </CardContent>
             </Card>

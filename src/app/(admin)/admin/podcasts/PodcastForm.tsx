@@ -7,6 +7,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { savePodcast } from "@/lib/admin-actions";
 
+type PlacementManagerMin = {
+  id: string;
+  name: string;
+  role: string;
+};
+
 type PodcastFormProps = {
   podcast?: {
     id: string;
@@ -16,10 +22,12 @@ type PodcastFormProps = {
     videoUrl: string | null;
     thumbnailUrl: string | null;
     isActive: boolean;
+    placementManagerId?: string | null;
   } | null;
+  placementManagers?: PlacementManagerMin[];
 };
 
-export default function PodcastForm({ podcast }: PodcastFormProps) {
+export default function PodcastForm({ podcast, placementManagers = [] }: PodcastFormProps) {
   return (
     <form action={savePodcast} className="space-y-6 text-white pb-12">
       {podcast?.id && <input type="hidden" name="podcastId" value={podcast.id} />}
@@ -119,6 +127,28 @@ export default function PodcastForm({ podcast }: PodcastFormProps) {
                   defaultChecked={podcast ? podcast.isActive : true}
                   className="h-5 w-5 rounded border-white/15 bg-slate-950 text-blue-600 focus:ring-blue-500"
                 />
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-white/10 bg-white/5 shadow-xl backdrop-blur-xl">
+            <CardContent className="p-6 space-y-4">
+              <h2 className="text-xl font-bold text-white mb-2 border-b border-white/10 pb-2">Assigned Placement Manager</h2>
+              
+              <div className="space-y-1">
+                <label className="text-xs font-semibold text-slate-400">Select placement manager:</label>
+                <select
+                  name="placementManagerId"
+                  defaultValue={podcast?.placementManagerId ?? ""}
+                  className="w-full rounded-lg border border-white/10 bg-slate-950 px-3 py-2 text-sm text-white focus:outline-none"
+                >
+                  <option value="">Unassigned</option>
+                  {placementManagers.map((pm) => (
+                    <option key={pm.id} value={pm.id} className="text-black dark:text-white">
+                      {pm.name} ({pm.role})
+                    </option>
+                  ))}
+                </select>
               </div>
             </CardContent>
           </Card>

@@ -110,7 +110,7 @@ const faqData: FAQCategory[] = [
               <li>Full tuition refund minus registration fees if withdrawn in the <strong>first week of classes</strong>.</li>
               <li>No refunds are issued after the first week of classes.</li>
             </ul>
-            <p>US-based students are also eligible for a <strong>full refund within 14 days of purchase</strong> if course content has not been accessed. All refund requests are initiated via <a href="mailto:info@skystates.us" className="text-blue-600 hover:underline">info@skystates.us</a>.</p>
+            <p>US-based students are also eligible for a <strong>full refund within 7 days of purchase</strong> if course content has not been accessed. All refund requests are initiated via <a href="mailto:info@skystates.us" className="text-blue-600 hover:underline">info@skystates.us</a>.</p>
           </div>
         ),
         answerText: "Sky States' refund policy for courses of 6 months or more includes: a full refund if canceled within 3 business days of signing/paying..."
@@ -359,7 +359,7 @@ const faqData: FAQCategory[] = [
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 font-sans antialiased text-slate-800 dark:text-slate-200">
+    <div className="min-h-screen font-sans antialiased text-slate-200">
       <Script
         id="faq-schema"
         type="application/ld+json"
@@ -372,12 +372,12 @@ export default function FAQPage() {
       />
       
       {/* Immersive Hero Section */}
-      <section className="relative overflow-hidden bg-slate-900 pt-24 pb-20 lg:pt-32 lg:pb-28">
+      <section className="relative overflow-hidden bg-transparent pt-24 pb-20 lg:pt-32 lg:pb-28">
         {/* Animated background blurs */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -left-1/4 w-1/2 h-full bg-blue-600/20 blur-[120px] rounded-full rotate-12" />
-          <div className="absolute -bottom-1/2 -right-1/4 w-1/2 h-full bg-indigo-600/20 blur-[120px] rounded-full -rotate-12" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-1/3 h-1/3 bg-cyan-500/10 blur-[100px] rounded-full" />
+          <div className="absolute -top-1/2 -left-1/4 w-1/2 h-full bg-blue-600/10 blur-[120px] rounded-full rotate-12" />
+          <div className="absolute -bottom-1/2 -right-1/4 w-1/2 h-full bg-indigo-600/10 blur-[120px] rounded-full -rotate-12" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-1/3 h-1/3 bg-cyan-500/5 blur-[100px] rounded-full" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center max-w-3xl space-y-6">
@@ -407,18 +407,18 @@ export default function FAQPage() {
         <div className="container mx-auto max-w-3xl">
           {faqData.map((category, index) => (
             <div key={index} className="mb-12">
-              <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <h2 className="text-2xl font-bold text-white mb-6 pb-2 border-b border-white/10">
                 {category.title}
               </h2>
               <div className="space-y-4">
                 {category.items.map((item, itemIndex) => (
                   <details
                     key={itemIndex}
-                    className="group bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden [&_summary::-webkit-details-marker]:hidden"
+                    className="group bg-slate-900/40 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden"
                   >
-                    <summary className="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                    <summary className="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold text-white hover:bg-white/5 transition-colors">
                       <h3 className="text-lg pr-4">{item.question}</h3>
-                      <span className="shrink-0 rounded-full bg-blue-50 dark:bg-blue-950/50 p-2 text-blue-600 dark:text-blue-400 group-open:-rotate-180 transition-transform duration-300">
+                      <span className="shrink-0 rounded-full bg-blue-950/50 p-2 text-blue-400 group-open:-rotate-180 transition-transform duration-300">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-5 w-5"
@@ -431,7 +431,7 @@ export default function FAQPage() {
                         </svg>
                       </span>
                     </summary>
-                    <div className="p-5 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 text-base">
+                    <div className="p-5 pt-0 text-slate-300 leading-relaxed border-t border-white/5 mt-2 text-base">
                       {item.answer}
                     </div>
                   </details>
@@ -445,14 +445,14 @@ export default function FAQPage() {
           </div>
 
           {/* CTA / Contact Section */}
-          <div className="mt-16 bg-white dark:bg-slate-900 rounded-3xl p-8 text-center border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none relative overflow-hidden">
-            <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-10">
+          <div className="mt-16 bg-slate-900/40 backdrop-blur-md rounded-3xl p-8 text-center border border-white/10 relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none opacity-10">
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl" />
               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-indigo-600 rounded-full blur-3xl" />
             </div>
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Still have questions?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-xl mx-auto">
+              <h3 className="text-2xl font-bold text-white mb-3">Still have questions?</h3>
+              <p className="text-slate-300 mb-6 max-w-xl mx-auto">
                 Can&apos;t find the answer you&apos;re looking for? Reach out to our team directly and we&apos;ll be happy to help.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -464,7 +464,7 @@ export default function FAQPage() {
                 </a>
                 <a
                   href="tel:888-810-2434"
-                  className="inline-flex justify-center items-center px-6 py-3 border border-slate-200 dark:border-slate-700 text-base font-medium rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/50 shadow-sm transition-colors"
+                  className="inline-flex justify-center items-center px-6 py-3 border border-white/10 text-base font-medium rounded-xl text-slate-200 bg-white/5 hover:bg-white/10 shadow-sm transition-colors"
                 >
                   (888) 810-2434
                 </a>

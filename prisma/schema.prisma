@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,12 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum StoryModerationStatus {
-  PENDING
-  APPROVED
-  REJECTED
-}
-
 model AdminUser {
   id           String         @id @default(cuid())
   email        String         @unique
@@ -23,20 +14,18 @@ model AdminUser {
   passwordHash String
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
-
   sessions     AdminSession[]
 
   @@map("admin_users")
 }
 
 model AdminSession {
-  id          String     @id @default(cuid())
-  tokenHash   String     @unique
+  id          String    @id @default(cuid())
+  tokenHash   String    @unique
   expiresAt   DateTime
-  createdAt   DateTime   @default(now())
+  createdAt   DateTime  @default(now())
   adminUserId String
-
-  adminUser   AdminUser  @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+  adminUser   AdminUser @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
 
   @@map("admin_sessions")
 }
@@ -51,111 +40,113 @@ model Alumni {
   linkedinUrl  String?
   imageUrl     String?
   bio          String?
-  projectTitle String?
-  projectUrl   String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  
-  stories     Story[]
-  
+  projectTitle String?
+  projectUrl   String?
+  stories      Story[]
+
   @@map("alumni")
 }
 
 model Story {
-  id               String               @id @default(cuid())
-  title            String
-  slug             String               @unique
-  content          String
-  videoUrl         String?
-  thumbnailUrl     String?
-  publishedAt      String               @default("")
-  isPublished      Boolean              @default(false)
-  isFeatured       Boolean              @default(false)
-  moderationStatus StoryModerationStatus @default(PENDING)
-  createdAt        DateTime             @default(now())
-  updatedAt        DateTime             @updatedAt
-  
-  alumniId    String
-  alumni      Alumni   @relation(fields: [alumniId], references: [id], onDelete: Cascade)
-  
-  categories  StoryCategory[]
-  tags        StoryTag[]
-  
+  id                 String                @id @default(cuid())
+  title              String
+  slug               String                @unique
+  content            String
+  videoUrl           String?
+  thumbnailUrl       String?
+  publishedAt        String                @default("")
+  isPublished        Boolean               @default(false)
+  isFeatured         Boolean               @default(false)
+  moderationStatus   StoryModerationStatus @default(PENDING)
+  metaJson           String?
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @updatedAt
+  alumniId           String
+  placementManagerId String?
+  placementManager   PlacementManager?     @relation(fields: [placementManagerId], references: [id])
+  alumni             Alumni                @relation(fields: [alumniId], references: [id], onDelete: Cascade)
+  categories         StoryCategory[]
+  tags               StoryTag[]
+
   @@map("stories")
 }
 
 model VideoTestimonial {
-  id           String   @id @default(cuid())
-  title        String
-  summary      String
-  name         String
-  role         String
-  company      String
-  duration     String
-  videoUrl     String
-  thumbnailUrl  String
-  isActive     Boolean  @default(true)
-  sortOrder    Int      @default(0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id                 String            @id @default(cuid())
+  title              String
+  summary            String
+  name               String
+  role               String
+  company            String
+  duration           String
+  videoUrl           String
+  thumbnailUrl       String
+  isActive           Boolean           @default(true)
+  sortOrder          Int               @default(0)
+  placementManagerId String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  placementManager   PlacementManager? @relation(fields: [placementManagerId], references: [id])
 
   @@map("video_testimonials")
 }
 
 model Category {
-  id          String   @id @default(cuid())
-  name        String   @unique
+  id          String          @id @default(cuid())
+  name        String          @unique
   description String?
-  createdAt   DateTime @default(now())
-  
+  createdAt   DateTime        @default(now())
   stories     StoryCategory[]
-  
+
   @@map("categories")
 }
 
 model StoryCategory {
-  storyId     String
-  categoryId  String
-  
-  story       Story     @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  
+  storyId    String
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  story      Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
   @@id([storyId, categoryId])
   @@map("story_categories")
 }
 
 model Tag {
-  id        String   @id @default(cuid())
-  name      String   @unique
-  createdAt DateTime @default(now())
-  
+  id        String     @id @default(cuid())
+  name      String     @unique
+  createdAt DateTime   @default(now())
   stories   StoryTag[]
-  
+
   @@map("tags")
 }
 
 model StoryTag {
   storyId String
   tagId   String
-  
-  story   Story @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  tag     Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
-  
+  tag     Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  story   Story  @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
   @@id([storyId, tagId])
   @@map("story_tags")
 }
 
 model PlacementManager {
-  id          String                   @id @default(cuid())
-  name        String
-  role        String
-  linkedinUrl String?
-  imageUrl    String?
-  bio         String?
-  createdAt   DateTime                 @default(now())
-  updatedAt   DateTime                 @updatedAt
-  reviews     PlacementManagerReview[]
-  videos      PlacementManagerVideo[]
+  id               String                   @id @default(cuid())
+  name             String
+  role             String
+  linkedinUrl      String?
+  imageUrl         String?
+  bio              String?
+  createdAt        DateTime                 @default(now())
+  updatedAt        DateTime                 @updatedAt
+  slug             String?                  @unique
+  reviews          PlacementManagerReview[]
+  videos           PlacementManagerVideo[]
+  assignedPodcasts Podcast[]
+  assignedStories  Story[]
+  assignedVideos   VideoTestimonial[]
 
   @@map("placement_managers")
 }
@@ -167,8 +158,8 @@ model PlacementManagerReview {
   content            String
   rating             Int              @default(5)
   placementManagerId String
-  placementManager   PlacementManager @relation(fields: [placementManagerId], references: [id], onDelete: Cascade)
   createdAt          DateTime         @default(now())
+  placementManager   PlacementManager @relation(fields: [placementManagerId], references: [id], onDelete: Cascade)
 
   @@map("placement_manager_reviews")
 }
@@ -179,22 +170,24 @@ model PlacementManagerVideo {
   videoUrl           String
   thumbnailUrl       String?
   placementManagerId String
-  placementManager   PlacementManager @relation(fields: [placementManagerId], references: [id], onDelete: Cascade)
   createdAt          DateTime         @default(now())
+  placementManager   PlacementManager @relation(fields: [placementManagerId], references: [id], onDelete: Cascade)
 
   @@map("placement_manager_videos")
 }
 
 model Podcast {
-  id           String   @id @default(cuid())
-  title        String
-  description  String
-  youtubeUrl   String
-  videoUrl     String?
-  thumbnailUrl String?
-  isActive     Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id                 String            @id @default(cuid())
+  title              String
+  description        String
+  youtubeUrl         String
+  videoUrl           String?
+  thumbnailUrl       String?
+  isActive           Boolean           @default(true)
+  placementManagerId String?
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  placementManager   PlacementManager? @relation(fields: [placementManagerId], references: [id])
 
   @@map("podcasts")
 }
@@ -210,18 +203,24 @@ model OptOutRequest {
 }
 
 model StudentCertification {
-  id                 String   @id @default(cuid())
-  studentName        String
-  program            String
-  certCode           String   // e.g. "DP-900", "AZ-900"
-  certName           String   // e.g. "Microsoft Azure Data Fundamentals"
-  issueDate          String   // e.g. "2025-03-15" stored as string for SQLite
+  id                  String   @id @default(cuid())
+  studentName         String
+  program             String
+  certCode            String
+  certName            String
+  issueDate           String
   certificateImageUrl String?
-  linkedinUrl        String?
-  testimonial        String?  // short quote about the certification experience
-  isPublished        Boolean  @default(false)
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  linkedinUrl         String?
+  testimonial         String?
+  isPublished         Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
 
   @@map("student_certifications")
+}
+
+enum StoryModerationStatus {
+  PENDING
+  APPROVED
+  REJECTED
 }

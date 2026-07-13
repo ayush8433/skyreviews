@@ -14,6 +14,8 @@ type FeaturedStory = {
   slug: string;
   projectTitle?: string | null;
   projectUrl?: string | null;
+  linkedinUrl?: string | null;
+  trustschoolUrl?: string | null;
 };
 
 type FeaturedStoriesSectionProps = {
@@ -25,11 +27,11 @@ export default function FeaturedStoriesSection({ stories }: FeaturedStoriesSecti
   const visibleStories = showAll ? stories : stories.slice(0, 6);
 
   return (
-    <section id="featured-stories" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white scroll-mt-24">
+    <section id="featured-stories" className="py-20 px-4 bg-transparent scroll-mt-24">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Real Careers in Tech</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Discover the success stories of our alumni and why we do what we do.</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Real Careers in Tech</h2>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">Discover the success stories of our alumni and why we do what we do.</p>
         </div>
 
         <div className="mt-10">
@@ -47,6 +49,8 @@ export default function FeaturedStoriesSection({ stories }: FeaturedStoriesSecti
                 slug={alumni.slug}
                 projectTitle={alumni.projectTitle}
                 projectUrl={alumni.projectUrl}
+                linkedinUrl={alumni.linkedinUrl}
+                trustschoolUrl={alumni.trustschoolUrl}
               />
             ))}
           </div>

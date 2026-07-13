@@ -118,6 +118,7 @@ export async function saveStory(formData: FormData) {
   const publishedAtInput = readString(formData, "publishedAt");
   const videoUrl = readString(formData, "videoUrl");
   const thumbnailUrl = readString(formData, "thumbnailUrl");
+  const placementManagerId = readString(formData, "placementManagerId");
 
   const alumniName = readString(formData, "alumniName");
   const alumniEmail = readString(formData, "alumniEmail");
@@ -125,10 +126,24 @@ export async function saveStory(formData: FormData) {
   const alumniCompany = readString(formData, "alumniCompany");
   const alumniLocation = readString(formData, "alumniLocation");
   const alumniLinkedin = readString(formData, "alumniLinkedin");
-  const alumniImageUrl = readString(formData, "alumniImageUrl");
+  const alumniImageUrlInput = readString(formData, "alumniImageUrl");
+  const alumniImageFile = formData.get("alumniImageFile");
+  let alumniImageUrl = alumniImageUrlInput;
+
+  if (alumniImageFile instanceof File && alumniImageFile.size > 0) {
+    const uploadedPath = await saveUploadedFile(alumniImageFile, {
+      folder: "uploads/admin/alumni",
+      fallbackExtension: ".jpg",
+    });
+    if (uploadedPath) {
+      alumniImageUrl = uploadedPath;
+    }
+  }
+
   const alumniBio = readString(formData, "alumniBio");
   const alumniProjectTitle = readString(formData, "alumniProjectTitle");
   const alumniProjectUrl = readString(formData, "alumniProjectUrl");
+  const metaJson = readString(formData, "metaJson");
 
   const categoryNames = splitList(readString(formData, "categories"));
   const tagNames = splitList(readString(formData, "tags"));
@@ -197,7 +212,9 @@ export async function saveStory(formData: FormData) {
           isFeatured,
           moderationStatus: moderationStatus || StoryModerationStatus.PENDING,
           alumniId: alumni.id,
-        },
+          metaJson: metaJson || null,
+          placementManagerId: placementManagerId || null,
+        } as any,
       })
     : await prisma.story.create({
         data: {
@@ -211,7 +228,9 @@ export async function saveStory(formData: FormData) {
           isFeatured,
           moderationStatus: moderationStatus || StoryModerationStatus.PENDING,
           alumniId: alumni.id,
-        },
+          metaJson: metaJson || null,
+          placementManagerId: placementManagerId || null,
+        } as any,
       });
 
   await syncStoryTaxonomy(story.id, categoryNames, tagNames);
@@ -285,6 +304,7 @@ export async function saveVideoTestimonial(formData: FormData) {
   const fallbackThumbnailUrl = readString(formData, "thumbnailUrl");
   const isActive = readBoolean(formData, "isActive");
   const sortOrder = Number.parseInt(readString(formData, "sortOrder") || "0", 10);
+  const placementManagerId = readString(formData, "placementManagerId");
 
   const uploadedVideo = formData.get("videoFile");
   const uploadedThumbnail = formData.get("thumbnailFile");
@@ -320,6 +340,7 @@ export async function saveVideoTestimonial(formData: FormData) {
         thumbnailUrl,
         isActive,
         sortOrder: Number.isNaN(sortOrder) ? 0 : sortOrder,
+        placementManagerId: placementManagerId || null,
       },
     });
   } else {
@@ -335,6 +356,7 @@ export async function saveVideoTestimonial(formData: FormData) {
         thumbnailUrl,
         isActive,
         sortOrder: Number.isNaN(sortOrder) ? 0 : sortOrder,
+        placementManagerId: placementManagerId || null,
       },
     });
   }
@@ -429,20 +451,35 @@ export async function savePlacementManager(formData: FormData) {
   const bio = readString(formData, "bio");
   const reviewsJson = readString(formData, "reviewsJson");
   const videosJson = readString(formData, "videosJson");
+  const assignedStoryIdsJson = readString(formData, "assignedStoryIdsJson");
+  const assignedVideoIdsJson = readString(formData, "assignedVideoIdsJson");
+  const assignedPodcastIdsJson = readString(formData, "assignedPodcastIdsJson");
 
   if (!name || !role) {
     redirect(`/admin/placement-managers${managerId ? `/${managerId}` : "/new"}?error=Name%20and%20Role%20are%20required`);
+  }
+
+  let baseSlug = slugify(name);
+  let slug = baseSlug;
+  let count = 1;
+  while (true) {
+    const existing = await prisma.placementManager.findFirst({
+      where: { slug, NOT: { id: managerId || "" } }
+    });
+    if (!existing) break;
+    count++;
+    slug = `${baseSlug}-${count}`;
   }
 
   let manager;
   if (managerId) {
     manager = await prisma.placementManager.update({
       where: { id: managerId },
-      data: { name, role, linkedinUrl: linkedinUrl || null, imageUrl: imageUrl || null, bio: bio || null }
+      data: { name, slug, role, linkedinUrl: linkedinUrl || null, imageUrl: imageUrl || null, bio: bio || null }
     });
   } else {
     manager = await prisma.placementManager.create({
-      data: { name, role, linkedinUrl: linkedinUrl || null, imageUrl: imageUrl || null, bio: bio || null }
+      data: { name, slug, role, linkedinUrl: linkedinUrl || null, imageUrl: imageUrl || null, bio: bio || null }
     });
   }
 
@@ -487,10 +524,69 @@ export async function savePlacementManager(formData: FormData) {
     }
   }
 
+  // Sync assigned stories (Success Stories)
+  await prisma.story.updateMany({
+    where: { placementManagerId: manager.id },
+    data: { placementManagerId: null }
+  });
+  if (assignedStoryIdsJson) {
+    try {
+      const storyIds = JSON.parse(assignedStoryIdsJson);
+      if (Array.isArray(storyIds) && storyIds.length > 0) {
+        await prisma.story.updateMany({
+          where: { id: { in: storyIds } },
+          data: { placementManagerId: manager.id }
+        });
+      }
+    } catch (e) {
+      console.error("Failed to parse assignedStoryIdsJson", e);
+    }
+  }
+
+  // Sync assigned video testimonials
+  await prisma.videoTestimonial.updateMany({
+    where: { placementManagerId: manager.id },
+    data: { placementManagerId: null }
+  });
+  if (assignedVideoIdsJson) {
+    try {
+      const videoIds = JSON.parse(assignedVideoIdsJson);
+      if (Array.isArray(videoIds) && videoIds.length > 0) {
+        await prisma.videoTestimonial.updateMany({
+          where: { id: { in: videoIds } },
+          data: { placementManagerId: manager.id }
+        });
+      }
+    } catch (e) {
+      console.error("Failed to parse assignedVideoIdsJson", e);
+    }
+  }
+
+  // Sync assigned podcasts
+  await prisma.podcast.updateMany({
+    where: { placementManagerId: manager.id },
+    data: { placementManagerId: null }
+  });
+  if (assignedPodcastIdsJson) {
+    try {
+      const podcastIds = JSON.parse(assignedPodcastIdsJson);
+      if (Array.isArray(podcastIds) && podcastIds.length > 0) {
+        await prisma.podcast.updateMany({
+          where: { id: { in: podcastIds } },
+          data: { placementManagerId: manager.id }
+        });
+      }
+    } catch (e) {
+      console.error("Failed to parse assignedPodcastIdsJson", e);
+    }
+  }
+
   revalidatePath("/admin");
   revalidatePath("/admin/placement-managers");
   revalidatePath("/placement-managers");
   revalidatePath(`/placement-managers/${manager.id}`);
+  revalidatePath("/podcasts");
+  revalidatePath("/success-stories");
 
   redirect("/admin/placement-managers?message=Placement%20Manager%20saved");
 }
@@ -514,6 +610,7 @@ export async function savePodcast(formData: FormData) {
   const videoUrl = readString(formData, "videoUrl");
   const thumbnailUrl = readString(formData, "thumbnailUrl");
   const isActive = readBoolean(formData, "isActive");
+  const placementManagerId = readString(formData, "placementManagerId");
 
   if (!title || !description || !youtubeUrl) {
     redirect(`/admin/podcasts${podcastId ? `/${podcastId}` : "/new"}?error=Title,%20Description,%20and%20YouTube%20URL%20are%20required`);
@@ -522,11 +619,11 @@ export async function savePodcast(formData: FormData) {
   if (podcastId) {
     await prisma.podcast.update({
       where: { id: podcastId },
-      data: { title, description, youtubeUrl, videoUrl: videoUrl || null, thumbnailUrl: thumbnailUrl || null, isActive }
+      data: { title, description, youtubeUrl, videoUrl: videoUrl || null, thumbnailUrl: thumbnailUrl || null, isActive, placementManagerId: placementManagerId || null }
     });
   } else {
     await prisma.podcast.create({
-      data: { title, description, youtubeUrl, videoUrl: videoUrl || null, thumbnailUrl: thumbnailUrl || null, isActive }
+      data: { title, description, youtubeUrl, videoUrl: videoUrl || null, thumbnailUrl: thumbnailUrl || null, isActive, placementManagerId: placementManagerId || null }
     });
   }
 

@@ -469,7 +469,7 @@ export default function IsSkystatesLegitPage() {
                     { window: "Before the first class", outcome: "Full refund minus $99 registration fee" },
                     { window: "Within Week 1 of classes", outcome: "Full tuition refund minus registration fees" },
                     { window: "After Week 1 of classes", outcome: "No refund (non-refundable)" },
-                    { window: "US-based: within 14 days, course not accessed", outcome: "Full refund" },
+                    { window: "US-based: within 7 days, course not accessed", outcome: "Full refund" },
                   ].map((row, i) => (
                     <tr key={i} className={row.outcome.includes("No refund") ? "bg-red-50/50" : ""}>
                       <td className="px-4 py-3 text-slate-700">{row.window}</td>
@@ -611,7 +611,7 @@ export default function IsSkystatesLegitPage() {
                 },
                 {
                   q: "What is the Sky States refund policy?",
-                  a: "Full refund within 3 business days. Full refund (minus $99) before first class. Full tuition refund (minus registration fees) within Week 1. No refunds after Week 1. US students get a 14-day full refund if content was not accessed.",
+                  a: "Full refund within 3 business days. Full refund (minus $99) before first class. Full tuition refund (minus registration fees) within Week 1. No refunds after Week 1. US students get a 7-day full refund if content was not accessed.",
                 },
                 {
                   q: "Is the Sky States $2,999 program worth the money?",
@@ -640,11 +640,11 @@ export default function IsSkystatesLegitPage() {
 
           {/* Disclosure */}
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 leading-relaxed">
-            <strong>Editorial Independence Disclosure:</strong> SkyReviews.us is owned by the same parent company as Sky States but operates under an independent editorial policy. This investigation was conducted by the SkyReviews Editorial Team and represents our independent findings. Read our{" "}
+            <strong>Editorial Disclosure:</strong> SkyReviews.us is an independent digital publication operating under an independent editorial policy. This investigation was conducted by the SkyReviews Editorial Team and represents our independent findings. Read our{" "}
             <Link href="/transparency/conflict-of-interest" className="underline font-bold">
               Conflict of Interest Policy
             </Link>{" "}
-            for full details.
+            for details.
           </div>
         </div>
       </article>

@@ -29,6 +29,10 @@ export default async function EditStoryPage({
     },
   });
 
+  const placementManagers = await prisma.placementManager.findMany({
+    orderBy: { name: "asc" },
+  });
+
   if (!story) {
     notFound();
   }
@@ -51,7 +55,7 @@ export default async function EditStoryPage({
         ) : null}
       </section>
 
-      <StoryForm story={story} />
+      <StoryForm story={story} placementManagers={placementManagers} />
     </div>
   );
 }

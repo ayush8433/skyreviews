@@ -5,7 +5,7 @@ import AuthorByline from "@/components/AuthorByline";
 
 export const metadata: Metadata = {
   title: "Conflict of Interest Policy | SkyReviews",
-  description: "How SkyReviews.us manages conflicts of interest due to shared ownership with Sky States.",
+  description: "How SkyReviews.us maintains editorial independence and manages conflicts of interest.",
 };
 
 export default function ConflictOfInterestPage() {
@@ -28,7 +28,7 @@ export default function ConflictOfInterestPage() {
         <div className="prose prose-slate max-w-none space-y-6 text-slate-600 leading-relaxed font-normal">
           <h2 className="text-xl font-bold text-slate-800">1. Context &amp; Purpose</h2>
           <p>
-            Because SkyReviews.us and Sky States share corporate ownership, a inherent potential conflict of interest exists. If left unmanaged, this could compromise review integrity, lead to suppressed criticism, or inflate rating metrics. 
+            At SkyReviews.us, maintaining trust and absolute review integrity is our highest priority. To prevent any commercial influence or bias from impacting our coverage of educational providers like Sky States, we enforce a strict Conflict of Interest policy.
           </p>
           <p>
             This Conflict of Interest (COI) policy defines the boundaries, structural separations, and absolute restrictions designed to keep our editorial assessments completely independent.

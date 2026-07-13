@@ -17,5 +17,9 @@ export default async function EditPodcastPage({
     notFound();
   }
 
-  return <PodcastForm podcast={podcast} />;
+  const placementManagers = await prisma.placementManager.findMany({
+    orderBy: { name: "asc" },
+  });
+
+  return <PodcastForm podcast={podcast} placementManagers={placementManagers} />;
 }

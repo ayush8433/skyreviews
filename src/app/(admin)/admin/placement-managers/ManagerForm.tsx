@@ -34,6 +34,18 @@ type VideoTestimonialItem = {
   company: string;
 };
 
+type StoryMin = {
+  id: string;
+  title: string;
+  isPublished: boolean;
+};
+
+type PodcastMin = {
+  id: string;
+  title: string;
+  isActive: boolean;
+};
+
 type ManagerFormProps = {
   manager?: {
     id: string;
@@ -44,13 +56,33 @@ type ManagerFormProps = {
     bio: string | null;
     reviews: ReviewItem[];
     videos: VideoItem[];
+    assignedStories?: StoryMin[];
+    assignedVideos?: VideoTestimonialItem[];
+    assignedPodcasts?: PodcastMin[];
   } | null;
+  allStories?: StoryMin[];
+  allPodcasts?: PodcastMin[];
   videoTestimonials?: VideoTestimonialItem[];
 };
 
-export default function ManagerForm({ manager, videoTestimonials = [] }: ManagerFormProps) {
+export default function ManagerForm({
+  manager,
+  allStories = [],
+  allPodcasts = [],
+  videoTestimonials = [],
+}: ManagerFormProps) {
   const [reviews, setReviews] = useState<ReviewItem[]>(manager?.reviews || []);
   const [videos, setVideos] = useState<VideoItem[]>(manager?.videos || []);
+
+  const [selectedStoryIds, setSelectedStoryIds] = useState<string[]>(
+    manager?.assignedStories?.map((s) => s.id) || []
+  );
+  const [selectedVideoIds, setSelectedVideoIds] = useState<string[]>(
+    manager?.assignedVideos?.map((v) => v.id) || []
+  );
+  const [selectedPodcastIds, setSelectedPodcastIds] = useState<string[]>(
+    manager?.assignedPodcasts?.map((p) => p.id) || []
+  );
 
   const [newReview, setNewReview] = useState({
     reviewerName: "",
@@ -101,6 +133,9 @@ export default function ManagerForm({ manager, videoTestimonials = [] }: Manager
       {/* Serialize arrays to pass via standard HTML form submission to server actions */}
       <input type="hidden" name="reviewsJson" value={JSON.stringify(reviews)} />
       <input type="hidden" name="videosJson" value={JSON.stringify(videos)} />
+      <input type="hidden" name="assignedStoryIdsJson" value={JSON.stringify(selectedStoryIds)} />
+      <input type="hidden" name="assignedVideoIdsJson" value={JSON.stringify(selectedVideoIds)} />
+      <input type="hidden" name="assignedPodcastIdsJson" value={JSON.stringify(selectedPodcastIds)} />
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
         <div className="space-y-2">
@@ -171,6 +206,105 @@ export default function ManagerForm({ manager, videoTestimonials = [] }: Manager
                   placeholder="Describe their experience and placement philosophy..."
                   className="border-white/10 bg-slate-900/60 text-white"
                 />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Manage Assigned Resources */}
+          <Card className="border-white/10 bg-white/5 shadow-xl backdrop-blur-xl">
+            <CardContent className="p-6 space-y-6">
+              <h2 className="text-xl font-bold text-white border-b border-white/10 pb-2">Assigned Content & Resources</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Success Stories */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold text-sky-400">Success Stories</h3>
+                  <div className="max-h-60 overflow-y-auto space-y-2 border border-white/10 rounded-xl p-3 bg-slate-950/40">
+                    {allStories.length === 0 ? (
+                      <p className="text-xs text-slate-400">No stories available</p>
+                    ) : (
+                      allStories.map((story) => (
+                        <label key={story.id} className="flex items-start gap-2 text-xs text-slate-300 cursor-pointer hover:text-white">
+                          <input
+                            type="checkbox"
+                            checked={selectedStoryIds.includes(story.id)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setSelectedStoryIds([...selectedStoryIds, story.id]);
+                              } else {
+                                setSelectedStoryIds(selectedStoryIds.filter(id => id !== story.id));
+                              }
+                            }}
+                            className="mt-0.5 rounded border-white/20 bg-slate-900 text-blue-600 focus:ring-blue-500"
+                          />
+                          <span>
+                            {story.title} {!story.isPublished && <span className="text-rose-400 text-[10px]">(Draft)</span>}
+                          </span>
+                        </label>
+                      ))
+                    )}
+                  </div>
+                </div>
+
+                {/* Podcasts */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold text-sky-400">Podcasts</h3>
+                  <div className="max-h-60 overflow-y-auto space-y-2 border border-white/10 rounded-xl p-3 bg-slate-950/40">
+                    {allPodcasts.length === 0 ? (
+                      <p className="text-xs text-slate-400">No podcasts available</p>
+                    ) : (
+                      allPodcasts.map((podcast) => (
+                        <label key={podcast.id} className="flex items-start gap-2 text-xs text-slate-300 cursor-pointer hover:text-white">
+                          <input
+                            type="checkbox"
+                            checked={selectedPodcastIds.includes(podcast.id)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setSelectedPodcastIds([...selectedPodcastIds, podcast.id]);
+                              } else {
+                                setSelectedPodcastIds(selectedPodcastIds.filter(id => id !== podcast.id));
+                              }
+                            }}
+                            className="mt-0.5 rounded border-white/20 bg-slate-900 text-blue-600 focus:ring-blue-500"
+                          />
+                          <span>
+                            {podcast.title} {!podcast.isActive && <span className="text-rose-400 text-[10px]">(Inactive)</span>}
+                          </span>
+                        </label>
+                      ))
+                    )}
+                  </div>
+                </div>
+
+                {/* Video Testimonials */}
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold text-sky-400">Video Testimonials</h3>
+                  <div className="max-h-60 overflow-y-auto space-y-2 border border-white/10 rounded-xl p-3 bg-slate-950/40">
+                    {videoTestimonials.length === 0 ? (
+                      <p className="text-xs text-slate-400">No video testimonials available</p>
+                    ) : (
+                      videoTestimonials.map((vt) => (
+                        <label key={vt.id} className="flex items-start gap-2 text-xs text-slate-300 cursor-pointer hover:text-white">
+                          <input
+                            type="checkbox"
+                            checked={selectedVideoIds.includes(vt.id)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setSelectedVideoIds([...selectedVideoIds, vt.id]);
+                              } else {
+                                setSelectedVideoIds(selectedVideoIds.filter(id => id !== vt.id));
+                              }
+                            }}
+                            className="mt-0.5 rounded border-white/20 bg-slate-900 text-blue-600 focus:ring-blue-500"
+                          />
+                          <span>
+                            {vt.name} - {vt.title}
+                          </span>
+                        </label>
+                      ))
+                    )}
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SKY STATES | The Architecture of Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#3c475b",
+                      "background": "#131411",
+                      "on-tertiary": "#003730",
+                      "on-background": "#e5e2dd",
+                      "surface-container-high": "#2a2a27",
+                      "secondary-fixed": "#d7e3fc",
+                      "on-error": "#690005",
+                      "surface-bright": "#393936",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#1c1c19",
+                      "secondary": "#bbc7df",
+                      "surface-container": "#20201d",
+                      "surface-dim": "#131411",
+                      "tertiary-fixed-dim": "#00dfc6",
+                      "inverse-on-surface": "#31302d",
+                      "on-primary-container": "#7d7b7b",
+                      "inverse-primary": "#5f5e5e",
+                      "on-primary-fixed": "#1c1b1b",
+                      "surface": "#131411",
+                      "surface-container-highest": "#353532",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#adb9d1",
+                      "on-secondary-fixed": "#101c2e",
+                      "on-tertiary-container": "#008b7b",
+                      "on-surface-variant": "#c4c7c7",
+                      "primary": "#c8c6c5",
+                      "primary-container": "#0f0f0f",
+                      "on-primary-fixed-variant": "#474646",
+                      "outline": "#8e9192",
+                      "surface-container-lowest": "#0e0e0c",
+                      "on-tertiary-fixed-variant": "#005047",
+                      "primary-fixed": "#e5e2e1",
+                      "on-tertiary-fixed": "#00201b",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#bbc7df",
+                      "surface-tint": "#c8c6c5",
+                      "on-surface": "#e5e2dd",
+                      "secondary-container": "#3e495e",
+                      "on-primary": "#313030",
+                      "surface-variant": "#353532",
+                      "tertiary": "#00dfc6",
+                      "tertiary-fixed": "#41fce2",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "tertiary-container": "#00120f",
+                      "outline-variant": "#444748",
+                      "inverse-surface": "#e5e2dd",
+                      "on-secondary": "#253144"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "margin-mobile": "20px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "margin-desktop": "64px",
+                      "unit": "4px",
+                      "gutter": "24px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Playfair Display"],
+                      "technical-data": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "label-mono": ["JetBrains Mono"],
+                      "display-xl": ["Playfair Display"],
+                      "display-xl-mobile": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-md": ["Geist"]
+              },
+              "fontSize": {
+                      "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "600"}],
+                      "technical-data": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-xl-mobile": ["44px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .corner-notch {
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+        }
+        .grain-overlay {
+            background-image: url("https://www.transparenttextures.com/patterns/p6-dark.png");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .glow-teal { filter: drop-shadow(0 0 15px rgba(0, 229, 204, 0.2)); }
+        .hairline { border: 1px solid rgba(253, 250, 245, 0.1); }
+        .grid-pulse {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(253, 250, 245, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(253, 250, 245, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-tertiary selection:text-on-tertiary">
+<!-- Grain Overlay -->
+<div class="fixed inset-0 grain-overlay z-[100]"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-on-surface/10 h-20 flex justify-between items-center px-margin-desktop">
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter uppercase font-bold">
+            SKY STATES
+        </div>
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a class="text-tertiary border-b-2 border-tertiary pb-1 font-label-mono text-label-mono uppercase tracking-widest" href="#">Manager Ecosystem</a>
+<a class="text-on-surface-variant font-medium font-label-mono text-label-mono hover:text-tertiary transition-colors duration-300 uppercase tracking-widest" href="#">Success Engineering</a>
+<a class="text-on-surface-variant font-medium font-label-mono text-label-mono hover:text-tertiary transition-colors duration-300 uppercase tracking-widest" href="#">The Vision</a>
+</nav>
+<div class="flex items-center gap-stack-md">
+<button class="bg-primary text-on-primary font-bold px-6 py-2 uppercase tracking-tighter hover:scale-95 transition-transform duration-150">
+                COMMAND CENTER
+            </button>
+<span class="material-symbols-outlined text-on-surface cursor-pointer p-2 hover:bg-surface-container rounded-full transition-colors">account_circle</span>
+</div>
+</header>
+<main class="relative">
+<!-- Hero: The Architecture of Excellence -->
+<section class="relative min-h-screen flex flex-col justify-center items-center text-center px-margin-mobile md:px-margin-desktop overflow-hidden grid-pulse">
+
+<div class="relative z-10 max-w-5xl">
+<div class="font-label-mono text-label-mono text-tertiary mb-stack-md tracking-[0.3em] uppercase">SYSTEM INITIALIZED // GLOBAL READY</div>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-stack-lg italic leading-none">
+                    THE ARCHITECTURE <br/>OF EXCELLENCE
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-stack-lg leading-relaxed">
+                    Engineering career trajectories through structural precision. We don't just place talent; we architect lifelong mastery within the elite global tech ecosystem.
+                </p>
+<div class="flex flex-col md:flex-row gap-gutter justify-center">
+<button class="bg-on-background text-background font-bold px-10 py-4 uppercase tracking-tighter hover:bg-tertiary transition-colors duration-300">
+                        ACCESS ECOSYSTEM
+                    </button>
+<button class="border border-on-surface/30 text-on-surface font-bold px-10 py-4 uppercase tracking-tighter hover:border-tertiary hover:text-tertiary transition-all duration-300">
+                        VIEW BLUEPRINT
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+<span class="font-label-mono text-[10px] tracking-widest uppercase">SCROLL TO ANALYZE</span>
+<div class="w-[1px] h-12 bg-on-surface/30"></div>
+</div>
+</section>
+<!-- Leadership Nexus -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-end mb-section-gap gap-stack-lg">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-md uppercase tracking-tighter">The Leadership Nexus</h2>
+<p class="text-on-surface-variant font-body-md max-w-lg">A consolidated architecture of specialized career mastery. Each manager governs a critical node within the Sky States ecosystem.</p>
+</div>
+<div class="font-label-mono text-label-mono text-tertiary border-l border-tertiary pl-4">
+                    NODES ACTIVE: 06 <br/>
+                    STATUS: SYNCED
+                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Dr. Thorne -->
+<div class="hairline corner-notch bg-surface p-stack-lg group hover:bg-surface-container-high transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-16 bg-[#FFBF00] group-hover:h-full transition-all duration-500"></div>
+<div class="flex flex-col gap-stack-md">
+<div class="w-full aspect-[4/5] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A portrait of a sophisticated male executive with silver hair, wearing a sharp charcoal suit and amber-tinted glasses. He is standing in a modern architectural office with large glass windows and warm amber accent lighting. The mood is authoritative and intellectual, with a high-contrast editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu2R9-BgBCYAp2f-rse9tFMZq_f7v-hU0fu771SLOZVcZuRgzv_ouJOrMimXY5YvI08cuh2dJO53D7YRhRP9qkiGJwyn6yt-Kf2CX1lY0GCLimje1GY9fSnUnEJIZZGHjeASz0x38EC9AYIGmq1LZQ10jD4OVljIOqVomoiDHT30-HmRVVRnqqleV5I9YCcfK_xLdmW2iuqupfzU9m12avjrAN5IttuBwSfanpT9Ss25ap1_W525p_pMzBgw9eJf835IyeV7p5HuI"/>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-[#FFBF00] uppercase tracking-[0.2em]">Career Architect / AMBER NODE</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-2">Dr. Alistair Thorne</h3>
+<p class="text-on-surface-variant text-sm mt-stack-md leading-relaxed">Systematic mastery of C-Suite negotiation and executive-level trajectory engineering.</p>
+</div>
+<div class="pt-stack-md border-t border-on-surface/10 flex justify-between items-center">
+<span class="font-label-mono text-[10px] uppercase opacity-50">Dossier: SKY-001</span>
+<span class="material-symbols-outlined text-[#FFBF00]">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Elias Vance -->
+<div class="hairline corner-notch bg-surface p-stack-lg group hover:bg-surface-container-high transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-16 bg-[#FF4B4B] group-hover:h-full transition-all duration-500"></div>
+<div class="flex flex-col gap-stack-md">
+<div class="w-full aspect-[4/5] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A portrait of a sharp, intense young male professional with dark hair, set against a dark red atmospheric background with dramatic shadows. He wears a sleek black turtleneck and modern eyewear. The visual style is high-end architectural minimalism, emphasizing focused power and technical precision with red luminescent accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVpNVeNSrjxZapdDJVvDpC2EHYPhYtU1maITqVXhCY0vb0b8xpK67YxNqDsoEhcY10fI8U7RaQcwq8feSZMA4OPqR9vvrPJkpJPECc221j0tqBRLG6Y02kYNKxVnANwlN6CStqwWpQInMvDDkrcqUOvyjJNmrd7cmLPWBGVGMutSXep7iq-mKXXwErChdyDplu4gzdMPQwCqNSUPWsOuHfoQDiV5W4k5cXoQhl7SgA35ywu-ca0Enx4BhWvwFyIgti72bTTIi3zEc"/>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-[#FF4B4B] uppercase tracking-[0.2em]">Strategy Lead / RED NODE</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-2">Elias Vance</h3>
+<p class="text-on-surface-variant text-sm mt-stack-md leading-relaxed">Aggressive market positioning and rapid-ascent technical career maneuvers.</p>
+</div>
+<div class="pt-stack-md border-t border-on-surface/10 flex justify-between items-center">
+<span class="font-label-mono text-[10px] uppercase opacity-50">Dossier: SKY-002</span>
+<span class="material-symbols-outlined text-[#FF4B4B]">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Teal Node -->
+<div class="hairline corner-notch bg-surface p-stack-lg group hover:bg-surface-container-high transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-16 bg-tertiary group-hover:h-full transition-all duration-500"></div>
+<div class="flex flex-col gap-stack-md">
+<div class="w-full aspect-[4/5] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A professional portrait of a woman with a confident expression, set against a background of glowing teal circuit lines and dark metallic surfaces. She wears a minimalist white silk blouse. The lighting is cool and clinical, evoking a sense of technological mastery and high-stakes digital architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8HdNxoYtpvy21uiwn1rq5oxR6Yo2Nk5ttm7JN5X6eSxkuPH6OU-nM1hRjz3tDmbESIfrqCJHYlhYmrRVwPkQERK5T4SIgxtJcBRIxv9fBBHdhWhoMcU-duVgxlz0Q1QDnUi0SsqT-qRTWbdv0HCagyVKUR09GVUn7R-Au8oXRev3bDYWZH3I4I4hiTjDUXWQgRbfEF1JCjmJYXmRIQ0U8Res3NnY_O-7kuUzBx4w3lKdlQD2ZmU58dPtiA3QyV1tph3zwXh8wBeQ"/>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-tertiary uppercase tracking-[0.2em]">Innovation Head / TEAL NODE</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-2">Sloane Mercer</h3>
+<p class="text-on-surface-variant text-sm mt-stack-md leading-relaxed">Disruptive technology placement and future-state engineering career paths.</p>
+</div>
+<div class="pt-stack-md border-t border-on-surface/10 flex justify-between items-center">
+<span class="font-label-mono text-[10px] uppercase opacity-50">Dossier: SKY-003</span>
+<span class="material-symbols-outlined text-tertiary">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Cognac -->
+<div class="hairline corner-notch bg-surface p-stack-lg group hover:bg-surface-container-high transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-16 bg-[#A36B4D] group-hover:h-full transition-all duration-500"></div>
+<div class="flex flex-col gap-stack-md">
+<div class="w-full aspect-[4/5] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A portrait of a distinguished man in his 50s with a warm, cognac-toned color palette. He is seated in a luxury leather-bound library with dark wood paneling. The lighting is rich and low-key, highlighting deep shadows and high-end textures. The style is sophisticated, elite, and deeply established." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtrzZpT7S-5xgf0Zxse2TF830iZmaGKiwNWnzy8sK8TZ_d9A7UcSDa7nNiUpBov7fZVDNJl4DGYCnQOMQIx58j4p70GZNKBR_ShkltkLdk-M1ebffaCtB_DLARoDcHEO5x0M3KGzPjdAQSOAPpvu7Xj6GCDjZOliIUnVq06AmqPt8HAb3gA3jo_dWuIBPqEjz3aR_w8kW91vJCrWFEIWucFYXUsalnq2DWBi29-AR75Ws-fnDPCO76jMBfASZCU9VnpQIDZ6J05lw"/>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-[#A36B4D] uppercase tracking-[0.2em]">Legacy Partner / COGNAC NODE</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-2">Arthur Penhaligon</h3>
+<p class="text-on-surface-variant text-sm mt-stack-md leading-relaxed">Preserving architectural excellence through long-term legacy planning and mentorship.</p>
+</div>
+<div class="pt-stack-md border-t border-on-surface/10 flex justify-between items-center">
+<span class="font-label-mono text-[10px] uppercase opacity-50">Dossier: SKY-004</span>
+<span class="material-symbols-outlined text-[#A36B4D]">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Violet -->
+<div class="hairline corner-notch bg-surface p-stack-lg group hover:bg-surface-container-high transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-16 bg-[#8B5CF6] group-hover:h-full transition-all duration-500"></div>
+<div class="flex flex-col gap-stack-md">
+<div class="w-full aspect-[4/5] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A portrait of a creative professional woman with a sharp bob haircut, set against a background of ethereal violet neon and deep purple gradients. She wears a structured black designer jacket. The vibe is visionary and avant-garde, emphasizing high-end aesthetic precision and creative engineering leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb7d1BZwKkXMO550NU8gvtxRK8i2xW_d7rY07hF4cWMvrQiti8NxZKIrs4wnuczqAxcZEjKcsXdgp_R_k_QQnzmoRs6yCeq-Eoz-GCJecMvfJC2NkhKDDWK_QLo5Jt6i7gSK3zHOXCoyI3YC5DMS76gUZCesD2TAPEefso_RzAnH41Hl9PE1ARpCw97tJ0gTEilqxVNNyo0ydv6_4WksF1Egt6AMDuGJvGds_yopPNo3X0MCrEQOYauZp4in4WyASBn1NABNo8TRw"/>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-[#8B5CF6] uppercase tracking-[0.2em]">Creative Director / VIOLET NODE</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-2">Elara Vance</h3>
+<p class="text-on-surface-variant text-sm mt-stack-md leading-relaxed">Architecture of digital identity and prestige brand positioning for elite engineers.</p>
+</div>
+<div class="pt-stack-md border-t border-on-surface/10 flex justify-between items-center">
+<span class="font-label-mono text-[10px] uppercase opacity-50">Dossier: SKY-005</span>
+<span class="material-symbols-outlined text-[#8B5CF6]">arrow_outward</span>
+</div>
+</div>
+</div>
+<!-- Card 6: Green -->
+<div class="hairline corner-notch bg-surface p-stack-lg group hover:bg-surface-container-high transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1 h-16 bg-[#22C55E] group-hover:h-full transition-all duration-500"></div>
+<div class="flex flex-col gap-stack-md">
+<div class="w-full aspect-[4/5] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A portrait of a vibrant female leader with green botanical accents in the blurred background. She is illuminated by natural light that creates soft emerald highlights. The style is organic yet professional, representing sustainability and growth within the engineering career landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5AkIqssgwvCGS8S8gZC_B3XeJomlrdGV_sBVwUfzESjQKY5YCUg-5yBK-Q9AVUnd4m9VqzMzz5x4CYa7HZpm9OivwyzXrW4-F2M0aAtSBiZy0y-GiZbQzkOg_LjOV5hjeN2qwgIZc9GnL-q4_JyP3aSyFT-K6bK_wsw1XqLuKj4y91fYYqSoHd1E3LnEJj5DRE8tKpWM9Ky-c12MZ8kbsv4KzMqSJDfYMqsYdn_5ZOBBF2X0HIp7X7kkbYW_ohQrwU6P96IueNF4"/>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-[#22C55E] uppercase tracking-[0.2em]">Growth Strategist / GREEN NODE</span>
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-2">Sarah Jenkins</h3>
+<p class="text-on-surface-variant text-sm mt-stack-md leading-relaxed">Sustainable career scaling and ecological placement within thriving tech cultures.</p>
+</div>
+<div class="pt-stack-md border-t border-on-surface/10 flex justify-between items-center">
+<span class="font-label-mono text-[10px] uppercase opacity-50">Dossier: SKY-006</span>
+<span class="material-symbols-outlined text-[#22C55E]">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Momentum Engine (Metrics) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden">
+<div class="absolute inset-0 grid-pulse opacity-10"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="hairline p-stack-lg border-t-2 border-t-tertiary">
+<div class="font-label-mono text-label-mono text-tertiary uppercase mb-2">Metrics Core 01</div>
+<div class="font-display-xl text-5xl md:text-7xl text-on-surface mb-2 glow-teal">98%</div>
+<div class="font-label-mono text-xs uppercase tracking-widest text-on-surface-variant">Precision Placement Rate</div>
+<div class="mt-8 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-tertiary w-[98%] animate-pulse"></div>
+</div>
+</div>
+<div class="hairline p-stack-lg border-t-2 border-t-on-surface/20">
+<div class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-2">Metrics Core 02</div>
+<div class="font-display-xl text-5xl md:text-7xl text-on-surface mb-2">12,000+</div>
+<div class="font-label-mono text-xs uppercase tracking-widest text-on-surface-variant">Alumni Engineers Verified</div>
+<div class="mt-8 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-on-surface/30 w-3/4"></div>
+</div>
+</div>
+<div class="hairline p-stack-lg border-t-2 border-t-on-surface/20">
+<div class="font-label-mono text-label-mono text-on-surface-variant uppercase mb-2">Metrics Core 03</div>
+<div class="font-display-xl text-5xl md:text-7xl text-on-surface mb-2">$165K</div>
+<div class="font-label-mono text-xs uppercase tracking-widest text-on-surface-variant">Avg. Salary Delta Increase</div>
+<div class="mt-8 h-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-on-surface/30 w-1/2"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ecosystem Reviews (Social Proof) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-section-gap text-center uppercase tracking-tighter">Verified Career Shifts</h2>
+<div class="flex flex-col gap-gutter max-w-6xl mx-auto">
+<!-- Log Entry 1 -->
+<div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-stack-lg hairline p-stack-lg bg-surface transition-transform hover:scale-[1.01]">
+<div class="font-label-mono text-xs text-tertiary flex flex-col gap-1">
+<span class="opacity-40">TIMESTAMP</span>
+<span>OCT 24, 2023</span>
+<span class="mt-4 opacity-40">ID</span>
+<span>USR_A_882</span>
+</div>
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-mono text-xs uppercase tracking-widest">Architectural Log #442</span>
+</div>
+<p class="font-body-lg text-on-surface italic">"The structural pivot from Senior Engineer to Director of Infrastructure was surgical. Sky States provided the exact blueprint for the negotiation that resulted in a 45% increase."</p>
+</div>
+<div class="flex flex-col gap-2 min-w-[200px]">
+<div class="bg-surface-container-high p-4 border-l-2 border-red-500">
+<span class="font-label-mono text-[10px] uppercase opacity-50">BEFORE</span>
+<div class="text-on-surface-variant">L5 Senior Dev</div>
+</div>
+<div class="bg-tertiary/10 p-4 border-l-2 border-tertiary">
+<span class="font-label-mono text-[10px] uppercase text-tertiary">AFTER</span>
+<div class="text-on-surface">Director of Eng</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Log Entry 2 -->
+<div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-stack-lg hairline p-stack-lg bg-surface transition-transform hover:scale-[1.01]">
+<div class="font-label-mono text-xs text-tertiary flex flex-col gap-1">
+<span class="opacity-40">TIMESTAMP</span>
+<span>NOV 12, 2023</span>
+<span class="mt-4 opacity-40">ID</span>
+<span>USR_M_114</span>
+</div>
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-mono text-xs uppercase tracking-widest">Architectural Log #449</span>
+</div>
+<p class="font-body-lg text-on-surface italic">"Transitioning into High-Frequency Trading systems required a radical recalibration of my technical narrative. Dr. Thorne's AMBER module was the catalyst."</p>
+</div>
+<div class="flex flex-col gap-2 min-w-[200px]">
+<div class="bg-surface-container-high p-4 border-l-2 border-red-500">
+<span class="font-label-mono text-[10px] uppercase opacity-50">BEFORE</span>
+<div class="text-on-surface-variant">Fullstack Lead</div>
+</div>
+<div class="bg-tertiary/10 p-4 border-l-2 border-tertiary">
+<span class="font-label-mono text-[10px] uppercase text-tertiary">AFTER</span>
+<div class="text-on-surface">HFT Systems Arch</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background text-background relative overflow-hidden">
+
+<div class="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
+<div class="font-label-mono text-label-mono uppercase mb-stack-md tracking-[0.4em]">INITIATE SEQUENCE</div>
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-stack-lg leading-none uppercase">Initialize Your <br/>Trajectory</h2>
+<p class="font-body-lg text-background/80 mb-section-gap max-w-2xl">
+                    The platform is primed. The nodes are active. Access the Command Center to begin your architectural evolution within the global engineering elite.
+                </p>
+<button class="bg-background text-on-background px-16 py-6 font-bold text-xl uppercase tracking-tighter flex items-center gap-4 hover:gap-8 transition-all duration-500">
+                    COMMAND CENTER <span class="material-symbols-outlined">terminal</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-on-surface/10 py-section-gap px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-start gap-stack-lg mb-section-gap">
+<div class="flex flex-col gap-4">
+<div class="font-headline-lg text-headline-lg text-on-surface uppercase font-bold tracking-tighter">SKY STATES</div>
+<div class="font-label-mono text-xs opacity-50 max-w-xs">Global Architecture for Elite Career Engineering. System Status: Optimal. All Nodes Operational.</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col gap-2">
+<span class="font-label-mono text-tertiary font-bold text-[10px] uppercase tracking-widest mb-2">SYSTEM</span>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Legal Verification</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Protocol</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-mono text-tertiary font-bold text-[10px] uppercase tracking-widest mb-2">NETWORK</span>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Network Status</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">System Access</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-mono text-tertiary font-bold text-[10px] uppercase tracking-widest mb-2">DEVELOPER</span>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">API Documentation</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Architecture Logs</a>
+</div>
+</div>
+</div>
+<div class="pt-stack-lg border-t border-on-surface/5 flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-label-mono text-[10px] uppercase tracking-widest text-on-surface-variant">© 2024 SKY STATES ARCHITECTURAL. SYSTEM VERIFIED. ALL RIGHTS RESERVED.</div>
+<div class="flex gap-4 opacity-50">
+<span class="material-symbols-outlined text-sm">security</span>
+<span class="material-symbols-outlined text-sm">verified</span>
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for scrolling reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

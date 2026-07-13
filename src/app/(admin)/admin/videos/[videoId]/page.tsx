@@ -22,6 +22,10 @@ export default async function EditVideoPage({
 
   const video = await prisma.videoTestimonial.findUnique({ where: { id: videoId } });
 
+  const placementManagers = await prisma.placementManager.findMany({
+    orderBy: { name: "asc" },
+  });
+
   if (!video) {
     notFound();
   }
@@ -44,7 +48,7 @@ export default async function EditVideoPage({
         ) : null}
       </section>
 
-      <VideoForm video={video} />
+      <VideoForm video={video} placementManagers={placementManagers} />
     </div>
   );
 }

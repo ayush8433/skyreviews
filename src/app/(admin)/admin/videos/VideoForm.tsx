@@ -18,9 +18,22 @@ type VideoRecord = {
   thumbnailUrl: string;
   isActive: boolean;
   sortOrder: number;
+  placementManagerId?: string | null;
 };
 
-export default function VideoForm({ video }: { video?: VideoRecord | null }) {
+type PlacementManagerMin = {
+  id: string;
+  name: string;
+  role: string;
+};
+
+export default function VideoForm({
+  video,
+  placementManagers = [],
+}: {
+  video?: VideoRecord | null;
+  placementManagers?: PlacementManagerMin[];
+}) {
   return (
     <form action={saveVideoTestimonial} encType="multipart/form-data" className="space-y-6">
       <input type="hidden" name="videoId" value={video?.id ?? ""} />
@@ -57,6 +70,22 @@ export default function VideoForm({ video }: { video?: VideoRecord | null }) {
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-200" htmlFor="sortOrder">Sort order</label>
             <Input id="sortOrder" name="sortOrder" type="number" defaultValue={video?.sortOrder ?? 0} min={0} className="border-white/10 bg-slate-950/70 text-white placeholder:text-slate-400" />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-slate-200" htmlFor="placementManagerId">Assigned Placement Manager (Optional)</label>
+            <select
+              id="placementManagerId"
+              name="placementManagerId"
+              defaultValue={video?.placementManagerId ?? ""}
+              className="h-10 w-full rounded-lg border border-white/10 bg-slate-950/70 px-3 text-sm text-white outline-none"
+            >
+              <option value="">Unassigned</option>
+              {placementManagers.map((pm) => (
+                <option key={pm.id} value={pm.id}>
+                  {pm.name} ({pm.role})
+                </option>
+              ))}
+            </select>
           </div>
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-200" htmlFor="videoUrl">Video URL</label>

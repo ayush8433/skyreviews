@@ -1,0 +1,291 @@
+{
+  "screenshot": {
+    "name": "projects/9068806865665881607/files/945fc36c52b44db7847f0d17c6d52447",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLuVEQ88TeC9D0jhh95hR9lHHVu5blhp3BhHWbFdkyPB-pOHgEmgy95ws8VdbAVqCWJ5ElhIG33mfU99Eu22TCnAVc0-b4e57xwTtirPZ2gbbRBZSQJ2EwAJp4NJX-yXewz5yQYN4-JOKP0RRX4GdjvFmksmBxQbfD0IZS3oADs0TtruXVq5vf_6YbeUUPlMUo8I02rSr1YZhBNT7eMP1gcR0xicMmlPKNGmIuBWUKL0hdXPhVY_8YEqaNA"
+  },
+  "htmlCode": {
+    "name": "projects/9068806865665881607/files/d93fd17c33324e798d2d1e1ea6404dc4",
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2U4NTkwNzhkYTAxYjQ0MDBiYzQzNzU1MWYxYTg0NmMwEgsSBxDZ7-OlqQ0YAZIBIwoKcHJvamVjdF9pZBIVQhM5MDY4ODA2ODY1NjY1ODgxNjA3&filename=&opi=89354086",
+    "mimeType": "text/html"
+  },
+  "id": "7d3406fbf3d04d3b8db7f77247d1e473",
+  "generatedBy": "figaro_agent",
+  "width": "2560",
+  "height": "10718",
+  "title": "Placement Managers — Sky Reviews Elite Hub",
+  "prompt": "A premium editorial redesign of the Placement Managers page (referencing {{DATA:DOCUMENT:DOCUMENT_25}}). \n\nHero Section:\n- High-contrast serif headline: 'THE ARCHITECTS OF CAREER TRANSFORMATION'.\n- Subtext: 'Meet the elite collective of placement managers engineering professional trajectories at the intersection of ambition and opportunity.'\n- Use an architectural grid overlay texture in the background.\n\nManager Gallery (Asymmetrical Editorial Grid):\n- Display all managers from {{DATA:DOCUMENT:DOCUMENT_25}}: Ujjwal Jaiswal, Kajal Pippal (Kelly), Jasdev Singh, Sarah Jenkins, Marcus Thompson, Emily Rodriguez, David Kim.\n- Each 'Dossier' card includes:\n    - An environmental portrait (placeholder).\n    - Name in high-contrast serif.\n    - Role title (e.g., 'Hiring Mentor', 'Lead Placement Director').\n    - A short, punchy bio excerpt.\n    - 'Verified Team' badge.\n    - A 'Concierge' style CTA button: 'View Portfolio & Reviews'.\n\nDesign Tone:\n- 'Digital Heritage' & 'Quiet Luxury' aesthetic.\n- Colors: Ivory background (#fcf9f4), Deep Navy typography (#0f172a), Ochre accents (#B38B4D).\n- Typography: Playfair Display (Serif) for headers, Geist (Sans) for body and labels.\n- Layout: Large-scale typography, generous whitespace, asymmetrical alignment to avoid a generic 'grid' look.\n\nFinal Section:\n- 'Concierge' CTA: 'Schedule a Career Talk'.\n- Technical metrics displayed with mono-spaced labels.",
+  "name": "projects/9068806865665881607/screens/7d3406fbf3d04d3b8db7f77247d1e473",
+  "theme": {
+    "colorMode": "LIGHT",
+    "font": "PLAYFAIR_DISPLAY",
+    "customColor": "#0f172a",
+    "headlineFont": "PLAYFAIR_DISPLAY",
+    "bodyFont": "GEIST",
+    "labelFont": "GEIST",
+    "namedColors": {
+      "error": "#ba1a1a",
+      "on_tertiary_fixed": "#271901",
+      "tertiary_fixed": "#fcdeb5",
+      "on_background": "#1c1c19",
+      "on_secondary_fixed_variant": "#3a485c",
+      "sage": "#708271",
+      "on_secondary_fixed": "#0d1c2f",
+      "on_primary_fixed_variant": "#3f465c",
+      "on_tertiary_fixed_variant": "#574425",
+      "surface_bright": "#fcf9f4",
+      "secondary_fixed": "#d5e3fd",
+      "surface_dim": "#dcdad5",
+      "tertiary_fixed_dim": "#dec29a",
+      "inverse_surface": "#31302d",
+      "surface_container_low": "#f6f3ee",
+      "surface_container_highest": "#e5e2dd",
+      "on_surface": "#1c1c19",
+      "error_container": "#ffdad6",
+      "secondary_container": "#d5e3fd",
+      "primary_fixed_dim": "#bec6e0",
+      "on_secondary_container": "#57657b",
+      "tertiary_container": "#271901",
+      "secondary": "#515f74",
+      "primary_container": "#131b2e",
+      "inverse_primary": "#bec6e0",
+      "surface_tint": "#565e74",
+      "on_tertiary": "#ffffff",
+      "on_secondary": "#ffffff",
+      "outline_variant": "#c6c6cd",
+      "inverse_on_surface": "#f3f0eb",
+      "primary_fixed": "#dae2fd",
+      "background": "#fcf9f4",
+      "primary": "#000000",
+      "tertiary": "#000000",
+      "on_error_container": "#93000a",
+      "on_error": "#ffffff",
+      "on_surface_variant": "#45464d",
+      "ivory-dark": "#F5F1E9",
+      "surface_variant": "#e5e2dd",
+      "navy-light": "#1E293B",
+      "secondary_fixed_dim": "#b9c7e0",
+      "surface_container_lowest": "#ffffff",
+      "surface_container": "#f0ede9",
+      "on_primary_container": "#7c839b",
+      "ochre": "#B38B4D",
+      "outline": "#76777d",
+      "surface": "#fcf9f4",
+      "on_tertiary_container": "#98805d",
+      "on_primary": "#ffffff",
+      "surface_container_high": "#ebe8e3",
+      "on_primary_fixed": "#131b2e"
+    },
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#0f172a",
+    "overrideSecondaryColor": "#334155",
+    "overrideNeutralColor": "#fdfaf5",
+    "spacingScale": 2,
+    "typography": {
+      "body-md": {
+        "fontFamily": "Geist",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "26px"
+      },
+      "display-lg-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "40px",
+        "fontWeight": "700",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.01em"
+      },
+      "headline-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "40px",
+        "fontWeight": "600",
+        "lineHeight": "48px"
+      },
+      "serif-italic": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "28px"
+      },
+      "display-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "64px",
+        "fontWeight": "700",
+        "lineHeight": "72px",
+        "letterSpacing": "-0.02em"
+      },
+      "label-caps": {
+        "fontFamily": "Geist",
+        "fontSize": "12px",
+        "fontWeight": "600",
+        "lineHeight": "16px",
+        "letterSpacing": "0.1em"
+      },
+      "body-lg": {
+        "fontFamily": "Geist",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "30px"
+      },
+      "headline-md": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "40px"
+      }
+    },
+    "spacing": {
+      "section-gap": "160px",
+      "unit": "8px",
+      "gutter": "32px",
+      "margin-desktop": "80px",
+      "margin-mobile": "24px"
+    },
+    "headlineFontFamily": "Playfair Display",
+    "bodyFontFamily": "Geist",
+    "labelFontFamily": "Geist"
+  },
+  "deviceType": "DESKTOP",
+  "screenType": "DESIGN",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  },
+  "designSystem": {
+    "name": "assets/a6f09649f61e4f4a8c9d4cce5b8c5269",
+    "designSystem": {
+      "displayName": "Digital Heritage",
+      "styleGuidelines": "## Brand & Style\n\nThis design system embodies the concept of \"Quiet Luxury\" for an elite career transformation firm. The brand personality is authoritative yet understated, favoring architectural precision over loud marketing tropes. It targets high-net-worth professionals and executives, evoking a sense of exclusivity, wisdom, and \"crafted\" success.\n\nThe design style is **Editorial Minimalism** with **Glassmorphism** accents. It utilizes generous whitespace to signify premium value—where space itself is a luxury. The aesthetic borrows from high-end print journalism, using high-contrast typography and asymmetrical layouts to create a rhythmic, curated experience that feels more like a digital monograph than a standard corporate portal.\n\n## Layout & Spacing\n\nThis system utilizes an **Asymmetrical Fixed Grid** to create intentional friction and visual interest. \n\n- **Desktop (1440px+):** 12-column grid with wide 80px outer margins. Content often breaks the grid, with images spanning 7 columns while text occupies an offset 4-column block, leaving empty columns for \"visual breathing room.\"\n- **Tablet (768px - 1024px):** Transitions to an 8-column grid with 40px margins.\n- **Mobile (Below 768px):** 4-column fluid grid.\n\nSpacing is aggressive; the `section-gap` of 160px ensures that each narrative point is digested individually. Use vertical \"rhythm lines\" (1px Slate Gray strokes) to separate content sections, reinforcing the architectural feel.\n\n## Elevation & Depth\n\nDepth is achieved through **Tonal Layers** and **Glassmorphism** rather than traditional shadows. \n\n1.  **The Base:** All content sits on the Ivory surface.\n2.  **Navigation:** Uses a glassmorphism effect—a semi-transparent blur (Backdrop Filter: 20px) with a subtle 1px border in `Ivory-dark`.\n3.  **Surfaces:** Cards and containers do not use shadows. Instead, they use subtle background shifts (e.g., Ivory to Ivory-dark) or thin, 0.5px Slate Gray borders.\n4.  **Interactive Depth:** When an element is hovered, it should shift slightly in background tone or reveal an Ochre accent line, rather than \"lifting\" off the page.\n\n## Components\n\n### Buttons & 'Concierge' CTAs\nPrimary buttons are solid Deep Navy with Ivory text, sharp-edged. The \"Concierge\" CTA is a specialized variant: an outlined button with a thin Slate Gray stroke that transitions to a solid Ochre background on hover, symbolizing a \"warm\" invitation.\n\n### Magazine-Style Feature Cards\nCards feature large, high-resolution imagery with a 1px internal border. Headlines are placed asymmetrically within the card, often overlapping the image boundary or positioned in a wide white-space gutter below it.\n\n### Input Fields\nInputs are minimal: a single bottom border (1px Slate Gray) that turns Deep Navy on focus. Labels use the `label-caps` typography style and are positioned above the field.\n\n### Navigation\nThe navigation bar is a floating glassmorphic element at the top of the screen. It uses a minimal logo and `label-caps` for links. A single Ochre \"Active\" dot appears under the current page link.\n\n### Lists & Dividers\nLists should be separated by horizontal 1px lines in `Ivory-dark`. Use Ochre bullet points for high-priority executive summaries.",
+      "theme": {
+        "colorMode": "LIGHT",
+        "font": "PLAYFAIR_DISPLAY",
+        "customColor": "#0f172a",
+        "headlineFont": "PLAYFAIR_DISPLAY",
+        "bodyFont": "GEIST",
+        "labelFont": "GEIST",
+        "namedColors": {
+          "secondary_container": "#d5e3fd",
+          "on_surface": "#1c1c19",
+          "error_container": "#ffdad6",
+          "inverse_surface": "#31302d",
+          "surface_container_highest": "#e5e2dd",
+          "surface_container_low": "#f6f3ee",
+          "secondary_fixed": "#d5e3fd",
+          "tertiary_fixed_dim": "#dec29a",
+          "surface_dim": "#dcdad5",
+          "on_secondary_fixed": "#0d1c2f",
+          "on_primary_fixed_variant": "#3f465c",
+          "surface_bright": "#fcf9f4",
+          "on_tertiary_fixed_variant": "#574425",
+          "sage": "#708271",
+          "on_secondary_fixed_variant": "#3a485c",
+          "on_background": "#1c1c19",
+          "on_tertiary_fixed": "#271901",
+          "tertiary_fixed": "#fcdeb5",
+          "error": "#ba1a1a",
+          "on_primary_fixed": "#131b2e",
+          "surface_container_high": "#ebe8e3",
+          "on_tertiary_container": "#98805d",
+          "on_primary": "#ffffff",
+          "surface_container_lowest": "#ffffff",
+          "surface_container": "#f0ede9",
+          "on_primary_container": "#7c839b",
+          "ochre": "#B38B4D",
+          "outline": "#76777d",
+          "surface": "#fcf9f4",
+          "navy-light": "#1E293B",
+          "secondary_fixed_dim": "#b9c7e0",
+          "on_surface_variant": "#45464d",
+          "ivory-dark": "#F5F1E9",
+          "surface_variant": "#e5e2dd",
+          "on_error_container": "#93000a",
+          "on_error": "#ffffff",
+          "tertiary": "#000000",
+          "primary_fixed": "#dae2fd",
+          "background": "#fcf9f4",
+          "primary": "#000000",
+          "on_secondary": "#ffffff",
+          "outline_variant": "#c6c6cd",
+          "inverse_on_surface": "#f3f0eb",
+          "on_tertiary": "#ffffff",
+          "surface_tint": "#565e74",
+          "secondary": "#515f74",
+          "inverse_primary": "#bec6e0",
+          "primary_container": "#131b2e",
+          "tertiary_container": "#271901",
+          "primary_fixed_dim": "#bec6e0",
+          "on_secondary_container": "#57657b"
+        },
+        "designMd": "---\nname: Digital Heritage\ncolors:\n  surface: '#fcf9f4'\n  surface-dim: '#dcdad5'\n  surface-bright: '#fcf9f4'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f6f3ee'\n  surface-container: '#f0ede9'\n  surface-container-high: '#ebe8e3'\n  surface-container-highest: '#e5e2dd'\n  on-surface: '#1c1c19'\n  on-surface-variant: '#45464d'\n  inverse-surface: '#31302d'\n  inverse-on-surface: '#f3f0eb'\n  outline: '#76777d'\n  outline-variant: '#c6c6cd'\n  surface-tint: '#565e74'\n  primary: '#000000'\n  on-primary: '#ffffff'\n  primary-container: '#131b2e'\n  on-primary-container: '#7c839b'\n  inverse-primary: '#bec6e0'\n  secondary: '#515f74'\n  on-secondary: '#ffffff'\n  secondary-container: '#d5e3fd'\n  on-secondary-container: '#57657b'\n  tertiary: '#000000'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#271901'\n  on-tertiary-container: '#98805d'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dae2fd'\n  primary-fixed-dim: '#bec6e0'\n  on-primary-fixed: '#131b2e'\n  on-primary-fixed-variant: '#3f465c'\n  secondary-fixed: '#d5e3fd'\n  secondary-fixed-dim: '#b9c7e0'\n  on-secondary-fixed: '#0d1c2f'\n  on-secondary-fixed-variant: '#3a485c'\n  tertiary-fixed: '#fcdeb5'\n  tertiary-fixed-dim: '#dec29a'\n  on-tertiary-fixed: '#271901'\n  on-tertiary-fixed-variant: '#574425'\n  background: '#fcf9f4'\n  on-background: '#1c1c19'\n  surface-variant: '#e5e2dd'\n  sage: '#708271'\n  ochre: '#B38B4D'\n  ivory-dark: '#F5F1E9'\n  navy-light: '#1E293B'\ntypography:\n  display-lg:\n    fontFamily: Playfair Display\n    fontSize: 64px\n    fontWeight: '700'\n    lineHeight: 72px\n    letterSpacing: -0.02em\n  display-lg-mobile:\n    fontFamily: Playfair Display\n    fontSize: 40px\n    fontWeight: '700'\n    lineHeight: 48px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Playfair Display\n    fontSize: 40px\n    fontWeight: '600'\n    lineHeight: 48px\n  headline-md:\n    fontFamily: Playfair Display\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: 40px\n  body-lg:\n    fontFamily: Geist\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 30px\n  body-md:\n    fontFamily: Geist\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 26px\n  label-caps:\n    fontFamily: Geist\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.1em\n  serif-italic:\n    fontFamily: Playfair Display\n    fontSize: 20px\n    fontWeight: '400'\n    lineHeight: 28px\nspacing:\n  unit: 8px\n  gutter: 32px\n  margin-desktop: 80px\n  margin-mobile: 24px\n  section-gap: 160px\n---\n\n## Brand & Style\n\nThis design system embodies the concept of \"Quiet Luxury\" for an elite career transformation firm. The brand personality is authoritative yet understated, favoring architectural precision over loud marketing tropes. It targets high-net-worth professionals and executives, evoking a sense of exclusivity, wisdom, and \"crafted\" success.\n\nThe design style is **Editorial Minimalism** with **Glassmorphism** accents. It utilizes generous whitespace to signify premium value—where space itself is a luxury. The aesthetic borrows from high-end print journalism, using high-contrast typography and asymmetrical layouts to create a rhythmic, curated experience that feels more like a digital monograph than a standard corporate portal.\n\n## Colors\n\nThe palette is rooted in a \"Digital Heritage\" foundation. **Deep Navy (#0F172A)** serves as the primary anchor, providing weight and institutional trust. **Ivory (#FDFAF5)** replaces pure white to soften the visual experience and evoke the texture of premium stationery.\n\n**Sage** and **Ochre** are used sparingly as sophisticated accents for status indicators, \"Concierge\" highlights, and interactive cues. **Slate Gray** bridges the gap between the navy and ivory, used primarily for secondary text and architectural lines. Contrast is maintained at a high level to ensure readability while preserving the editorial mood.\n\n## Typography\n\nThe typography system relies on a sharp contrast between the classic, high-contrast serifs of **Playfair Display** and the technical, clean grotesque of **Geist**.\n\nHeadlines should be treated as architectural elements. Use `display-lg` for hero sections with tight letter spacing. Body copy utilizes `body-lg` to ensure a comfortable, \"bookish\" reading rhythm. `label-caps` is the primary utility style, used for small metadata and overlines to maintain a structured, organized appearance. Italics from Playfair Display are used for pull-quotes and decorative sub-headers to enhance the \"Magazine\" aesthetic.\n\n## Layout & Spacing\n\nThis system utilizes an **Asymmetrical Fixed Grid** to create intentional friction and visual interest. \n\n- **Desktop (1440px+):** 12-column grid with wide 80px outer margins. Content often breaks the grid, with images spanning 7 columns while text occupies an offset 4-column block, leaving empty columns for \"visual breathing room.\"\n- **Tablet (768px - 1024px):** Transitions to an 8-column grid with 40px margins.\n- **Mobile (Below 768px):** 4-column fluid grid.\n\nSpacing is aggressive; the `section-gap` of 160px ensures that each narrative point is digested individually. Use vertical \"rhythm lines\" (1px Slate Gray strokes) to separate content sections, reinforcing the architectural feel.\n\n## Elevation & Depth\n\nDepth is achieved through **Tonal Layers** and **Glassmorphism** rather than traditional shadows. \n\n1.  **The Base:** All content sits on the Ivory surface.\n2.  **Navigation:** Uses a glassmorphism effect—a semi-transparent blur (Backdrop Filter: 20px) with a subtle 1px border in `Ivory-dark`.\n3.  **Surfaces:** Cards and containers do not use shadows. Instead, they use subtle background shifts (e.g., Ivory to Ivory-dark) or thin, 0.5px Slate Gray borders.\n4.  **Interactive Depth:** When an element is hovered, it should shift slightly in background tone or reveal an Ochre accent line, rather than \"lifting\" off the page.\n\n## Shapes\n\nThe shape language is strictly **Sharp (0px)**. \n\nTo maintain the architectural and editorial feel, curves are avoided. Buttons, cards, images, and input fields must have crisp 90-degree corners. This reinforces the \"constructed\" nature of the career firm. Occasional circular elements are permitted only for small avatars or iconic status dots, but all structural UI components remain rectilinear.\n\n## Components\n\n### Buttons & 'Concierge' CTAs\nPrimary buttons are solid Deep Navy with Ivory text, sharp-edged. The \"Concierge\" CTA is a specialized variant: an outlined button with a thin Slate Gray stroke that transitions to a solid Ochre background on hover, symbolizing a \"warm\" invitation.\n\n### Magazine-Style Feature Cards\nCards feature large, high-resolution imagery with a 1px internal border. Headlines are placed asymmetrically within the card, often overlapping the image boundary or positioned in a wide white-space gutter below it.\n\n### Input Fields\nInputs are minimal: a single bottom border (1px Slate Gray) that turns Deep Navy on focus. Labels use the `label-caps` typography style and are positioned above the field.\n\n### Navigation\nThe navigation bar is a floating glassmorphic element at the top of the screen. It uses a minimal logo and `label-caps` for links. A single Ochre \"Active\" dot appears under the current page link.\n\n### Lists & Dividers\nLists should be separated by horizontal 1px lines in `Ivory-dark`. Use Ochre bullet points for high-priority executive summaries.",
+        "colorVariant": "FIDELITY",
+        "overridePrimaryColor": "#0f172a",
+        "overrideSecondaryColor": "#334155",
+        "overrideNeutralColor": "#fdfaf5",
+        "spacingScale": 2,
+        "typography": {
+          "serif-italic": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "20px",
+            "fontWeight": "400",
+            "lineHeight": "28px"
+          },
+          "display-lg": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "64px",
+            "fontWeight": "700",
+            "lineHeight": "72px",
+            "letterSpacing": "-0.02em"
+          },
+          "body-lg": {
+            "fontFamily": "Geist",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "30px"
+          },
+          "label-caps": {
+            "fontFamily": "Geist",
+            "fontSize": "12px",
+            "fontWeight": "600",
+            "lineHeight": "16px",
+            "letterSpacing": "0.1em"
+          },
+          "headline-md": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "32px",
+            "fontWeight": "600",
+            "lineHeight": "40px"
+          },
+          "body-md": {
+            "fontFamily": "Geist",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "26px"
+          },
+          "display-lg-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "40px",
+            "fontWeight": "700",
+            "lineHeight": "48px",
+            "letterSpacing": "-0.01em"
+          },
+          "headline-lg": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "40px",
+            "fontWeight": "600",
+            "lineHeight": "48px"
+          }
+        },
+        "spacing": {
+          "section-gap": "160px",
+          "unit": "8px",
+          "margin-mobile": "24px",
+          "gutter": "32px",
+          "margin-desktop": "80px"
+        },
+        "headlineFontFamily": "Playfair Display",
+        "bodyFontFamily": "Geist",
+        "labelFontFamily": "Geist"
+      }
+    },
+    "version": "1"
+  }
+}

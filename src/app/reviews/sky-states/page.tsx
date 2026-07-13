@@ -25,23 +25,23 @@ const aggregateRatingSchema = {
     {
       "@type": "Review",
       "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Robert M." },
-      "datePublished": "2025-02-15",
-      "reviewBody": "Sky States helped me bridge the gap between college coding and industry requirements. I went from unemployed to a Junior Data Analyst at Amazon within 4 months of graduation."
+      "author": { "@type": "Person", "name": "Shamim Kazi" },
+      "datePublished": "2025-01-15",
+      "reviewBody": "Sky States helped me bridge the gap between legacy operations and modern data engineering. The structured roadmap and hands-on capstone projects helped bridge the theory gap."
     },
     {
       "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Sarah P." },
-      "datePublished": "2025-05-10",
-      "reviewBody": "Building real pipelines on Azure and AWS made all the difference in my technical interviews. Went from Systems Admin to DevOps Engineer at Lockheed Martin."
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Sarah Jenkins" },
+      "datePublished": "2025-02-20",
+      "reviewBody": "The flexible schedules and supportive mentors helped me transition back into the workforce on my own terms. Excel Power Query and Tableau dashboard projects rebuilt my technical confidence."
     },
     {
       "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
-      "author": { "@type": "Person", "name": "Daniel K." },
-      "datePublished": "2025-07-20",
-      "reviewBody": "The weekend schedule is perfect for working professionals. The DP-900 prep was thorough and I passed on my first attempt."
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Marcus Torres" },
+      "datePublished": "2025-03-12",
+      "reviewBody": "At 41, pivoting to a predictable 40-hour office week gave me control of my life back. Mentors helped me map out physical store inventory as relational tables, making SQL database joins click instantly."
     }
   ],
   "address": [
@@ -58,6 +58,25 @@ const aggregateRatingSchema = {
   "email": "info@skystates.us"
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://skyreviews.us"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Sky States Review",
+      "item": "https://skyreviews.us/reviews/sky-states"
+    }
+  ]
+};
+
 export default function SkyStatesProfilePage() {
   return (
     <>
@@ -65,6 +84,11 @@ export default function SkyStatesProfilePage() {
         id="sky-states-aggregate-rating-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+      />
+      <Script
+        id="sky-states-breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <SkyStatesReviewClient />
     </>

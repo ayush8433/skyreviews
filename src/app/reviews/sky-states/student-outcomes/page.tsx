@@ -8,8 +8,29 @@ export const metadata: Metadata = {
 };
 
 export default function StudentOutcomesPage() {
+  const datasetSchema = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Sky States Student Placement Outcomes & Career Transition Statistics",
+    "description": "Verified self-reported placement rates, career transition statistics, and outcomes for Sky States cohorts in Data Science, Cyber Security, and DevOps.",
+    "creator": {
+      "@type": "Organization",
+      "name": "SkyReviews.us"
+    },
+    "variableMeasured": [
+      "Placement Rate",
+      "Job Title Transition",
+      "Salary Growth"
+    ],
+    "temporalCoverage": "2025/2026"
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }}
+      />
       <div className="container mx-auto max-w-3xl bg-white rounded-2xl border border-slate-200 p-8 md:p-12 shadow-xs space-y-6">
         <h1 className="text-3xl font-extrabold text-slate-900 border-b border-slate-100 pb-4 flex items-center gap-2">
           <TrendingUp className="w-8 h-8 text-blue-600" /> Student Outcomes

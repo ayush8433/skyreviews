@@ -1,0 +1,293 @@
+{
+  "screenshot": {
+    "name": "projects/9068806865665881607/files/3d6867bc710a4c0c9d9ede1830cd964d",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLtz_uhHygACr9V2uoq_wRtKeSL5Nig_EGYKdHh-yRdBHRCnMeDV66hD4ykmgAuuTt4lWZekNQ3vhXWuZp0uQrd_LiuxbcKF9UgwOg052Fepe8BVew8KmIHx6ua9riBpOQABH2qUJHGDku1fIMV8kzd6mIzde-vSa-fFrJGpKcQheEkggDfudpn9pnseW-lAusaoDYhuIxrukfwUUH1Wu20wm49RhRPsWDoSe_-2fqXg8otP_vLtQS1-3LA"
+  },
+  "htmlCode": {
+    "name": "projects/9068806865665881607/files/85967da5b4024e939785df58f2c8033e",
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzc4YWVhMDBiZDEyNDQzMTg4NDFjNzQ2YTVlMGJjMjFmEgsSBxDZ7-OlqQ0YAZIBIwoKcHJvamVjdF9pZBIVQhM5MDY4ODA2ODY1NjY1ODgxNjA3&filename=&opi=89354086",
+    "mimeType": "text/html"
+  },
+  "id": "78ef251673604657926b6d86e9911e6a",
+  "generatedBy": "figaro_agent",
+  "width": "2560",
+  "height": "10818",
+  "title": "Sky States — Flagship Digital Experience & Manager Nexus",
+  "prompt": "The Sky States Flagship Master Page. \n\nLayout Structure:\n1. **Hero: The Architecture of Excellence**: A massive, cinematic hero section with a high-contrast serif headline: \"THE ARCHITECTURE OF EXCELLENCE.\" Below it, a technical sub-headline about engineering career trajectories. Use a subtle background animation (like a grid pulse or abstract network).\n2. **The Leadership Nexus**: A premium gallery featuring all 6 managers. Each card should feel like a 'dossier' or 'profile'—using their specific accent colors (Dr. Thorne/Amber, Elias Vance/Red, Manager 3/Teal, Manager 4/Cognac, Elara Vance/Violet, Sarah Jenkins/Green). It bridges the individual portfolios into one flagship view.\n3. **The Momentum Engine (Metrics)**: A systematic section with large, glowing technical counters: 98% Placement Rate, 12,000+ Alumni, $165k Avg. Salary increase. Use hairline borders and technical mono-labels.\n4. **Ecosystem Reviews (Social Proof)**: A 'Global Feed' of student transformations. Show \"Verified Career Shifts\" with before/after labels, formatted as an architectural log.\n5. **Call to Action: Initialize Your Trajectory**: A final, high-impact section with a \"COMMAND CENTER\" button.\n\nAesthetic: Elite Architectural Minimalism. Dark mode baseline with high-contrast editorial ivory sections. Use the {{DATA:DESIGN_SYSTEM:DESIGN_SYSTEM_20}} tokens.",
+  "name": "projects/9068806865665881607/screens/78ef251673604657926b6d86e9911e6a",
+  "theme": {
+    "colorMode": "DARK",
+    "font": "PLAYFAIR_DISPLAY",
+    "customColor": "#0f0f0f",
+    "headlineFont": "PLAYFAIR_DISPLAY",
+    "bodyFont": "GEIST",
+    "labelFont": "JETBRAINS_MONO",
+    "namedColors": {
+      "inverse_surface": "#e5e2dd",
+      "background": "#131411",
+      "surface": "#131411",
+      "error": "#ffb4ab",
+      "surface_container_low": "#1c1c19",
+      "secondary_container": "#3e495e",
+      "surface_variant": "#353532",
+      "on_error_container": "#ffdad6",
+      "on_secondary_fixed": "#101c2e",
+      "secondary_fixed_dim": "#bbc7df",
+      "surface_container_highest": "#353532",
+      "on_tertiary_fixed_variant": "#005047",
+      "on_tertiary_container": "#008b7b",
+      "error_container": "#93000a",
+      "on_surface": "#e5e2dd",
+      "surface_dim": "#131411",
+      "outline": "#8e9192",
+      "primary_fixed_dim": "#c8c6c5",
+      "on_tertiary_fixed": "#00201b",
+      "secondary": "#bbc7df",
+      "on_secondary_container": "#adb9d1",
+      "surface_tint": "#c8c6c5",
+      "tertiary": "#00dfc6",
+      "on_primary_fixed_variant": "#474646",
+      "on_primary_container": "#7d7b7b",
+      "surface_container_high": "#2a2a27",
+      "on_primary": "#313030",
+      "on_secondary": "#253144",
+      "on_surface_variant": "#c4c7c7",
+      "on_background": "#e5e2dd",
+      "on_secondary_fixed_variant": "#3c475b",
+      "primary_container": "#0f0f0f",
+      "surface_container_lowest": "#0e0e0c",
+      "on_error": "#690005",
+      "secondary_fixed": "#d7e3fc",
+      "on_tertiary": "#003730",
+      "tertiary_fixed_dim": "#00dfc6",
+      "tertiary_container": "#00120f",
+      "surface_container": "#20201d",
+      "tertiary_fixed": "#41fce2",
+      "primary": "#c8c6c5",
+      "outline_variant": "#444748",
+      "inverse_on_surface": "#31302d",
+      "surface_bright": "#393936",
+      "on_primary_fixed": "#1c1b1b",
+      "primary_fixed": "#e5e2e1",
+      "inverse_primary": "#5f5e5e"
+    },
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#0f0f0f",
+    "overrideSecondaryColor": "#0a1628",
+    "overrideTertiaryColor": "#00e5cc",
+    "overrideNeutralColor": "#fdfaf5",
+    "spacingScale": 2,
+    "typography": {
+      "display-xl": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "72px",
+        "fontWeight": "700",
+        "lineHeight": "80px",
+        "letterSpacing": "-0.02em"
+      },
+      "technical-data": {
+        "fontFamily": "Geist",
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "lineHeight": "20px",
+        "letterSpacing": "0.02em"
+      },
+      "headline-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "40px",
+        "fontWeight": "600",
+        "lineHeight": "48px"
+      },
+      "label-mono": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "0.1em"
+      },
+      "body-lg": {
+        "fontFamily": "Geist",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "28px"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "36px"
+      },
+      "body-md": {
+        "fontFamily": "Geist",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px"
+      },
+      "display-xl-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "44px",
+        "fontWeight": "700",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "spacing": {
+      "gutter": "24px",
+      "margin-desktop": "64px",
+      "stack-md": "16px",
+      "stack-sm": "8px",
+      "stack-lg": "32px",
+      "unit": "4px",
+      "margin-mobile": "20px",
+      "section-gap": "120px"
+    },
+    "headlineFontFamily": "Playfair Display",
+    "bodyFontFamily": "Geist",
+    "labelFontFamily": "Jetbrains Mono"
+  },
+  "deviceType": "DESKTOP",
+  "screenType": "DESIGN",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  },
+  "designSystem": {
+    "name": "assets/9cd7299ab32742d897570d99f6d2d8e0",
+    "designSystem": {
+      "displayName": "Elite Architectural Minimalism",
+      "styleGuidelines": "## Brand & Style\n\nThis design system embodies \"Elite Architectural Minimalism,\" a visual language designed for high-stakes career placement and technical mastery. It functions as a \"Command Center for the C-Suite,\" blending the rigorous precision of a development environment with the rarefied atmosphere of a luxury editorial.\n\nThe UI evokes an emotional response of **controlled power** and **unwavering clarity**. It rejects the playful roundness of consumer SaaS in favor of sharp geometries, hairline precision, and deep, atmospheric depth. \n\n**Core Aesthetics:**\n- **Technical Precision:** Use of structural grid overlays, monospaced accents, and hairline borders (0.5pt to 1pt) to suggest a blueprint-like accuracy.\n- **High-End Editorial:** Large-scale, high-contrast serif typography and generous negative space to signal prestige.\n- **Glassmorphism:** Strategic use of translucent \"Control Panels\" over dark, textured backgrounds to maintain depth without clutter.\n- **Subtle Texture:** A persistent 1-2% grain/noise overlay on dark surfaces to prevent \"flatness\" and provide a tactile, paper-like feel to the digital space.\n\n## Layout & Spacing\n\nThis design system employs a **Rigid Architectural Grid**. Every element must feel intentionally placed, with no \"floating\" content.\n\n- **The 12-Column Grid:** Use a standard 12-column grid for desktop with wide 24px gutters. \n- **Rhythmic Verticality:** Use a base 4px unit. Spacing between sections should be aggressive (120px+) to allow the typography room to breathe.\n- **Hairline Separators:** Instead of shadows or color blocks, use `1px` borders in `#FDFAF5` at 10% opacity to define zones.\n- **Grid Overlays:** In data-heavy views, a subtle repeating 32px grid pattern can be used as a background texture to assist in visual alignment.\n\n## Elevation & Depth\n\nDepth is conveyed through **Tonal Stacking** and **Glassmorphism**, rather than traditional drop shadows.\n\n- **Level 0 (Base):** `#0F0F0F` (Flat black/charcoal).\n- **Level 1 (Sub-Panels):** `#0A1628` (Navy) with a 1px hairline border.\n- **Level 2 (Active Overlays):** Semi-transparent `#0A1628` (80% opacity) with a `24px` backdrop blur. Use this for modals and dropdowns.\n- **The \"Glow\" Exception:** The only shadow permitted is a subtle, ultra-diffused `#00E5CC` glow (blur 40px, opacity 10%) behind primary CTA elements or \"Active Placement\" indicators to simulate a digital screen's luminescence.\n\n## Components\n\n### Buttons\n- **Primary:** Solid `#FDFAF5` background with `#0F0F0F` Geist Bold text. Square edges. No shadow.\n- **Ghost:** `1px` hairline border in `#FDFAF5` (30% opacity). On hover, border becomes `#00E5CC` and text gains a subtle teal glow.\n- **System:** JetBrains Mono text with a `#00E5CC` prefix icon (e.g., `\u003e SUBMIT`).\n\n### Cards & Containers\n- Containers never use shadows. They use a `1px` border of `#FDFAF5` (10% opacity).\n- Header sections of cards should be separated by a hairline rule.\n- Use a \"Corner Notch\" visual detail (a 45-degree clip) on the top-right of primary feature cards to emphasize the technical aesthetic.\n\n### Input Fields\n- Underline-only or full-border hairline. \n- Focus state: The bottom border changes to `#00E5CC` with a vertical \"cursor\" blink effect at the end of the label.\n\n### Chips & Badges\n- Small, rectangular, JetBrains Mono text. \n- Backgrounds are always dark (`#0A1628`) with text colored by status (e.g., Teal for \"Active\", Off-white for \"Pending\").\n\n### Data Visualization\n- Use the Momentum Accent (`#00E5CC`) for all data lines. \n- Use a 10% opacity teal fill for area charts to create a \"radar screen\" effect.",
+      "theme": {
+        "colorMode": "DARK",
+        "font": "PLAYFAIR_DISPLAY",
+        "customColor": "#0f0f0f",
+        "headlineFont": "PLAYFAIR_DISPLAY",
+        "bodyFont": "GEIST",
+        "labelFont": "JETBRAINS_MONO",
+        "namedColors": {
+          "surface_container": "#20201d",
+          "tertiary_fixed_dim": "#00dfc6",
+          "tertiary_container": "#00120f",
+          "tertiary_fixed": "#41fce2",
+          "outline_variant": "#444748",
+          "primary": "#c8c6c5",
+          "inverse_primary": "#5f5e5e",
+          "primary_fixed": "#e5e2e1",
+          "on_primary_fixed": "#1c1b1b",
+          "surface_bright": "#393936",
+          "inverse_on_surface": "#31302d",
+          "on_primary_fixed_variant": "#474646",
+          "on_primary_container": "#7d7b7b",
+          "tertiary": "#00dfc6",
+          "on_secondary_container": "#adb9d1",
+          "surface_tint": "#c8c6c5",
+          "on_surface_variant": "#c4c7c7",
+          "on_background": "#e5e2dd",
+          "on_secondary": "#253144",
+          "on_primary": "#313030",
+          "surface_container_high": "#2a2a27",
+          "primary_container": "#0f0f0f",
+          "on_secondary_fixed_variant": "#3c475b",
+          "secondary_fixed": "#d7e3fc",
+          "on_tertiary": "#003730",
+          "on_error": "#690005",
+          "surface_container_lowest": "#0e0e0c",
+          "on_tertiary_container": "#008b7b",
+          "on_tertiary_fixed_variant": "#005047",
+          "secondary_fixed_dim": "#bbc7df",
+          "surface_container_highest": "#353532",
+          "on_surface": "#e5e2dd",
+          "surface_dim": "#131411",
+          "error_container": "#93000a",
+          "outline": "#8e9192",
+          "primary_fixed_dim": "#c8c6c5",
+          "secondary": "#bbc7df",
+          "on_tertiary_fixed": "#00201b",
+          "background": "#131411",
+          "inverse_surface": "#e5e2dd",
+          "error": "#ffb4ab",
+          "surface": "#131411",
+          "secondary_container": "#3e495e",
+          "surface_container_low": "#1c1c19",
+          "on_error_container": "#ffdad6",
+          "on_secondary_fixed": "#101c2e",
+          "surface_variant": "#353532"
+        },
+        "designMd": "---\nname: Elite Architectural Minimalism\ncolors:\n  surface: '#131411'\n  surface-dim: '#131411'\n  surface-bright: '#393936'\n  surface-container-lowest: '#0e0e0c'\n  surface-container-low: '#1c1c19'\n  surface-container: '#20201d'\n  surface-container-high: '#2a2a27'\n  surface-container-highest: '#353532'\n  on-surface: '#e5e2dd'\n  on-surface-variant: '#c4c7c7'\n  inverse-surface: '#e5e2dd'\n  inverse-on-surface: '#31302d'\n  outline: '#8e9192'\n  outline-variant: '#444748'\n  surface-tint: '#c8c6c5'\n  primary: '#c8c6c5'\n  on-primary: '#313030'\n  primary-container: '#0f0f0f'\n  on-primary-container: '#7d7b7b'\n  inverse-primary: '#5f5e5e'\n  secondary: '#bbc7df'\n  on-secondary: '#253144'\n  secondary-container: '#3e495e'\n  on-secondary-container: '#adb9d1'\n  tertiary: '#00dfc6'\n  on-tertiary: '#003730'\n  tertiary-container: '#00120f'\n  on-tertiary-container: '#008b7b'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#e5e2e1'\n  primary-fixed-dim: '#c8c6c5'\n  on-primary-fixed: '#1c1b1b'\n  on-primary-fixed-variant: '#474646'\n  secondary-fixed: '#d7e3fc'\n  secondary-fixed-dim: '#bbc7df'\n  on-secondary-fixed: '#101c2e'\n  on-secondary-fixed-variant: '#3c475b'\n  tertiary-fixed: '#41fce2'\n  tertiary-fixed-dim: '#00dfc6'\n  on-tertiary-fixed: '#00201b'\n  on-tertiary-fixed-variant: '#005047'\n  background: '#131411'\n  on-background: '#e5e2dd'\n  surface-variant: '#353532'\ntypography:\n  display-xl:\n    fontFamily: Playfair Display\n    fontSize: 72px\n    fontWeight: '700'\n    lineHeight: 80px\n    letterSpacing: -0.02em\n  display-xl-mobile:\n    fontFamily: Playfair Display\n    fontSize: 44px\n    fontWeight: '700'\n    lineHeight: 48px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Playfair Display\n    fontSize: 40px\n    fontWeight: '600'\n    lineHeight: 48px\n  headline-lg-mobile:\n    fontFamily: Playfair Display\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: 36px\n  body-lg:\n    fontFamily: Geist\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n  body-md:\n    fontFamily: Geist\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  technical-data:\n    fontFamily: Geist\n    fontSize: 14px\n    fontWeight: '500'\n    lineHeight: 20px\n    letterSpacing: 0.02em\n  label-mono:\n    fontFamily: JetBrains Mono\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: 16px\n    letterSpacing: 0.1em\nspacing:\n  unit: 4px\n  gutter: 24px\n  margin-desktop: 64px\n  margin-mobile: 20px\n  stack-sm: 8px\n  stack-md: 16px\n  stack-lg: 32px\n  section-gap: 120px\n---\n\n## Brand & Style\n\nThis design system embodies \"Elite Architectural Minimalism,\" a visual language designed for high-stakes career placement and technical mastery. It functions as a \"Command Center for the C-Suite,\" blending the rigorous precision of a development environment with the rarefied atmosphere of a luxury editorial.\n\nThe UI evokes an emotional response of **controlled power** and **unwavering clarity**. It rejects the playful roundness of consumer SaaS in favor of sharp geometries, hairline precision, and deep, atmospheric depth. \n\n**Core Aesthetics:**\n- **Technical Precision:** Use of structural grid overlays, monospaced accents, and hairline borders (0.5pt to 1pt) to suggest a blueprint-like accuracy.\n- **High-End Editorial:** Large-scale, high-contrast serif typography and generous negative space to signal prestige.\n- **Glassmorphism:** Strategic use of translucent \"Control Panels\" over dark, textured backgrounds to maintain depth without clutter.\n- **Subtle Texture:** A persistent 1-2% grain/noise overlay on dark surfaces to prevent \"flatness\" and provide a tactile, paper-like feel to the digital space.\n\n## Colors\n\nThe palette is anchored in deep, cinematic darkness to focus the user's attention on critical data and career milestones.\n\n- **Foundational Dark:** `#0F0F0F` (Deep Charcoal) serves as the primary canvas. Use this for the base background.\n- **Structural Navy:** `#0A1628` is used for containers, sidebars, and elevated surfaces to create a sense of architectural volume.\n- **Momentum Accent:** `#00E5CC` (Electric Teal) is the \"Active\" state. It represents data flow, progress, and conversion points. Use sparingly but with high impact.\n- **Editorial Contrast:** `#FDFAF5` (Warm Off-White) is reserved for flagship typography, high-priority cards, and moments of intense focus. It provides a human, sophisticated counterpoint to the technical dark mode.\n\n## Typography\n\nThe typography system relies on the friction between two disparate worlds: **Prestige** and **Logic**.\n\n1.  **The Serif (Playfair Display):** Used for headlines and \"Flagship\" moments. It should feel like a title card in a luxury publication. It signifies the user's career status.\n2.  **The Sans (Geist):** Used for all functional UI elements, body copy, and navigation. Its clean, geometric construction ensures legibility in complex data environments.\n3.  **The Mono (JetBrains Mono):** A specialized \"label\" tier used for metadata, system status, and breadcrumbs. It reinforces the \"Command Center\" aesthetic.\n\n**Note:** For `display-xl`, use a slight negative letter-spacing to tighten the editorial feel. For `label-mono`, always use uppercase and expanded tracking.\n\n## Layout & Spacing\n\nThis design system employs a **Rigid Architectural Grid**. Every element must feel intentionally placed, with no \"floating\" content.\n\n- **The 12-Column Grid:** Use a standard 12-column grid for desktop with wide 24px gutters. \n- **Rhythmic Verticality:** Use a base 4px unit. Spacing between sections should be aggressive (120px+) to allow the typography room to breathe.\n- **Hairline Separators:** Instead of shadows or color blocks, use `1px` borders in `#FDFAF5` at 10% opacity to define zones.\n- **Grid Overlays:** In data-heavy views, a subtle repeating 32px grid pattern can be used as a background texture to assist in visual alignment.\n\n## Elevation & Depth\n\nDepth is conveyed through **Tonal Stacking** and **Glassmorphism**, rather than traditional drop shadows.\n\n- **Level 0 (Base):** `#0F0F0F` (Flat black/charcoal).\n- **Level 1 (Sub-Panels):** `#0A1628` (Navy) with a 1px hairline border.\n- **Level 2 (Active Overlays):** Semi-transparent `#0A1628` (80% opacity) with a `24px` backdrop blur. Use this for modals and dropdowns.\n- **The \"Glow\" Exception:** The only shadow permitted is a subtle, ultra-diffused `#00E5CC` glow (blur 40px, opacity 10%) behind primary CTA elements or \"Active Placement\" indicators to simulate a digital screen's luminescence.\n\n## Shapes\n\nThe design system uses a **Strict Zero-Radius (Sharp)** philosophy.\n\n- **Rectilinear Precision:** All buttons, cards, and input fields must have `0px` border radius. This reinforces the architectural, technical nature of the brand.\n- **Geometric Exceptions:** Status dots and avatar containers may be circular, but must be housed within square framing to maintain the structural integrity of the grid.\n\n## Components\n\n### Buttons\n- **Primary:** Solid `#FDFAF5` background with `#0F0F0F` Geist Bold text. Square edges. No shadow.\n- **Ghost:** `1px` hairline border in `#FDFAF5` (30% opacity). On hover, border becomes `#00E5CC` and text gains a subtle teal glow.\n- **System:** JetBrains Mono text with a `#00E5CC` prefix icon (e.g., `\u003e SUBMIT`).\n\n### Cards & Containers\n- Containers never use shadows. They use a `1px` border of `#FDFAF5` (10% opacity).\n- Header sections of cards should be separated by a hairline rule.\n- Use a \"Corner Notch\" visual detail (a 45-degree clip) on the top-right of primary feature cards to emphasize the technical aesthetic.\n\n### Input Fields\n- Underline-only or full-border hairline. \n- Focus state: The bottom border changes to `#00E5CC` with a vertical \"cursor\" blink effect at the end of the label.\n\n### Chips & Badges\n- Small, rectangular, JetBrains Mono text. \n- Backgrounds are always dark (`#0A1628`) with text colored by status (e.g., Teal for \"Active\", Off-white for \"Pending\").\n\n### Data Visualization\n- Use the Momentum Accent (`#00E5CC`) for all data lines. \n- Use a 10% opacity teal fill for area charts to create a \"radar screen\" effect.",
+        "colorVariant": "FIDELITY",
+        "overridePrimaryColor": "#0f0f0f",
+        "overrideSecondaryColor": "#0a1628",
+        "overrideTertiaryColor": "#00e5cc",
+        "overrideNeutralColor": "#fdfaf5",
+        "spacingScale": 2,
+        "typography": {
+          "display-xl": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "72px",
+            "fontWeight": "700",
+            "lineHeight": "80px",
+            "letterSpacing": "-0.02em"
+          },
+          "technical-data": {
+            "fontFamily": "Geist",
+            "fontSize": "14px",
+            "fontWeight": "500",
+            "lineHeight": "20px",
+            "letterSpacing": "0.02em"
+          },
+          "headline-lg": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "40px",
+            "fontWeight": "600",
+            "lineHeight": "48px"
+          },
+          "body-lg": {
+            "fontFamily": "Geist",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "28px"
+          },
+          "label-mono": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "12px",
+            "fontWeight": "500",
+            "lineHeight": "16px",
+            "letterSpacing": "0.1em"
+          },
+          "headline-lg-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "32px",
+            "fontWeight": "600",
+            "lineHeight": "36px"
+          },
+          "body-md": {
+            "fontFamily": "Geist",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "24px"
+          },
+          "display-xl-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "44px",
+            "fontWeight": "700",
+            "lineHeight": "48px",
+            "letterSpacing": "-0.01em"
+          }
+        },
+        "spacing": {
+          "margin-mobile": "20px",
+          "section-gap": "120px",
+          "unit": "4px",
+          "stack-sm": "8px",
+          "stack-md": "16px",
+          "margin-desktop": "64px",
+          "stack-lg": "32px",
+          "gutter": "24px"
+        },
+        "headlineFontFamily": "Playfair Display",
+        "bodyFontFamily": "Geist",
+        "labelFontFamily": "Jetbrains Mono"
+      }
+    },
+    "version": "1"
+  }
+}

@@ -14,6 +14,9 @@ export default async function EditManagerPage({
     include: {
       reviews: true,
       videos: true,
+      assignedStories: true,
+      assignedVideos: true,
+      assignedPodcasts: true,
     },
   });
 
@@ -21,9 +24,24 @@ export default async function EditManagerPage({
     notFound();
   }
 
+  const allStories = await prisma.story.findMany({
+    orderBy: { title: "asc" },
+  });
+
+  const allPodcasts = await prisma.podcast.findMany({
+    orderBy: { title: "asc" },
+  });
+
   const videoTestimonials = await prisma.videoTestimonial.findMany({
     orderBy: { createdAt: "desc" },
   });
 
-  return <ManagerForm manager={manager} videoTestimonials={videoTestimonials} />;
+  return (
+    <ManagerForm
+      manager={manager}
+      allStories={allStories}
+      allPodcasts={allPodcasts}
+      videoTestimonials={videoTestimonials}
+    />
+  );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { prisma } from "@/lib/prisma";
 import StoryForm from "../StoryForm";
 
 export const metadata: Metadata = {
@@ -14,6 +15,10 @@ export default async function NewStoryPage({
   searchParams: Promise<{ error?: string }>;
 }) {
   const params = await searchParams;
+
+  const placementManagers = await prisma.placementManager.findMany({
+    orderBy: { name: "asc" },
+  });
 
   return (
     <div className="space-y-6">
@@ -33,7 +38,7 @@ export default async function NewStoryPage({
         ) : null}
       </section>
 
-      <StoryForm />
+      <StoryForm placementManagers={placementManagers} />
     </div>
   );
 }

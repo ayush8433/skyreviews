@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+
 import {
   ShieldCheck,
   Building2,
@@ -107,7 +108,7 @@ const faqSchema = {
       name: "What is Sky States' refund policy?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sky States offers a full refund if canceled within 3 business days of signing and payment. A full refund minus a $99 registration fee is available if canceled before the first class. A full tuition refund minus registration fees is available if withdrawn in the first week of classes. No refunds are issued after the first week. US-based students may receive a full refund within 14 days of purchase if course content has not been accessed.",
+        text: "Sky States offers a full refund if canceled within 3 business days of signing and payment. A full refund minus a $99 registration fee is available if canceled before the first class. A full tuition refund minus registration fees is available if withdrawn in the first week of classes. No refunds are issued after the first week. US-based students may receive a full refund within 7 days of purchase if course content has not been accessed.",
       },
     },
     {
@@ -344,6 +345,8 @@ export default function VerifyPage() {
           </div>
         </div>
       </section>
+
+
 
       {/* Detailed Trust Checks */}
       <section className="py-12 px-4">

@@ -113,6 +113,15 @@ const getInitials = (name: string) =>
     .map((part) => part[0].toUpperCase())
     .join("");
 
+function getYoutubeEmbedUrl(url: string): string | null {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11
+    ? `https://www.youtube.com/embed/${match[2]}`
+    : null;
+}
+
 export default async function DynamicVideoTestimonialPage({
   params,
 }: {
@@ -276,13 +285,23 @@ export default async function DynamicVideoTestimonialPage({
             {/* Right Theater Screen */}
             <div className="lg:col-span-7">
               <div className="relative aspect-video rounded-3xl overflow-hidden bg-black shadow-[0_35px_80px_-25px_rgba(14,165,233,0.3)] border border-slate-800/80">
-                <video
-                  className="w-full h-full object-contain"
-                  controls
-                  playsInline
-                  poster={testimonial.thumbnailUrl}
-                  src={testimonial.videoUrl}
-                />
+                {getYoutubeEmbedUrl(testimonial.videoUrl) ? (
+                  <iframe
+                    src={getYoutubeEmbedUrl(testimonial.videoUrl)!}
+                    title={testimonial.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full border-none"
+                  />
+                ) : (
+                  <video
+                    className="w-full h-full object-contain"
+                    controls
+                    playsInline
+                    poster={testimonial.thumbnailUrl}
+                    src={testimonial.videoUrl}
+                  />
+                )}
               </div>
             </div>
           </div>

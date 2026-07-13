@@ -14,6 +14,7 @@ const stories = [
   {
     title: "From Retail Burnout to Data Science Confidence",
     slug: "from-retail-burnout-to-data-science-confidence",
+    publishedAt: "2025-05-20",
     content: `## How Melissa Rebuilt Her Career Through Data Science
 
 Before tech became part of her life, Melissa Carter spent nearly twelve years managing retail stores in Phoenix. She was used to handling stressful shifts, customer complaints, and nonstop schedules, but eventually she realized she wanted something more stable and future-focused.
@@ -76,6 +77,7 @@ Today, instead of managing store operations, she works with dashboards, reports,
   {
     title: "Finding Purpose After Military Service",
     slug: "military-veteran-transition-cybersecurity",
+    publishedAt: "2025-07-10",
     content: `## A Veteran's Transition into Cybersecurity
 
 After serving in the military for eight years, Daniel Brooks returned to civilian life unsure about what came next. He wanted structure, challenge, and a long-term future, but translating military experience into the tech industry felt overwhelming.
@@ -128,6 +130,7 @@ Daniel eventually accepted a cybersecurity analyst role with a managed security 
   {
     title: "Navigating Tech as an International Student",
     slug: "international-student-devops-journey",
+    publishedAt: "2025-03-22",
     content: `## How Priya Built a Career in DevOps
 
 When Priya Nair moved to Dallas for her master's degree, she quickly realized how competitive the American tech market could be for international students.
@@ -182,6 +185,7 @@ After multiple interviews and technical rounds, Priya accepted a DevOps engineer
   {
     title: "Turning a Layoff into a Career Upgrade",
     slug: "rebuilding-career-after-layoff",
+    publishedAt: "2024-12-15",
     content: `## Rebuilding a Future Through DevOps
 
 Jason Miller spent almost fifteen years working traditional IT support roles before his company downsized unexpectedly.
@@ -232,6 +236,7 @@ Within four months of finishing the program, Jason secured a DevOps support role
   {
     title: "From Customer Support to Cybersecurity",
     slug: "from-customer-service-to-cybersecurity",
+    publishedAt: "2025-06-10",
     content: `## How Amanda Found Confidence in Tech
 
 Amanda Lewis spent years working customer support jobs while constantly feeling financially stuck.
@@ -274,6 +279,7 @@ Amanda eventually accepted a security operations center role with a financial se
   {
     title: "Restarting Her Career After Motherhood",
     slug: "building-future-in-data-science-after-motherhood",
+    publishedAt: "2025-06-15",
     content: `## Building a Future in Data Science
 
 After spending several years raising her children full-time, Rebecca Allen struggled with the idea of restarting her career.
@@ -307,13 +313,14 @@ After months of preparation, portfolio work, and mock interviews, Rebecca accept
       name: "Rebecca Allen",
       title: "Business Intelligence Analyst",
       company: "Tech Company",
-      imageUrl: "/Rebecca%20allen.jpg"
+      imageUrl: "/rebecca.jpg"
     },
     categories: ["Career Change", "Data Science", "Remote Work"]
   },
   {
     title: "Leaving Finance Behind for Cloud Engineering",
     slug: "finance-professional-move-into-devops",
+    publishedAt: "2025-08-20",
     content: `## Kevin's Move into DevOps
 
 Kevin Ramirez spent nearly ten years working in banking operations before realizing he wanted a more technical and future-proof career.
@@ -354,6 +361,7 @@ Today, Kevin works remotely as a cloud operations engineer.
   {
     title: "Breaking Into Cybersecurity Without a Tech Degree",
     slug: "breaking-into-cybersecurity-without-cs-degree",
+    publishedAt: "2025-04-15",
     content: `## Sophia's Unexpected Career Shift
 
 Sophia Turner graduated with a psychology degree and spent years assuming technology careers weren't realistic for her.
@@ -394,6 +402,7 @@ After months of preparation and interview coaching, Sophia secured an entry-leve
   {
     title: "Combining Engineering and Analytics",
     slug: "from-mechanical-engineering-to-data-analytics",
+    publishedAt: "2025-02-10",
     content: `## How Andrew Transitioned into Data Science
 
 Andrew Collins came from a mechanical engineering background but struggled finding long-term satisfaction in the industry.
@@ -430,6 +439,7 @@ Andrew eventually accepted a data analyst role with a logistics company.
   {
     title: "Starting Over and Finding Opportunity",
     slug: "starting-over-in-america-through-tech",
+    publishedAt: "2025-03-15",
     content: `## Ahmed's Journey Into DevOps in America
 
 When Ahmed Hassan moved to the United States, he faced a challenge many immigrants understand well: starting over professionally.
@@ -466,6 +476,330 @@ Today, Ahmed works as a junior DevOps engineer for a healthcare technology compa
       imageUrl: "/Ahmed%20hassan.jpg"
     },
     categories: ["Career Growth", "DevOps", "International"]
+  },
+  {
+    title: "I Thought It Was Another Scam",
+    slug: "i-thought-it-was-another-scam",
+    publishedAt: "2026-05-15",
+    content: `## I Thought It Was Another Scam
+
+After nearly fifteen years in accounting, Jennifer Morales had become an expert at spotting things that didn't add up.
+
+At 37, she was a senior accountant for a manufacturing company in Austin, Texas. She had a stable job, decent pay, and a predictable routine. But every quarter felt the same.
+
+"I wasn't unhappy," she said. "I was just stuck."
+
+Over time, she became more interested in the data side of her work than the accounting itself. She found herself creating dashboards, analyzing trends, and building reports that went beyond traditional bookkeeping.
+
+"I liked figuring out why numbers changed, not just recording them."
+
+Eventually, she started researching careers in analytics and data science.
+
+## A Lot of Research and a Lot of Questions
+
+Jennifer did what accountants do best: research.
+
+She compared bootcamps, online courses, community colleges, and certificate programs.
+
+"I had spreadsheets comparing tuition, course length, curriculum, and reviews," she laughed.
+
+When SkyStates first reached out to her, she wasn't impressed.
+
+"I thought it was another one of those companies trying to sell me something."
+
+The follow-up calls made her even more skeptical.
+
+"I probably ignored the first few calls."
+
+But one day, she decided to answer.
+
+"I didn't sign up after the first call. Honestly, I was skeptical. I probably asked them thirty questions."
+
+She asked about curriculum, instructors, career support, payment options, projects, and outcomes.
+
+"What surprised me was that nobody seemed bothered by my questions. They answered every single one."
+
+## Deciding to Bet on Herself
+
+The tuition still felt expensive.
+
+"I won't lie. Spending that kind of money scared me."
+
+She considered taking individual courses on Coursera and Udemy instead.
+
+"But I realized I had already spent months trying to teach myself. I wasn't making progress because I had no structure."
+
+The EMI payment option made the decision easier.
+
+"I didn't need to pay everything upfront, which made it feel manageable."
+
+More importantly, she wanted accountability.
+
+"I needed people who would push me when I felt like quitting."
+
+So she enrolled.
+
+## Learning Something Completely New
+
+The first few weeks were intimidating.
+
+Jennifer had never written a line of Python code.
+
+"My first SQL query took almost an hour."
+
+But she quickly realized she wasn't alone.
+
+"The small class sizes helped a lot because you could actually ask questions."
+
+She attended almost every doubt-clearing session and frequently stayed after class to talk with mentors.
+
+"The instructors never made me feel like I was asking dumb questions."
+
+She learned:
+
+* SQL
+* Python
+* Pandas
+* Tableau
+* Power BI
+* Statistics
+* Data visualization
+
+The projects became her favorite part of the program.
+
+She built:
+
+* A customer segmentation model
+* A retail sales dashboard
+* A forecasting project using historical data
+
+"Those projects made me realize I could actually do this professionally."
+
+## The Part That Changed Everything
+
+The resume team completely rewrote her professional story.
+
+"They showed me that my accounting background wasn't irrelevant. It was actually an advantage."
+
+Her experience with spreadsheets, financial reporting, and business analysis became strengths instead of limitations.
+
+The mock interviews also helped tremendously.
+
+"I was terrible during the first one."
+
+By the third mock interview, she felt like a different person.
+
+"I stopped trying to sound technical and started talking about how I solve problems."
+
+## Receiving the Offer
+
+Two months after graduation, Jennifer accepted a Data Analyst position with a software company in Austin.
+
+"When I got the offer letter, I just stared at my computer screen."
+
+She called her husband and cried.
+
+"I don't cry often, but that moment felt different."
+
+Today, she spends her days working with dashboards and business metrics instead of month-end closings.
+
+"The price felt big at the time," she said. "Looking back, staying stuck would've cost me much more."`,
+    alumni: {
+      name: "Jennifer Morales",
+      title: "Data Analyst",
+      company: "Software Company",
+      imageUrl: "/Jennifer Morales.jpg"
+    },
+    categories: ["Career Change", "Data Science", "Featured"]
+  },
+  {
+    title: "I Almost Hung Up During the First Call",
+    slug: "i-almost-hung-up-during-the-first-call",
+    publishedAt: "2026-06-02",
+    content: `## I Almost Hung Up During the First Call
+
+Teaching was all Emily Parker had ever planned to do.
+
+For eleven years, she taught middle school science in Minneapolis.
+
+She loved her students, but by her early thirties, the stress had become overwhelming.
+
+"I was taking work home every night. I was exhausted."
+
+She started thinking about other careers.
+
+One evening, a friend who worked in technology suggested data analytics.
+
+"I honestly didn't know what a data analyst did."
+
+So she started researching.
+
+## The Call She Almost Ignored
+
+When SkyStates reached out, Emily was skeptical.
+
+"I almost hung up."
+
+She had already looked at several programs and was tired of sales conversations.
+
+"At first, I thought they were trying to sell me something."
+
+But the conversation surprised her.
+
+"They kept asking about my goals and why I wanted to change careers."
+
+No one had asked her that before.
+
+"Then I realized they were actually trying to understand why I wanted to change careers."
+
+## Going From Classroom to Code
+
+Emily enrolled in the Data Science track.
+
+The transition wasn't easy.
+
+"I hadn't been a student in years."
+
+Her biggest challenge was Python.
+
+"I remember staring at my screen wondering if I'd made a huge mistake."
+
+The mentors encouraged her to keep going.
+
+"They never made me feel behind."
+
+The flexible class schedule helped because she was still teaching full-time.
+
+Most nights, she studied after grading papers.
+
+"There were evenings when I didn't start studying until nine o'clock."
+
+## Building Real Skills
+
+Her favorite project involved analyzing student performance data.
+
+"It combined my teaching background with my new technical skills."
+
+She also built:
+
+* Tableau dashboards
+* SQL reporting projects
+* Customer segmentation models
+
+"I finally started feeling like a data professional."
+
+## Getting Ready for Interviews
+
+The mock interviews changed everything.
+
+"I didn't realize interviews could actually be practiced."
+
+The resume team also helped her reposition her experience.
+
+"They showed me how teaching had given me communication and analytical skills."
+
+A month after graduation, she received an offer for an Education Data Analyst position.
+
+"I remember calling my mom immediately."
+
+Today, she works remotely and helps school districts analyze student performance data.
+
+"I still help students. I just do it differently now."`,
+    alumni: {
+      name: "Emily Parker",
+      title: "Education Data Analyst",
+      company: "School Districts",
+      imageUrl: "/Emily Parker.jpeg"
+    },
+    categories: ["Career Change", "Data Science", "Featured"]
+  },
+  {
+    title: "Three Thousand Dollars Felt Like a Huge Risk",
+    slug: "three-thousand-dollars-felt-like-a-huge-risk",
+    publishedAt: "2026-06-25",
+    content: `## Three Thousand Dollars Felt Like a Huge Risk
+
+At 39, Rachel Green was raising two children alone while working in customer service.
+
+She wanted something better for her family.
+
+"I wasn't looking to get rich. I just wanted stability."
+
+Data analytics caught her attention because it seemed practical and offered remote opportunities.
+
+The problem was money.
+
+## Doing the Math
+
+"I remember seeing the tuition and immediately thinking, 'There's no way I can afford this.'"
+
+She looked into going back to college.
+
+The numbers didn't make sense.
+
+"I spent more than that on community college classes that never changed my career."
+
+The EMI option changed everything.
+
+"It allowed me to invest in myself without putting my family in financial trouble."
+
+## Learning Around Real Life
+
+Rachel studied after her children went to sleep.
+
+"There were nights when I didn't start until ten."
+
+She often attended recorded sessions because her schedule was unpredictable.
+
+"The flexibility honestly saved me."
+
+The community also became important.
+
+"There were other parents going through the same thing."
+
+## Slowly Building Confidence
+
+She struggled with SQL at first.
+
+"I almost quit during the second month."
+
+A mentor encouraged her to stick with it.
+
+"He reminded me that everybody struggles in the beginning."
+
+She eventually completed projects involving:
+
+* Sales forecasting
+* Customer segmentation
+* Business dashboards
+* Data visualization
+
+"Every project made me a little more confident."
+
+## Getting Hired
+
+The career coaching team helped her rewrite her resume and prepare for interviews.
+
+The mock interviews made a huge difference.
+
+"My first real interview felt familiar because I had already practiced so much."
+
+Three months after graduating, Rachel accepted a remote Business Intelligence Analyst position.
+
+Her salary increased significantly, but that wasn't what mattered most.
+
+"My kids saw me work for something and actually achieve it."
+
+Today, she works from home and spends evenings with her family instead of worrying about money.
+
+"For me, this wasn't just a career change," she said. "It was proof that betting on yourself can actually work."`,
+    alumni: {
+      name: "Rachel Green",
+      title: "Business Intelligence Analyst",
+      company: "Remote Company",
+      imageUrl: "/Rachel green.jpg"
+    },
+    categories: ["Career Change", "Data Science", "Remote Work", "Featured"]
   }
 ];
 
@@ -519,7 +853,14 @@ async function main() {
       where: { slug: story.slug }
     });
 
-    if (!existingStory) {
+    if (existingStory) {
+      await prisma.story.update({
+        where: { id: existingStory.id },
+        data: {
+          publishedAt: toSqliteDateTimeString(new Date(story.publishedAt)),
+        }
+      });
+    } else {
       const savedStory = await prisma.story.create({
         data: {
           title: story.title,
@@ -527,7 +868,7 @@ async function main() {
           content: story.content,
           isPublished: true,
           moderationStatus: StoryModerationStatus.APPROVED,
-          publishedAt: toSqliteDateTimeString(new Date()),
+          publishedAt: toSqliteDateTimeString(new Date(story.publishedAt)),
           alumniId: alumni.id,
         }
       });
@@ -565,68 +906,99 @@ async function main() {
   const managersData = [
     {
       id: "pm-1",
-      name: "Sarah Jenkins",
-      role: "Lead Placement Director",
-      linkedinUrl: "https://linkedin.com/in/sarah-jenkins-skyreviews",
-      imageUrl: "https://placehold.co/400x400/3b82f6/ffffff?text=SJ",
-      bio: "With over 8 years of experience in tech recruitment and career coaching, Sarah specializes in connecting graduates with Fortune 500 companies. She has successfully placed over 200 students in roles ranging from software engineering to data science, and is known for her hands-on approach to resume optimization and interview preparation.",
+      name: "Ujjwal Jaiswal",
+      role: "Hiring Mentor & Senior Partner",
+      linkedinUrl: "https://linkedin.com/in/ujjwal-jaiswal",
+      imageUrl: "/uploads/ujjwal.png",
+      bio: "Architect of executive transitions for Fortune 550 tech leaders, specializing in bridging the gap between legacy infrastructure and generative future-states.",
       reviews: [
-        { id: "pmr-1", reviewerName: "Amit Patel", reviewerRole: "Software Engineer Alum", content: "Sarah was extremely helpful in setting up my mock interviews and guiding me through salary negotiations. Her connections are top-notch!", rating: 5 },
-        { id: "pmr-2", reviewerName: "Jessica Wu", reviewerRole: "Data Analyst Alum", content: "Sarah completely transformed my resume. Within two weeks of working with her, I started getting callbacks from companies I never thought would notice me.", rating: 5 },
-        { id: "pmr-3", reviewerName: "Carlos Rivera", reviewerRole: "DevOps Engineer Alum", content: "The mock interviews Sarah organized were incredibly realistic. I felt completely prepared when my actual interviews came around.", rating: 4 },
+        { id: "pmr-1", reviewerName: "Amit Patel", reviewerRole: "Software Engineer Alum", content: "Ujjwal was extremely helpful in setting up my mock interviews and guiding me through salary negotiations. His connections are top-notch!", rating: 5 },
+        { id: "pmr-2", reviewerName: "Jessica Wu", reviewerRole: "Data Analyst Alum", content: "Ujjwal completely transformed my resume. Within two weeks of working with him, I started getting callbacks from companies I never thought would notice me.", rating: 5 },
       ],
       videos: [
-        { id: "pmv-1", title: "Sarah's Placement Strategy Presentation", videoUrl: "/video 1.mp4", thumbnailUrl: null },
-        { id: "pmv-2", title: "Resume Workshop Highlights", videoUrl: "/video 2.mp4", thumbnailUrl: null },
+        { id: "pmv-1", title: "Ujjwal's Placement Strategy Presentation", videoUrl: "/video 1.mp4", thumbnailUrl: null },
       ],
     },
     {
       id: "pm-2",
-      name: "Marcus Thompson",
-      role: "Senior Career Coach",
-      linkedinUrl: "https://linkedin.com/in/marcus-thompson-sky",
-      imageUrl: "https://placehold.co/400x400/6366f1/ffffff?text=MT",
-      bio: "Marcus brings a unique perspective from his background as both a software engineer and HR consultant. He focuses on helping career changers articulate their transferable skills and build compelling portfolios that stand out in competitive job markets. His specialty is behavioral interview coaching and LinkedIn profile optimization.",
+      name: "Kajal Pippal (Kelly)",
+      role: "Lead Placement Director",
+      linkedinUrl: "https://linkedin.com/in/kajal-pippal",
+      imageUrl: "/uploads/kajal.jpg",
+      bio: "Curating specialized talent pipelines for the world's most secretive private equity firms and family offices.",
       reviews: [
-        { id: "pmr-4", reviewerName: "Daniel Brooks", reviewerRole: "Cybersecurity Analyst Alum", content: "Marcus helped me translate my military experience into tech language. His coaching was the reason I landed my first cybersecurity role.", rating: 5 },
-        { id: "pmr-5", reviewerName: "Priya Nair", reviewerRole: "DevOps Engineer Alum", content: "As an international student, I was nervous about the American interview process. Marcus walked me through everything from cultural expectations to technical whiteboarding.", rating: 5 },
+        { id: "pmr-3", reviewerName: "Daniel Brooks", reviewerRole: "Cybersecurity Analyst Alum", content: "Kelly helped me translate my military experience into tech language. Her coaching was the reason I landed my first cybersecurity role.", rating: 5 },
       ],
       videos: [
-        { id: "pmv-3", title: "Behavioral Interview Masterclass", videoUrl: "/video 3.mp4", thumbnailUrl: null },
+        { id: "pmv-2", title: "Talent Pipeline Overview", videoUrl: "/video 2.mp4", thumbnailUrl: null },
       ],
     },
     {
       id: "pm-3",
-      name: "Emily Rodriguez",
-      role: "Placement Coordinator",
-      linkedinUrl: "https://linkedin.com/in/emily-rodriguez-skyreviews",
-      imageUrl: "https://placehold.co/400x400/8b5cf6/ffffff?text=ER",
-      bio: "Emily is passionate about bridging the gap between education and employment. She manages employer partnerships with over 50 hiring companies and coordinates interview schedules, job fairs, and networking events. Her attention to detail and genuine care for students have earned her consistently high satisfaction ratings.",
+      name: "Jasdev Singh",
+      role: "Strategy Consultant",
+      linkedinUrl: "https://linkedin.com/in/jasdev-singh",
+      imageUrl: "/uploads/jasdev.jpg",
+      bio: "An expert in narrative repositioning, helping mid-career professionals break through the glass ceiling into C-suite roles.",
       reviews: [
-        { id: "pmr-6", reviewerName: "Rebecca Allen", reviewerRole: "BI Analyst Alum", content: "Emily personally followed up with me every week during my job search. She connected me with three different companies and helped me choose the best offer.", rating: 5 },
-        { id: "pmr-7", reviewerName: "Jason Miller", reviewerRole: "DevOps Support Alum", content: "Emily's networking events were a game-changer. I met my future employer at one of the sessions she organized. Can't thank her enough!", rating: 5 },
-        { id: "pmr-8", reviewerName: "Amanda Lewis", reviewerRole: "SOC Analyst Alum", content: "Even after I got placed, Emily checked in to see how I was doing. That level of care is rare and really appreciated.", rating: 4 },
+        { id: "pmr-4", reviewerName: "Priya Nair", reviewerRole: "DevOps Engineer Alum", content: "Jasdev walked me through everything from cultural expectations to technical whiteboarding. An incredible mentor.", rating: 5 },
       ],
-      videos: [
-        { id: "pmv-4", title: "Employer Partnership Q&A", videoUrl: "/video 1.mp4", thumbnailUrl: null },
-        { id: "pmv-5", title: "Job Fair Preparation Tips", videoUrl: "/video 2.mp4", thumbnailUrl: null },
-      ],
+      videos: [],
+    },
+    {
+      id: "pm-8",
+      name: "Shubham K. Kumar",
+      role: "Strategic Placement Director",
+      linkedinUrl: "https://linkedin.com/in/shubham-k-kumar",
+      imageUrl: "/uploads/shubham.jpg",
+      bio: "Fostering strategic corporate relationships and designing tailored placement opportunities for candidates.",
+      reviews: [],
+      videos: [],
     },
     {
       id: "pm-4",
-      name: "David Kim",
-      role: "Technical Interview Specialist",
-      linkedinUrl: "https://linkedin.com/in/david-kim-skyreviews",
-      imageUrl: "https://placehold.co/400x400/ec4899/ffffff?text=DK",
-      bio: "David is a former senior engineer at Google who now dedicates his time to preparing students for the rigors of technical interviews at top tech companies. He runs intensive coding challenge workshops, system design sessions, and one-on-one whiteboarding practice. His students have landed roles at FAANG companies and high-growth startups alike.",
+      name: "Sarah Jenkins",
+      role: "Certified Senior Partner",
+      linkedinUrl: "https://linkedin.com/in/sarah-jenkins",
+      imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuAVEWkeUrlHaLqIJ2gZvJKM1EL_m_XFhxIwIzN72-w_nwGt1QAVGnd9SCZUFg-OAvbWhoD6ntLW0aI4Mh1R5DgcRkO8kx29dPQcbdEM-5dSeTWOzoCPMhQ6YlCs1OFzBhAPkVOMDXnt_SFoEwtqqCGj6bSdR1V20UWazyTdq676W0-wABzHlO4Qq8QuFJxkJcAl9yvYbO5EdaEYn2JPpKOTfsvwqQwGYww9Atf1UM89VLukR_zYqIimsM_Yh9D93d_6U_T1hg-ILFQ",
+      bio: "Sarah leads our European division, facilitating global mobility for elite candidates across London, Zurich, and Milan.",
       reviews: [
-        { id: "pmr-9", reviewerName: "Andrew Collins", reviewerRole: "Data Analyst Alum", content: "David's system design sessions were incredible. He explained complex distributed systems concepts in a way that was easy to understand and apply in interviews.", rating: 5 },
-        { id: "pmr-10", reviewerName: "Kevin Ramirez", reviewerRole: "Cloud Ops Engineer Alum", content: "I went through 5 mock technical interviews with David. Each one got harder and more realistic. By the time I had my real interview, it felt easy.", rating: 5 },
+        { id: "pmr-5", reviewerName: "Carlos Rivera", reviewerRole: "DevOps Engineer Alum", content: "The mock interviews Sarah organized were incredibly realistic. I felt completely prepared when my actual interviews came around.", rating: 5 },
       ],
       videos: [
-        { id: "pmv-6", title: "System Design Interview Walkthrough", videoUrl: "/video 3.mp4", thumbnailUrl: null },
+        { id: "pmv-3", title: "Global Mobility Strategy", videoUrl: "/video 3.mp4", thumbnailUrl: null },
       ],
     },
+    {
+      id: "pm-5",
+      name: "Marcus Thompson",
+      role: "Lead Talent Scout",
+      linkedinUrl: "https://linkedin.com/in/marcus-thompson",
+      imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuD2onXkpPxyNc8LFLcW5BsE_ZlmIFvEpJuMyPXG9SoZrVamM84AAPhJKhK1ow-TJv0Fa2J1Fv7rLKfQRiYm4lcPkXkMZNRF12hYNcrOtYv5G1nShTdJXsRYADaZK4FBh3panNBxEeTBVhXrq4DHBOZaRrFIVfG58td9roXjWtVUj34oCI46cKHAiAFNBRWsyUMrKhs1hqGXmE3u76XuLB0ECdnUrWB29VnQS8MPqlTgEOHz9_xcyRcUtqb829B0SO2wYLHvOIkURvk",
+      bio: "Master of identifying 'dark-horse' candidates and preparing them for unprecedented pivots into emerging sectors.",
+      reviews: [],
+      videos: [],
+    },
+    {
+      id: "pm-6",
+      name: "Emily Rodriguez",
+      role: "Career Strategist",
+      linkedinUrl: "https://linkedin.com/in/emily-rodriguez",
+      imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQn3E-oydA3rFmmp5xJ_bqvj5GJ0138VQUfP4yQzxbAALl25OgzXucZNCMDvRg-F1JbDrvzK8HUVsbbiH4rXJzuD-YeNJKB2iDjwYdXCowqU--KDmq1HapwZjV56_rCoH6dYhfeTn2AX7XmIhmmGHWUQUN42103YDzWzrId6DxMZAdeQyh5JBqMyFiKWq6ucMzcK1eLPth2ndaEOl4IkgSiu2Px5aK6Dh94m-DqVR1d-x6xYbre9iNr4dZOemZaHkU5AfRLqHG4Q4",
+      bio: "Specializing in 'The Return'—re-entering the workforce at peak performance after intentional career hiatuses or entrepreneurial ventures.",
+      reviews: [],
+      videos: [],
+    },
+    {
+      id: "pm-7",
+      name: "David Kim",
+      role: "Managing Principal",
+      linkedinUrl: "https://linkedin.com/in/david-kim",
+      imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuDYosJQnPyOI_-MjUS2GzrhMhAXV8cjhb25-7yTUIOMY3ODi6mp8EWugffnio5beMcwCP1q5IVpNHzv92yEoKKzBdAlP943JTVn-JHYB4CNeaO4EKlgvzelz51819pH9GFewY1yVmR-LJiHoWBtXU7dtLGb4nSRErib6ay9K7LqAy8_KnUIeYSmqh5Qp6CEF__jMc9UItrjzSFzdKPt0Q__s8TiUlDYiS2JfaY-VHQWdbbLtVd4DSN-s1MZ23fRAMFwDgJtMgavVrQ",
+      bio: "The architect behind the firm's placement philosophy. David has personally engineered over 400 executive transitions for some of the world's most influential boardrooms.",
+      reviews: [],
+      videos: [],
+    }
   ];
 
   for (const mgr of managersData) {
@@ -711,12 +1083,28 @@ async function main() {
       thumbnailUrl: "https://placehold.co/960x540/0b1120/bae6fd?text=Technical+Interviews",
       isActive: true,
     },
+    {
+      id: "pod-5",
+      title: "How Shamim Kazi Transitioned from a Non-Technical Background to Data Science: His Complete Learning Journey",
+      description: "Changing careers into Data Science can feel intimidating, especially for professionals without a background in programming, mathematics, or computer science. Shamim Kazi's journey illustrates how consistent study, practical projects, mentorship, and interview preparation can help someone build technical confidence over time. Learn about his learning path, projects, and interview preparation.",
+      youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoUrl: "/video 1.mp4",
+      thumbnailUrl: "https://placehold.co/960x540/0b1120/bae6fd?text=Shamim+Kazi+Transition",
+      isActive: true,
+    },
   ];
 
   for (const pod of podcastsData) {
     await prisma.podcast.upsert({
       where: { id: pod.id },
-      update: {},
+      update: {
+        title: pod.title,
+        description: pod.description,
+        youtubeUrl: pod.youtubeUrl,
+        videoUrl: pod.videoUrl,
+        thumbnailUrl: pod.thumbnailUrl,
+        isActive: pod.isActive,
+      },
       create: {
         id: pod.id,
         title: pod.title,

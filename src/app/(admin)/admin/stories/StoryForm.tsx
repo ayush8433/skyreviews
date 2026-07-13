@@ -28,9 +28,23 @@ type StoryRecord = {
   };
   categories: Array<{ category: { name: string } }>;
   tags: Array<{ tag: { name: string } }>;
+  metaJson?: string | null;
+  placementManagerId?: string | null;
 };
 
-export default function StoryForm({ story }: { story?: StoryRecord | null }) {
+type PlacementManagerMin = {
+  id: string;
+  name: string;
+  role: string;
+};
+
+export default function StoryForm({
+  story,
+  placementManagers = [],
+}: {
+  story?: StoryRecord | null;
+  placementManagers?: PlacementManagerMin[];
+}) {
   const categoryValue = story?.categories.map((item) => item.category.name).join(", ") ?? "";
   const tagValue = story?.tags.map((item) => item.tag.name).join(", ") ?? "";
   const publishedAtValue = story?.publishedAt ? new Date(story.publishedAt).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10);
@@ -68,6 +82,22 @@ export default function StoryForm({ story }: { story?: StoryRecord | null }) {
               <option value={StoryModerationStatus.PENDING}>Pending</option>
               <option value={StoryModerationStatus.APPROVED}>Approved</option>
               <option value={StoryModerationStatus.REJECTED}>Rejected</option>
+            </select>
+          </div>
+          <div className="space-y-2 lg:col-span-2">
+            <label className="text-sm font-medium text-slate-200" htmlFor="placementManagerId">Assigned Placement Manager (Optional)</label>
+            <select
+              id="placementManagerId"
+              name="placementManagerId"
+              defaultValue={story?.placementManagerId ?? ""}
+              className="h-10 w-full rounded-lg border border-white/10 bg-slate-950/70 px-3 text-sm text-white outline-none"
+            >
+              <option value="">Unassigned</option>
+              {placementManagers.map((pm) => (
+                <option key={pm.id} value={pm.id}>
+                  {pm.name} ({pm.role})
+                </option>
+              ))}
             </select>
           </div>
           <div className="space-y-2">
@@ -123,7 +153,11 @@ export default function StoryForm({ story }: { story?: StoryRecord | null }) {
             <Input id="alumniLinkedin" name="alumniLinkedin" defaultValue={story?.alumni.linkedinUrl ?? ""} placeholder="https://..." className="border-white/10 bg-slate-950/70 text-white placeholder:text-slate-400" />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-200" htmlFor="alumniImageUrl">Profile image URL</label>
+            <label className="text-sm font-medium text-slate-200" htmlFor="alumniImageFile">Profile image (Upload file)</label>
+            <Input id="alumniImageFile" name="alumniImageFile" type="file" accept="image/*" className="border-white/10 bg-slate-950/70 text-white" />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-slate-200" htmlFor="alumniImageUrl">Profile image URL (Alternative)</label>
             <Input id="alumniImageUrl" name="alumniImageUrl" defaultValue={story?.alumni.imageUrl ?? ""} placeholder="https://..." className="border-white/10 bg-slate-950/70 text-white placeholder:text-slate-400" />
           </div>
           <div className="space-y-2">
@@ -145,6 +179,27 @@ export default function StoryForm({ story }: { story?: StoryRecord | null }) {
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-200" htmlFor="tags">Tags</label>
             <Textarea id="tags" name="tags" defaultValue={tagValue} placeholder="Mentorship, Confidence, Interview Prep" className="border-white/10 bg-slate-950/70 text-white placeholder:text-slate-400" />
+          </div>
+        </CardContent>
+      </Card>
+ 
+      <Card className="border-white/10 bg-white/5 text-white shadow-2xl shadow-black/20 backdrop-blur-xl">
+        <CardHeader>
+          <CardTitle className="text-xl text-white">Success Story Metadata (JSON)</CardTitle>
+          <p className="text-xs text-slate-400">
+            Provide structured JSON metadata including the roadmap steps, project details, FAQ array, GEO optimization answers, and social media repurposed assets.
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-slate-200" htmlFor="metaJson">Metadata JSON</label>
+            <Textarea 
+              id="metaJson" 
+              name="metaJson" 
+              defaultValue={story?.metaJson ?? ""} 
+              placeholder={`{\n  "durationOfLearning": "7 Months",\n  "projectsCompletedCount": 4,\n  "technologiesLearned": ["Python", "SQL", "Tableau"],\n  "skillsDeveloped": ["Statistical Modeling"],\n  "timestamps": [],\n  "keyMoments": [],\n  "roadmap": [],\n  "projects": [],\n  "faqs": [],\n  "geoAnswers": {}\n}`} 
+              className="min-h-80 border-white/10 bg-slate-950/70 text-white placeholder:text-slate-450 font-mono text-xs" 
+            />
           </div>
         </CardContent>
       </Card>

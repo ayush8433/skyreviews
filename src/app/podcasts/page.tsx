@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { slugify } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 import { Badge } from "@/components/ui/badge";
@@ -27,6 +28,15 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
     <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
   </svg>
 );
+
+function getYoutubeEmbedUrl(url: string): string | null {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11
+    ? `https://www.youtube.com/embed/${match[2]}`
+    : null;
+}
 
 export default async function PublicPodcastsPage() {
   const podcasts = await prisma.podcast.findMany({
@@ -114,7 +124,6 @@ export default async function PublicPodcastsPage() {
           </div>
         ) : (
           <div className="space-y-16">
-            {/* ─── Featured Episode ─── */}
             {featured && (
               <div>
                 <div className="flex items-center gap-2 mb-6">
@@ -128,7 +137,15 @@ export default async function PublicPodcastsPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-12">
                     {/* Video / Thumbnail */}
                     <div className="lg:col-span-7 bg-black aspect-video lg:aspect-auto lg:min-h-[380px] relative overflow-hidden">
-                      {featured.videoUrl ? (
+                      {getYoutubeEmbedUrl(featured.youtubeUrl) ? (
+                        <iframe
+                          src={getYoutubeEmbedUrl(featured.youtubeUrl)!}
+                          title={featured.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          className="w-full h-full border-none absolute inset-0"
+                        />
+                      ) : featured.videoUrl ? (
                         <video
                           src={featured.videoUrl}
                           poster={featured.thumbnailUrl || undefined}
@@ -163,11 +180,13 @@ export default async function PublicPodcastsPage() {
                         </Badge>
                       </div>
 
-                      <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
-                        {featured.title}
-                      </h2>
+                      <Link href={`/podcasts/${slugify(featured.title)}`}>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white leading-tight hover:text-purple-600 dark:hover:text-purple-400 transition-colors line-clamp-2">
+                          {featured.title}
+                        </h2>
+                      </Link>
 
-                      <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                      <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed line-clamp-4">
                         {featured.description}
                       </p>
 
@@ -179,21 +198,33 @@ export default async function PublicPodcastsPage() {
                         )}
                       </div>
 
-                      <Button
-                        asChild
-                        className="bg-red-600 hover:bg-red-700 text-white rounded-xl shadow-lg shadow-red-500/20 border-none px-6 py-5 w-fit"
-                      >
-                        <a
-                          href={featured.youtubeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
+                      <div className="flex flex-wrap gap-3 pt-2">
+                        <Button
+                          asChild
+                          className="bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-lg shadow-purple-500/20 border-none px-6 py-5"
                         >
-                          <YoutubeIcon className="h-5 w-5 text-white" />
-                          Watch on YouTube
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
+                          <Link href={`/podcasts/${slugify(featured.title)}`} className="flex items-center gap-2">
+                            <PlayCircle className="h-5 w-5 text-white" />
+                            Watch Episode
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                        <Button
+                          asChild
+                          variant="outline"
+                          className="rounded-xl border-slate-200 dark:border-slate-800 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:border-red-500/20 px-6 py-5"
+                        >
+                          <a
+                            href={featured.youtubeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2"
+                          >
+                            <YoutubeIcon className="h-5 w-5 text-red-500" />
+                            YouTube
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -210,83 +241,97 @@ export default async function PublicPodcastsPage() {
                   </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {remaining.map((podcast) => (
-                    <Card
-                      key={podcast.id}
-                      className="border-none shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-900 rounded-3xl overflow-hidden group hover:-translate-y-1.5 transition-all duration-300"
-                    >
-                      {/* Thumbnail / Video */}
-                      <div className="aspect-video bg-black relative overflow-hidden">
-                        {podcast.videoUrl ? (
-                          <video
-                            src={podcast.videoUrl}
-                            poster={podcast.thumbnailUrl || undefined}
-                            controls
-                            playsInline
-                            className="w-full h-full object-contain"
-                          />
-                        ) : podcast.thumbnailUrl ? (
-                          <img
-                            src={podcast.thumbnailUrl}
-                            alt={podcast.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-950 flex flex-col items-center justify-center text-slate-500">
-                            <PlayCircle className="h-10 w-10 mb-2" />
-                            <span className="text-xs">No preview</span>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Card Body */}
-                      <CardContent className="p-6 space-y-4">
-                        <div className="flex items-center gap-2">
-                          <Badge className="bg-red-500/10 text-red-600 dark:text-red-400 border-none flex items-center gap-1 text-[10px]">
-                            <YoutubeIcon className="h-2.5 w-2.5" />
-                            YouTube
-                          </Badge>
-                          <span className="text-xs text-slate-400 flex items-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            {new Date(podcast.createdAt).toLocaleDateString(
-                              "en-US",
-                              {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric",
-                              }
-                            )}
-                          </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                  {remaining.map((podcast) => {
+                    const dynamicSlug = slugify(podcast.title);
+                    return (
+                      <Card
+                        key={podcast.id}
+                        className="border-none shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-900 rounded-3xl overflow-hidden group hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
+                      >
+                        {/* Video player embedded */}
+                        <div className="aspect-video bg-black relative overflow-hidden shrink-0">
+                          {getYoutubeEmbedUrl(podcast.youtubeUrl) ? (
+                            <iframe
+                              src={getYoutubeEmbedUrl(podcast.youtubeUrl)!}
+                              title={podcast.title}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen
+                              className="w-full h-full border-none absolute inset-0"
+                            />
+                          ) : podcast.videoUrl ? (
+                            <video
+                              src={podcast.videoUrl}
+                              poster={podcast.thumbnailUrl || undefined}
+                              controls
+                              playsInline
+                              className="w-full h-full object-contain absolute inset-0"
+                            />
+                          ) : podcast.thumbnailUrl ? (
+                            <img
+                              src={podcast.thumbnailUrl}
+                              alt={podcast.title}
+                              className="w-full h-full object-cover absolute inset-0"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-950 flex flex-col items-center justify-center text-slate-500 absolute inset-0">
+                              <PlayCircle className="h-10 w-10 mb-2" />
+                              <span className="text-xs">No preview</span>
+                            </div>
+                          )}
                         </div>
 
-                        <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors leading-tight">
-                          {podcast.title}
-                        </h3>
+                        {/* Card Body */}
+                        <CardContent className="p-6 flex-grow flex flex-col justify-between">
+                          <div className="space-y-4">
+                            <div className="flex items-center gap-2">
+                              <Badge className="bg-red-500/10 text-red-600 dark:text-red-400 border-none flex items-center gap-1 text-[10px]">
+                                <YoutubeIcon className="h-2.5 w-2.5" />
+                                YouTube
+                              </Badge>
+                              <span className="text-xs text-slate-400 flex items-center gap-1">
+                                <Clock className="h-3 w-3" />
+                                {new Date(podcast.createdAt).toLocaleDateString(
+                                  "en-US",
+                                  {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                  }
+                                )}
+                              </span>
+                            </div>
 
-                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
-                          {podcast.description}
-                        </p>
+                            <Link href={`/podcasts/${dynamicSlug}`} className="block">
+                              <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors leading-tight line-clamp-2">
+                                {podcast.title}
+                              </h3>
+                            </Link>
 
-                        <Button
-                          asChild
-                          variant="outline"
-                          className="rounded-xl border-slate-200 dark:border-slate-800 hover:bg-red-50 hover:border-red-200 hover:text-red-600 dark:hover:bg-red-500/10 dark:hover:border-red-500/20 transition-all w-full py-5"
-                        >
-                          <a
-                            href={podcast.youtubeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2"
-                          >
-                            <YoutubeIcon className="h-4 w-4 text-red-500" />
-                            Watch Full Episode
-                            <ArrowRight className="h-4 w-4" />
-                          </a>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
+                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
+                              {podcast.description}
+                            </p>
+                          </div>
+
+                          <div className="pt-6 mt-auto">
+                            <Button
+                              asChild
+                              className="rounded-xl bg-purple-600 hover:bg-purple-700 text-white transition-all w-full py-5 border-none"
+                            >
+                              <Link
+                                href={`/podcasts/${dynamicSlug}`}
+                                className="flex items-center justify-center gap-2"
+                              >
+                                <PlayCircle className="h-4 w-4 text-white" />
+                                Watch Episode
+                                <ArrowRight className="h-4 w-4" />
+                              </Link>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -320,7 +365,7 @@ export default async function PublicPodcastsPage() {
                   className="bg-white text-purple-600 hover:bg-slate-100 font-semibold border-none rounded-xl px-8 py-6 shadow-lg"
                 >
                   <a
-                    href="https://youtube.com"
+                    href="https://youtube.com/@skystatess?si=Wbzo71qEgPedn9Sc"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"

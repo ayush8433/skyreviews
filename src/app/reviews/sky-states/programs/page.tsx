@@ -32,8 +32,24 @@ const programsList = [
 ];
 
 export default function ProgramsPage() {
+  const courseSchemas = programsList.map((program) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": program.title,
+    "description": `Syllabus details, technologies covered (${program.tools}), and prerequisites for Sky States training path in ${program.title}.`,
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Sky States",
+      "sameAs": "https://skystates.us"
+    }
+  }));
+
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchemas) }}
+      />
       <div className="container mx-auto max-w-3xl bg-white rounded-2xl border border-slate-200 p-8 md:p-12 shadow-xs space-y-6">
         <h1 className="text-3xl font-extrabold text-slate-900 border-b border-slate-100 pb-4 flex items-center gap-2">
           <BookOpen className="w-8 h-8 text-blue-600" /> Program Details

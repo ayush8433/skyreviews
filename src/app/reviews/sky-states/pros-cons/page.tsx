@@ -15,9 +15,9 @@ export default function ProsConsPage() {
           Sky States Pros &amp; Cons
         </h1>
 
-        <p className="text-sm text-slate-600 leading-relaxed">
-          An honest, balanced assessment compiled from verified student submissions and curriculum audits.
-        </p>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-sm text-slate-700 leading-relaxed">
+          <strong>Quick Answer:</strong> The primary <strong>pros</strong> of Sky States include live weekend-led instruction, hands-on portfolio projects, and curriculum alignment with official Microsoft certifications. The main <strong>cons</strong> are a strict 7-day refund policy, a high-frequency advisor outreach process during enrollment, and a demanding weekly workload of 15–20 hours.
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div className="border border-slate-200 rounded-xl p-5 bg-emerald-50/20">

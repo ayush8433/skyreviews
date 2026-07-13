@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { prisma } from "@/lib/prisma"
 import { slugify } from "@/lib/utils"
+import { successStories } from "@/data/success-stories-data"
  
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://skyreviews.us';
@@ -115,6 +116,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/success-stories`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/tools/roi-calculator`,
@@ -368,6 +375,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       select: { name: true, updatedAt: true }
     });
 
+    const podcasts = await prisma.podcast.findMany({
+      where: { isActive: true },
+      select: { id: true, title: true, updatedAt: true }
+    });
+
     const dynamicManagers = managers.map(m => ({
       url: `${baseUrl}/placement-managers/${m.id}`,
       lastModified: m.updatedAt,
@@ -392,7 +404,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       };
     });
 
-    return [...staticPages, ...dynamicManagers, ...dynamicStories, ...dynamicVideos];
+    const dynamicPodcasts = podcasts.map(p => ({
+      url: `${baseUrl}/podcasts/${p.id}-${slugify(p.title)}`,
+      lastModified: p.updatedAt,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
+
+    const dynamicSuccessStories = successStories.map(s => ({
+      url: `${baseUrl}/success-stories/${s.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    }));
+
+    const stableStaticPages = staticPages.map(page => ({
+      ...page,
+      lastModified: new Date('2026-06-29')
+    }));
+
+    return [...stableStaticPages, ...dynamicManagers, ...dynamicStories, ...dynamicVideos, ...dynamicPodcasts, ...dynamicSuccessStories];
   } catch (error) {
     console.error("Error generating dynamic sitemap:", error);
     return staticPages;

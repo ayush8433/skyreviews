@@ -15,9 +15,9 @@ export default function PricingPage() {
           Sky States Tuition &amp; Fees
         </h1>
         
-        <p className="text-sm text-slate-600 leading-relaxed">
-          We maintain this independent log of pricing, installment plans, and extra costs for Sky States programs to help you budget accurately.
-        </p>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-sm text-slate-700 leading-relaxed">
+          <strong>Quick Answer:</strong> Sky States programs are priced at <strong>$2,999</strong> for the standard cohort and <strong>$6,499</strong> for one-to-one personalized training. Installment plans are available at approximately $300/month. The tuition covers all course materials, weekend live lectures, and career placement services. The only external cost is the Microsoft certification exam fee, which is paid directly to Microsoft.
+        </div>
 
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse border border-slate-200 text-sm">
