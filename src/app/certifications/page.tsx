@@ -9,9 +9,30 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Microsoft Certified Graduates | Sky States Certification Gallery | SkyReviews",
+  title: "Sky States Certifications | Microsoft Certified Graduates & Guides | SkyReviews",
   description:
-    "Verified Microsoft certification gallery for Sky States graduates. Browse DP-900 and AZ-900 holders, with certificate screenshots and student testimonials.",
+    "Explore Sky States certifications, Microsoft Azure credentials, DP-900 and AZ-900 preparation, certified graduate stories, and practical certification guides on SkyReviews.",
+  alternates: { canonical: "https://skyreviews.us/certifications" },
+  keywords: [
+    "Sky States Certifications",
+    "Sky States Certification",
+    "Sky States Microsoft Certifications",
+    "Sky States Certified Graduates",
+    "Microsoft Certifications",
+    "Microsoft Azure Certifications",
+    "DP-900 Certification",
+    "AZ-900 Certification",
+    "Azure Data Fundamentals",
+    "Microsoft Azure Fundamentals",
+    "Sky States Certification Guide",
+    "Sky States Certification Preparation",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+    "Sky States Reviews",
+    "Sky States Review",
+    "Sky Reviews",
+    "SkyReviews",
+  ],
 };
 
 const CERTIFICATIONS_GUIDE = [
@@ -130,13 +151,13 @@ export default async function CertificationsPage() {
             Verified Certifications
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
-            Microsoft{" "}
+            Sky States Certifications:{" "}
             <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              Certified Graduates
+              Microsoft Credentials &amp; Graduate Success
             </span>
           </h1>
           <p className="text-xl text-slate-350 max-w-2xl mx-auto">
-            Verified Microsoft certifications earned by Sky States graduates through structured bootcamp preparation.
+            Explore Microsoft Azure credentials, DP-900 and AZ-900 preparation, certified graduate stories, and practical certification guides.
           </p>
         </div>
 

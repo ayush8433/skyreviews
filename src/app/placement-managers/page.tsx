@@ -1,7 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Sky States Placement Managers | Career & Job Placement Support | SkyReviews",
+  description:
+    "Meet Sky States placement managers and hiring mentors who support career guidance, job readiness, interview preparation, and placement opportunities across technology careers.",
+  alternates: { canonical: "https://skyreviews.us/placement-managers" },
+  keywords: [
+    "Sky States Placement Managers",
+    "Sky States Placement Manager",
+    "Sky States Placement Support",
+    "Sky States Hiring Mentors",
+    "Sky States Career Mentors",
+    "Sky States Career Guidance",
+    "Sky States Job Placement",
+    "Sky States Job Support",
+    "Sky States Career Support",
+    "Sky States Hiring Team",
+    "Sky States Placement Team",
+    "Sky States Career Consultants",
+    "Sky States Job Readiness",
+    "Sky States Interview Preparation",
+    "Sky States Student Reviews",
+    "Sky States Reviews",
+    "Sky Reviews",
+  ],
+};
 
 const VerifiedIcon = () => (
   <svg className="h-4 w-4 text-[#B38B4D]" viewBox="0 0 24 24" fill="currentColor">
@@ -69,12 +96,12 @@ export default async function PublicPlacementManagersPage() {
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="w-full md:w-3/4">
               <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-white mb-8 leading-[1.1] font-bold">
-                THE ARCHITECTS OF <br/>
-                <span className="italic font-normal text-[#B38B4D]">CAREER TRANSFORMATION</span>
+                Sky States Placement Managers:{" "}
+                <span className="italic font-normal text-[#B38B4D]">Career &amp; Job Placement Support</span>
               </h1>
               <div className="w-32 h-[1px] bg-[#B38B4D] mb-8"></div>
               <p className="font-geist text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed">
-                Meet the elite collective of placement managers engineering professional trajectories at the intersection of ambition and opportunity.
+                Meet Sky States placement managers and hiring mentors who support career guidance, job readiness, interview preparation, and placement opportunities across technology careers.
               </p>
             </div>
 

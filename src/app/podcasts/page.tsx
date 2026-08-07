@@ -1,8 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { slugify } from "@/lib/utils";
-
-export const dynamic = "force-dynamic";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,6 +15,34 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Sky States Podcast | Student Reviews, Career Stories & Experiences | SkyReviews",
+  description:
+    "Listen to the Sky States Podcast on SkyReviews for real student reviews, learning experiences, career stories, testimonials, and insights from Sky States learners and professionals.",
+  alternates: { canonical: "https://skyreviews.us/podcasts" },
+  keywords: [
+    "SkyReviews Podcast",
+    "Sky States Podcasts",
+    "Sky Reviews Podcast",
+    "Sky States Student Podcast",
+    "Sky States Reviews Podcast",
+    "Sky States Career Podcast",
+    "Sky States Success Stories Podcast",
+    "Sky States Student Stories Podcast",
+    "Sky States Student Experience",
+    "Sky States Student Reviews",
+    "Sky States Testimonials",
+    "Sky States Success Stories",
+    "Sky States Career Stories",
+    "Sky States Reviews",
+    "Sky States Review",
+    "Sky Reviews",
+    "SkyReviews",
+  ],
+};
 
 // YouTube Icon helper
 const YoutubeIcon = ({ className }: { className?: string }) => (
@@ -64,15 +91,14 @@ export default async function PublicPodcastsPage() {
             Podcast Series
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Sky States{" "}
+            Sky States Podcast:{" "}
             <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Podcast
+              Real Student Reviews, Experiences &amp; Career Stories
             </span>
           </h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Deep-dive conversations on tech careers, placement strategies,
-            industry trends, and real stories from students who made the
-            transition into tech.
+            Listen to real student reviews, learning experiences, career stories,
+            testimonials, and insights from Sky States learners and professionals.
           </p>
 
           {/* Stats Row */}

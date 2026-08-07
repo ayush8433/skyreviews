@@ -4,8 +4,33 @@ import Script from "next/script";
 import { BarChart3, TrendingUp, UserCheck, ShieldCheck, Award, Briefcase, GraduationCap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Student Placement Outcomes Dashboard | SkyReviews",
-  description: "Explore verified career transitions, salary increases, and placement metrics for Sky States graduates.",
+  title: "Sky States Outcomes | Placement Results & Graduate Success | SkyReviews",
+  description:
+    "Explore Sky States outcomes, placement results, salary growth, graduate success stories, and career results across Data Science, AI, Cybersecurity, and DevOps on SkyReviews.",
+  alternates: { canonical: "https://skyreviews.us/outcomes" },
+  keywords: [
+    "Sky States Outcomes",
+    "Sky States Placement Outcomes",
+    "Sky States Career Outcomes",
+    "Sky States Placement Results",
+    "Sky States Placement Rate",
+    "Sky States Salary Outcomes",
+    "Sky States Career Growth",
+    "Sky States Graduate Success",
+    "Sky States Job Placement",
+    "Sky States Student Outcomes",
+    "Sky States Employment Outcomes",
+    "Sky States Data Science Outcomes",
+    "Sky States AI Outcomes",
+    "Sky States Cybersecurity Outcomes",
+    "Sky States DevOps Outcomes",
+    "Sky Reviews",
+    "SkyReviews",
+    "Sky States Review",
+    "Sky States Reviews",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+  ],
 };
 
 const COHORT_DATA = [
@@ -399,7 +424,7 @@ export default function OutcomesDashboard() {
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-blue-200 border border-white/15">
               <TrendingUp className="w-3.5 h-3.5" /> Career Metrics
             </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Outcomes &amp; Placement Dashboard</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Sky States Outcomes &amp; Placement Results</h1>
             <p className="text-blue-100 leading-relaxed text-base md:text-lg">
               We monitor, verify, and document career transitions of our graduates. Explore placement metrics and before/after compensation adjustments.
             </p>

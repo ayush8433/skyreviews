@@ -3,8 +3,30 @@ import Link from "next/link";
 import { ArrowLeft, Database, Terminal, Shield, CheckCircle2, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Tech Career Learning Roadmaps | SkyReviews",
-  description: "Step-by-step career path guides for Data Science, DevOps, and Cybersecurity roles with certification alignments.",
+  title: "Sky States Learning Roadmaps | Data, DevOps & Cybersecurity | SkyReviews",
+  description:
+    "Explore Sky States learning roadmaps for Data Science, DevOps, Cloud and Cybersecurity. Follow career paths, build practical skills, and explore Sky States student reviews on SkyReviews.",
+  alternates: { canonical: "https://skyreviews.us/roadmaps" },
+  keywords: [
+    "Sky States Learning Roadmaps",
+    "Sky States Roadmaps",
+    "Sky States Career Roadmaps",
+    "Sky States Learning Path",
+    "Data Science Roadmap",
+    "Data Analyst Roadmap",
+    "DevOps Roadmap",
+    "Cybersecurity Roadmap",
+    "Cloud Engineer Roadmap",
+    "Sky States Data Science Roadmap",
+    "Sky States DevOps Roadmap",
+    "Sky States Cybersecurity Roadmap",
+    "Sky Reviews",
+    "SkyReviews",
+    "Sky States Review",
+    "Sky States Reviews",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+  ],
 };
 
 const ROADMAPS = [
@@ -67,10 +89,13 @@ export default function RoadmapsPage() {
 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
-            Tech Career <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Learning Roadmaps</span>
+            Sky States Career Roadmaps{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+              | Data, Cloud &amp; Cybersecurity
+            </span>
           </h1>
           <p className="text-xl text-slate-350 max-w-2xl mx-auto">
-            Choose your specialization track. Verified student reviews and outcome data are mapped directly to these stages.
+            Follow career paths for Data Science, DevOps, Cloud and Cybersecurity. Build practical skills and explore Sky States student reviews.
           </p>
         </div>
 

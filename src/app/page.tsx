@@ -29,8 +29,30 @@ const TRUSTSCHOOL_LINKS: Record<string, string> = {
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Sky States Students Testimonials | SkyReviews",
-  description: "Read Sky States student testimonials about real career journeys, mentorship, and outcomes in tech.",
+  title: "Sky Reviews | Verified Sky States Reviews, Real Student Success Stories & Testimonials",
+  description:
+    "Explore verified Sky States reviews, honest student testimonials, alumni success stories, ratings, podcasts, and real learning experiences. Discover why thousands trust Sky Reviews before choosing their Data Science, AI, Cybersecurity, or DevOps program.",
+  alternates: { canonical: "https://skyreviews.us/" },
+  keywords: [
+    "Sky States Reviews",
+    "Sky Reviews",
+    "Sky Review",
+    "SkyReviews",
+    "SkyReview",
+    "Sky States Review",
+    "SkyStates Reviews",
+    "SkyStates Review",
+    "Review Sky States",
+    "Review SkyStates",
+    "Verified Sky States Reviews",
+    "Honest Sky States Reviews",
+    "Sky States Testimonials",
+    "Sky States Student Reviews",
+    "Sky States Alumni Reviews",
+    "Sky States Success Stories",
+    "Student Testimonials",
+    "Verified Student Reviews",
+  ],
 };
 
 export default async function Home() {
@@ -186,10 +208,11 @@ export default async function Home() {
             {/* Left Content */}
             <div className="text-white space-y-8 animate-fade-in">
               <div className="space-y-4">
-                <h2 className="text-3xl md:text-4xl font-light text-blue-300">Fuelling Passions.</h2>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-                  <span className="block text-white">Meet Our</span>
-                  <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Student Testimonials.</span>
+                  <span className="block text-white">Verified Sky States Reviews,</span>
+                  <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                    Real Student Testimonials &amp; Success Stories
+                  </span>
                 </h1>
               </div>
 

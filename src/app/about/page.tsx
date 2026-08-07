@@ -1,7 +1,35 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "About Sky States | Training, Careers & Student Success | SkyReviews",
+  description:
+    "Learn about Sky States, its technology training and career development programs, mentorship, student outcomes, alumni stories, and the mission behind SkyReviews.",
+  alternates: { canonical: "https://skyreviews.us/about" },
+  keywords: [
+    "About Sky States",
+    "Sky States About Us",
+    "About SkyReviews",
+    "Sky States",
+    "SkyStates",
+    "Sky States Programs",
+    "Sky States Career Programs",
+    "Sky States Technology Training",
+    "Sky States Career Development",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+    "Sky States Alumni Stories",
+    "Sky States Reviews",
+    "Sky States Review",
+    "Sky Reviews",
+    "SkyReviews",
+    "Sky States Outcomes",
+    "Sky States Career Outcomes",
+  ],
+};
 
 const values = [
   {
@@ -50,14 +78,13 @@ export default function AboutPage() {
             About SkyStates
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Building Careers,{" "}
+            About Sky States:{" "}
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-              Not Just Courses.
+              Building Careers, Not Just Courses
             </span>
           </h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            SkyStates is a technology training and career development platform focused on helping learners
-            move from ambition to impact through practical skills, mentorship, and career outcomes.
+            Learn about Sky States technology training and career development programs, mentorship, student outcomes, alumni stories, and the mission behind SkyReviews.
           </p>
         </div>
       </section>

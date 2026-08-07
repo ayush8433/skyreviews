@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SkyReviews — Independent Editorial Reviews of Sky States | Verified Student Outcomes",
+  title: "Sky Reviews | Verified Sky States Reviews, Real Student Success Stories & Testimonials",
   description:
-    "SkyReviews.us is an independent editorial platform publishing verified student career outcomes, program analysis, and first-person success stories from Sky States tech training graduates.",
+    "Explore verified Sky States reviews, honest student testimonials, alumni success stories, ratings, podcasts, and real learning experiences. Discover why thousands trust Sky Reviews before choosing their Data Science, AI, Cybersecurity, or DevOps program.",
 };
 
 export default function RootLayout({

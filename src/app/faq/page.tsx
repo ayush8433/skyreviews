@@ -6,8 +6,29 @@ import { Badge } from "@/components/ui/badge";
 import faqSchema from "@/data/faq-schema.json";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | SkyReviews",
-  description: "Find answers to the most common questions about the Sky States tech training programs, placement support, and curriculum.",
+  title: "Sky States FAQ | Pricing, Reviews, Placement & Program Questions | SkyReviews",
+  description:
+    "Get answers to common Sky States questions about program costs, refunds, certifications, job placement, training, legitimacy, student experiences, and Sky States reviews.",
+  alternates: { canonical: "https://skyreviews.us/faq" },
+  keywords: [
+    "Sky States FAQ",
+    "Sky States Frequently Asked Questions",
+    "Sky States Questions",
+    "Sky States Program FAQ",
+    "Sky States Pricing",
+    "Sky States Program Cost",
+    "Sky States Refund Policy",
+    "Sky States Certification",
+    "Sky States Job Placement",
+    "Sky States Training Program",
+    "Sky States Legitimacy",
+    "Sky States Student Experience",
+    "Sky States Student Reviews",
+    "Sky States Reviews",
+    "Sky States Review",
+    "Sky Reviews",
+    "SkyReviews",
+  ],
 };
 
 type FAQItem = {
@@ -56,7 +77,7 @@ const faqData: FAQCategory[] = [
         question: "Is Sky States a cold-calling scam or a legitimate program?",
         answer: (
           <>
-            Sky States is a legally registered training company incorporated in the United States, with offices at 30 N Gould St, Sheridan, WY 82801, and headquarters at 8 The Green Suite R, Dover, DE 19901. The company offers structured tech training programs aligned with Microsoft certifications, including the DP-900 (Azure Data Fundamentals) exam. Reviewers and students have documented their outcomes publicly on <Link href="/" className="text-blue-600 hover:underline">skyreviews.us</Link>, confirming that instructor-led classes are held regularly and support is accessible via info@skystates.us or (888) 810-2434.
+            Sky States is a legally registered training company incorporated in the United States, with offices at 1316 Wall St, Suite 2C, Everett, WA 98201, USA. The company offers structured tech training programs aligned with Microsoft certifications, including the DP-900 (Azure Data Fundamentals) exam. Reviewers and students have documented their outcomes publicly on <Link href="/" className="text-blue-600 hover:underline">skyreviews.us</Link>, confirming that instructor-led classes are held regularly and support is accessible via info@skystates.us or (888) 810-2434.
           </>
         ),
         answerText: "Sky States is a legally registered training company incorporated in the United States..."
@@ -250,7 +271,7 @@ const faqData: FAQCategory[] = [
         question: "Is it safe to share my information with Sky States?",
         answer: (
           <>
-            Yes. Sky States is a registered US company and handles all student information in accordance with applicable privacy standards. Contact details are publicly listed: (888) 810-2434, <a href="mailto:info@skystates.us" className="text-blue-600 hover:underline">info@skystates.us</a>, 30 N Gould St, Sheridan, WY 82801. Data handling questions can be directed to the support team before enrollment.
+            Yes. Sky States is a registered US company and handles all student information in accordance with applicable privacy standards. Contact details are publicly listed: (888) 810-2434, <a href="mailto:info@skystates.us" className="text-blue-600 hover:underline">info@skystates.us</a>, 1316 Wall St, Suite 2C, Everett, WA 98201, USA. Data handling questions can be directed to the support team before enrollment.
           </>
         ),
         answerText: "Yes. Sky States is a registered US company and handles all student information in accordance with applicable privacy standards..."
@@ -385,16 +406,16 @@ export default function FAQPage() {
             Support & Resources
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Frequently Asked{" "}
+            Sky States FAQ:{" "}
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-              Questions
+              Frequently Asked Questions About Programs &amp; Student Experience
             </span>
           </h1>
           <div className="flex justify-center">
             <AuthorByline />
           </div>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about Sky States, our tech training programs, and how we support your career journey.
+            Get answers about program costs, refunds, certifications, job placement, training, legitimacy, student experiences, and Sky States reviews.
           </p>
           <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10 text-xs text-slate-300">
             Updated: June 2026

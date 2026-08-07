@@ -16,9 +16,30 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Industry Partnerships | Sky States",
+  title: "Sky States Partnerships | Industry, Hiring & Technology Partners | SkyReviews",
   description:
-    "Explore Sky States' industry partnerships and Microsoft-aligned curriculum pathways designed to prepare students for real-world tech careers.",
+    "Explore Sky States partnerships with technology companies, hiring organizations and industry partners supporting career opportunities, enterprise skills and job-ready talent.",
+  alternates: { canonical: "https://skyreviews.us/partnerships" },
+  keywords: [
+    "Sky States Partnerships",
+    "Sky States Industry Partnerships",
+    "Sky States Strategic Partnerships",
+    "Sky States Hiring Partners",
+    "Sky States Partnership Program",
+    "Sky States Employer Partnerships",
+    "Sky States Industry Partners",
+    "Sky States Technology Partnerships",
+    "Sky States Hiring Network",
+    "Sky States Talent Network",
+    "Sky States Enterprise Partnerships",
+    "Microsoft Aligned Training",
+    "Sky States Career Partners",
+    "Sky States Placement Partners",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+    "Sky States Reviews",
+    "Sky Reviews",
+  ],
 };
 
 export default function PartnershipsPage() {
@@ -39,13 +60,13 @@ export default function PartnershipsPage() {
             Collaborations & Alignment
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Industry Alignment &{" "}
+            Sky States Partnerships:{" "}
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-              Strategic Partnerships
+              Industry, Hiring &amp; Technology Partners
             </span>
           </h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            We align our educational models with top enterprise technologies, ensuring our graduates are ready to deploy solutions for the world&apos;s leading organizations.
+            Explore partnerships with technology companies, hiring organizations and industry partners supporting career opportunities, enterprise skills and job-ready talent.
           </p>
         </div>
       </section>

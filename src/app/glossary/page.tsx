@@ -3,8 +3,30 @@ import Link from "next/link";
 import { ArrowLeft, Book, Info } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Cloud & DevOps Technical Glossary | SkyReviews",
-  description: "A comprehensive glossary of terms defining DevOps, Cloud, AI, and Cybersecurity terminology for tech career switchers.",
+  title: "Sky States Technical Glossary | Cloud, DevOps & Cybersecurity Terms | SkyReviews",
+  description:
+    "Explore the Sky States technical glossary for clear definitions of Cloud, DevOps, Cybersecurity and Azure terms, including CI/CD, SIEM, DP-900 and Infrastructure as Code.",
+  alternates: { canonical: "https://skyreviews.us/glossary" },
+  keywords: [
+    "Sky States Technical Glossary",
+    "Sky States Glossary",
+    "Cloud Computing Glossary",
+    "DevOps Glossary",
+    "Cybersecurity Glossary",
+    "Cloud Terms",
+    "DevOps Terms",
+    "Cybersecurity Terms",
+    "Azure Terms",
+    "Microsoft Azure Glossary",
+    "CI/CD Definition",
+    "SIEM Definition",
+    "Infrastructure as Code",
+    "Sky Reviews",
+    "SkyReviews",
+    "Sky States Reviews",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+  ],
 };
 
 const GLOSSARY_TERMS = [
@@ -52,10 +74,13 @@ export default function GlossaryPage() {
 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-4">
-            Technical <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Glossary</span>
+            Sky States Technical Glossary:{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Cloud, DevOps &amp; Cybersecurity Terms
+            </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Essential definitions and acronym breakdowns for Cloud, DevOps, and Cybersecurity terms.
+            Clear definitions of Cloud, DevOps, Cybersecurity and Azure terms, including CI/CD, SIEM, DP-900 and Infrastructure as Code.
           </p>
         </div>
 

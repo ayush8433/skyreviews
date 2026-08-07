@@ -1,8 +1,36 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+export const metadata: Metadata = {
+  title: "Sky States Contact | Questions, Support & Partnerships | SkyReviews",
+  description:
+    "Contact SkyReviews with questions about Sky States, alumni stories, partnerships, programs, or general inquiries. Our team typically responds within 1–2 business days.",
+  alternates: { canonical: "https://skyreviews.us/contact" },
+  keywords: [
+    "Sky States Contact",
+    "Contact Sky States",
+    "Sky States Contact Us",
+    "SkyReviews Contact",
+    "Contact SkyReviews",
+    "Sky States Support",
+    "Sky States Customer Support",
+    "Sky States Alumni Support",
+    "Sky States Partnership Contact",
+    "Sky States General Inquiry",
+    "Sky States Program Questions",
+    "Sky States Support Team",
+    "Sky States Contact Information",
+    "Sky States Student Reviews",
+    "Sky States Reviews",
+    "Sky States Review",
+    "Sky Reviews",
+    "SkyReviews",
+  ],
+};
 
 const faqs = [
   {
@@ -34,13 +62,13 @@ export default function ContactPage() {
             Contact SkyStates
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Let&apos;s Start a{" "}
+            Contact Sky States:{" "}
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-              Conversation
+              Questions, Support &amp; Partnerships
             </span>
           </h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Have questions about SkyStates, alumni stories, or partnership opportunities? We&apos;re here to help.
+            Contact SkyReviews with questions about Sky States, alumni stories, partnerships, programs, or general inquiries. Our team typically responds within 1–2 business days.
           </p>
         </div>
       </section>

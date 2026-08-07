@@ -3,8 +3,30 @@ import Link from "next/link";
 import { ArrowLeft, MessageSquare, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Cloud & Data Interview Preparation Hub | SkyReviews",
-  description: "Common technical and behavioral interview questions with structured answer frameworks for tech job seekers.",
+  title: "Sky States Interview Preparation | Data, DevOps & Cybersecurity | SkyReviews",
+  description:
+    "Prepare for technical interviews with Sky States interview questions and answers covering Data Science, DevOps, Cloud and Cybersecurity, plus real Sky States student experiences on SkyReviews.",
+  alternates: { canonical: "https://skyreviews.us/interview-prep" },
+  keywords: [
+    "Sky States Interview Preparation",
+    "Sky States Interview Prep",
+    "Sky States Interview Questions",
+    "Sky States Technical Interview",
+    "Data Science Interview Questions",
+    "Data Analytics Interview Questions",
+    "DevOps Interview Questions",
+    "Cloud Interview Questions",
+    "Cybersecurity Interview Questions",
+    "SOC Analyst Interview Questions",
+    "Technical Interview Preparation",
+    "Mock Technical Interview",
+    "Sky States Student Reviews",
+    "Sky States Success Stories",
+    "Sky States Reviews",
+    "Sky States Review",
+    "Sky Reviews",
+    "SkyReviews",
+  ],
 };
 
 const QUESTIONS = [
@@ -37,10 +59,13 @@ export default function InterviewPrepPage() {
 
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-4">
-            Interview Prep <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Hub</span>
+            Sky States Interview Preparation:{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Technical Questions &amp; Answers
+            </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Review mock technical interview questions and learn how to structure your answers for technical interviewers.
+            Practice interview questions covering Data Science, DevOps, Cloud and Cybersecurity, with structured answers and real student experiences.
           </p>
         </div>
 
