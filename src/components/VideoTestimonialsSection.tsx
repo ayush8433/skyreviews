@@ -241,9 +241,9 @@ export default function VideoTestimonialsSection({ items }: VideoTestimonialsSec
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-white leading-snug mb-3 group-hover:text-blue-400 transition-colors duration-200 line-clamp-2 font-clash">
+                      <h2 className="text-xl font-bold text-white leading-snug mb-3 group-hover:text-blue-400 transition-colors duration-200 line-clamp-2 font-clash">
                         {item.title}
-                      </h3>
+                      </h2>
 
                       <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3 font-geist font-light">
                         "{item.summary.length > 180 ? item.summary.substring(0, 180) + '...' : item.summary}"

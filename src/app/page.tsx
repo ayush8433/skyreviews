@@ -29,9 +29,9 @@ const TRUSTSCHOOL_LINKS: Record<string, string> = {
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Sky Reviews | Verified Sky States Reviews, Real Student Success Stories & Testimonials",
+  title: "Sky States LLC Reviews | Real Student Success & Ratings",
   description:
-    "Explore verified Sky States reviews, honest student testimonials, alumni success stories, ratings, podcasts, and real learning experiences. Discover why thousands trust Sky Reviews before choosing their Data Science, AI, Cybersecurity, or DevOps program.",
+    "Sky States LLC Reviews: Explore student feedback, training programs, certifications, services, and career support offered by Sky States LLC.",
   alternates: { canonical: "https://skyreviews.us/" },
   keywords: [
     "Sky States Reviews",

@@ -12,10 +12,10 @@ export default function Navigation() {
           
           <div className="hidden md:flex space-x-8">
             <Link
-              href="/#video-testimonials"
+              href="/"
               className="text-slate-300 hover:text-white transition-colors"
             >
-              Video Testimonials
+              Home
             </Link>
 
             <Link
