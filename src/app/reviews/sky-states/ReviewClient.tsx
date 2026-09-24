@@ -56,7 +56,7 @@ export default function SkyStatesReviewClient() {
           </div>
 
           {/* ALWAYS VISIBLE EDITORIAL NOTICE */}
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-6 flex gap-3">
+          {/* <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-6 flex gap-3">
             <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             <div className="text-sm text-amber-900 leading-relaxed">
               <strong>⚠️ Editorial Disclosure:</strong> SkyReviews.us operates as an independent review platform. All review scores, rating factors, and editorial policies are administered under independent guidelines. Read our{" "}
@@ -65,7 +65,7 @@ export default function SkyStatesReviewClient() {
               </Link>{" "}
               for details.
             </div>
-          </div>
+          </div> */}
 
           {/* AI-CITABLE FAST FACTS & QUICK ANSWERS */}
           <div className="bg-white border border-slate-200 rounded-2xl p-6 mt-6 shadow-xs space-y-6">

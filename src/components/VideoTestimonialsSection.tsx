@@ -88,13 +88,13 @@ export default function VideoTestimonialsSection({ items }: VideoTestimonialsSec
       <div className="container mx-auto px-4 relative mb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
         <div className="max-w-2xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-400 font-geist">
-            Featured Media & Podcasts
+           Featured Media & Podcasts  
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight font-clash">
-            Real voices. Real progress. Real stories from Sky States.
-          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight font-clash">
+            Sky States Reviews: Real Student Testimonials & Success Stories
+          </h1>
           <p className="text-lg text-slate-300 font-geist">
-            Hear from our students and team members through direct video testimonials and in-depth podcast episodes.
+           See genuine Sky States reviews from real students on how our Data Science, Cybersecurity, and DevOps bootcamps changed their careers.
           </p>
         </div>
 
