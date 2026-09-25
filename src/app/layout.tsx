@@ -79,11 +79,11 @@ export default function RootLayout({
               "radial-gradient(900px 600px at 10% 20%, rgba(59, 130, 246, 0.18), transparent), radial-gradient(800px 600px at 90% 80%, rgba(139, 92, 246, 0.18), transparent)",
           }}
         />
-        <div className="bg-amber-500/10 border-b border-amber-500/20 py-2.5 px-4 text-center text-xs md:text-sm text-amber-200/90 font-medium min-h-[40px] md:min-h-[38px] flex items-center justify-center flex-wrap gap-x-1 backdrop-blur-sm z-50">
+        {/* <div className="bg-amber-500/10 border-b border-amber-500/20 py-2.5 px-4 text-center text-xs md:text-sm text-amber-200/90 font-medium min-h-[40px] md:min-h-[38px] flex items-center justify-center flex-wrap gap-x-1 backdrop-blur-sm z-50">
           <span>⚠️ <strong>Editorial Disclosure:</strong> SkyReviews.us is an independent digital publication. All reviews and editorial content are produced under our independent editorial policy. See our</span>
           <Link href="/transparency/conflict-of-interest" className="underline hover:text-amber-100 font-bold transition-colors">Conflict of Interest Policy</Link>
           <span>for details.</span>
-        </div>
+        </div> */}
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

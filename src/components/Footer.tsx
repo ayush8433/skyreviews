@@ -8,10 +8,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1 space-y-4">
             <h3 className="text-base font-bold text-white tracking-wide">SkyReviews</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Sharing success stories from SkyStates alumni around the world.
+              Sharing success stories from Sky States alumni around the world.
             </p>
             <p className="text-xs text-slate-400">
-              Part of the SkyStates family.
+              SkyReviews is managed by Sky States LLC and focuses on publishing real student reviews, testimonials, interviews, and learning experiences.
             </p>
           </div>
           
@@ -131,7 +131,7 @@ export default function Footer() {
 
           <div className="col-span-2 md:col-span-1 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Connect</h4>
-            <p className="text-sm text-slate-300 leading-relaxed">Learn more about SkyStates and our programs.</p>
+            <p className="text-sm text-slate-300 leading-relaxed">Learn more about Sky States LLC and our programs.</p>
             <p className="text-sm text-slate-300">
               Email:{" "}
               <a className="text-blue-450 hover:underline text-blue-400" href="mailto:support@skyreviews.us">

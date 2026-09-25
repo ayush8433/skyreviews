@@ -208,12 +208,12 @@ export default async function Home() {
             {/* Left Content */}
             <div className="text-white space-y-8 animate-fade-in">
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-                  <span className="block text-white">Verified Sky States Reviews,</span>
+                <div className="text-4xl md:text-6xl lg:text-7xl font-bold">
+                  <span className="block text-white">Sky States LLC reviews are verified,</span>
                   <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                    Real Student Testimonials &amp; Success Stories
+                    with real student testimonials &amp; success stories 
                   </span>
-                </h1>
+                </div>
               </div>
 
               <p className="text-lg md:text-xl text-slate-300 max-w-lg leading-relaxed">
@@ -267,7 +267,7 @@ export default async function Home() {
         <div className="container mx-auto text-center relative z-10">
           <div className="max-w-4xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold text-white">We&apos;re With You All the Way.</h2>
-            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">Are You a SkyStates Alumnus?<br />Share your career journey and inspire the next generation of tech professionals.</p>
+            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">Are You a Sky States Alumnus?<br />Share your career journey and inspire the next generation of tech professionals.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-500 font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-500/20">
                 <Link href="/submit">Share Your Story</Link>
